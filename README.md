@@ -1,4 +1,4 @@
-# ESCAPE — AI Travel Agent website v6 VISUAL REBUILD
+# ESCAPE — AI Travel Agent website
 
 This version specifically addresses the visual issues from the previous review.
 
