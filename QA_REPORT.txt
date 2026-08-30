@@ -1,0 +1,11 @@
+PASS — all required files
+PASS — hero built from approved render
+PASS — six feature cards
+PASS — no route overlay
+PASS — ru translation coverage
+PASS — uk translation coverage
+PASS — en translation coverage
+PASS — legal 5x3
+PASS — css brace balance
+PASS — app.js syntax
+PASS — legal.js syntax

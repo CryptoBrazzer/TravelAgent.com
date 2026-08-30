@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Escape — AI Travel Agent. Один AI-агент для планирования, сопровождения и совместных путешествий.">
+<meta property="og:title" content="Escape — AI Travel Agent">
+<meta property="og:description" content="Один запрос — десятки решений. Планируйте и путешествуйте умнее.">
+<meta property="og:type" content="website">
+<title>Escape — AI Travel Agent</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=60">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Escape home">
+    <span class="brandline"><span class="script">Escape</span><span class="brandpin"><i></i></span></span>
+    <small>AI Travel Agent</small>
+  </a>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+  <nav id="mainNav">
+    <a href="#why" data-i18n="navWhy">Почему ESCAPE</a>
+    <a href="#agent" data-i18n="navAgent">AI Agent</a>
+    <a href="#world" data-i18n="navWorld">Весь мир</a>
+    <a href="#community" data-i18n="navCommunity">Сообщество</a>
+    <a href="#contact" data-i18n="navContact">Контакты</a>
+  </nav>
+
+  <div class="langs" aria-label="Language">
+    <button data-lang="ru">RU</button>
+    <button data-lang="uk">UA</button>
+    <button data-lang="en">EN</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-scene"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <h1 data-html="heroTop">Иногда поездку<br>даже не нужно<br>планировать.</h1>
+      <div class="hero-brand"><span class="script">Escape</span><span class="brandpin brandpin-xl"><i></i></span></div>
+      <h2 data-i18n="heroBottom">предложит идею сам.</h2>
+      <p data-i18n="heroText">Свободные выходные, хорошая погода и ваши интересы — Escape сам предложит, куда поехать, когда выехать и что посмотреть по дороге.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#why"><span data-i18n="heroCta">Попробовать бесплатно</span><b>→</b></a>
+        <button class="store" type="button" data-soon> iOS</button>
+        <button class="store" type="button" data-soon>◉ Android</button>
+      </div>
+    </div>
+    <div class="live-card reveal">
+      <span class="live-dot"></span>
+      <div><b>LIVE TRAVEL AGENT</b><small data-i18n="liveText">Маршрут обновлён · всё под контролем</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="section solutions">
+  <div class="center-head reveal">
+    <span class="eyebrow">AI TRAVEL AGENT</span>
+    <h2 data-i18n="solutionsTitle">Один запрос — десятки решений</h2>
+    <p data-i18n="solutionsText">Маршрут, билеты, отель, авто, зарядки для EV, погода, пересадки, кафе и даже компания для поездки — Escape берёт всё под контроль.</p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature reveal"><div><b data-i18n="f1t">Маршруты</b><p data-i18n="f1p">Умные идеи под ваш стиль путешествий</p></div><img src="feature-routes.jpg?v=60" alt=""></article>
+    <article class="feature reveal"><div><b data-i18n="f2t">Билеты</b><p data-i18n="f2p">Авиа, поезд, автобус — быстро и удобно</p></div><img src="feature-tickets.jpg?v=60" alt=""></article>
+    <article class="feature reveal"><div><b data-i18n="f3t">Отели</b><p data-i18n="f3p">Подбор жилья по комфорту и бюджету</p></div><img src="feature-hotels.jpg?v=60" alt=""></article>
+    <article class="feature reveal"><div><b data-i18n="f4t">Авто</b><p data-i18n="f4p">Аренда авто и EV для вашего маршрута</p></div><img src="feature-car.jpg?v=60" alt=""></article>
+    <article class="feature reveal"><div><b data-i18n="f5t">Погода</b><p data-i18n="f5p">Прогноз с учётом вашего дня</p></div><img src="feature-weather.jpg?v=60" alt=""></article>
+    <article class="feature reveal"><div><b data-i18n="f6t">Рекомендации</b><p data-i18n="f6p">Кафе, активности, места и компания</p></div><img src="feature-recommendations.jpg?v=60" alt=""></article>
+  </div>
+</section>
+
+<section id="agent" class="section assistant">
+  <div class="phone reveal"><img src="assistant-phone.jpg?v=60" alt="Escape AI Agent app"></div>
+
+  <div class="assistant-copy reveal">
+    <span class="eyebrow" data-i18n="agentLabel">AI АГЕНТ</span>
+    <h2 data-html="agentTitle">Ваш личный<br>помощник в путешествиях</h2>
+    <ul>
+      <li data-i18n="a1">Понимает ваши желания</li>
+      <li data-i18n="a2">Находит лучшие варианты</li>
+      <li data-i18n="a3">Помогает бронировать и строит маршрут</li>
+      <li data-i18n="a4">Поддерживает и сопровождает 24/7</li>
+    </ul>
+  </div>
+
+  <div id="community" class="community reveal">
+    <img src="community.jpg?v=60" alt="">
+    <div class="community-panel">
+      <span class="eyebrow" data-i18n="communityLabel">СООБЩЕСТВО</span>
+      <h3 data-i18n="communityTitle">Путешествуйте вместе</h3>
+      <p data-i18n="communityText">Находите попутчиков, делитесь маршрутами и вдохновляйте других на новые приключения.</p>
+      <a class="btn light" href="#contact" data-i18n="join">Присоединиться</a>
+    </div>
+  </div>
+</section>
+
+<section id="world" class="section scenarios">
+  <div class="center-head reveal">
+    <span class="eyebrow" data-i18n="scenarioLabel">ПОПУЛЯРНЫЕ СЦЕНАРИИ</span>
+    <h2 data-i18n="scenarioTitle">Путешествие под ваш сценарий</h2>
+    <p data-i18n="scenarioText">От короткого уикенда до сложного EV road trip — Escape собирает всё в один понятный план.</p>
+  </div>
+
+  <div class="scenario-grid">
+    <article class="scenario reveal"><img src="scenario-sea.jpg?v=60" alt=""><div><h3 data-i18n="s1t">Уикенд у моря</h3><p data-i18n="s1p">2–3 дня у побережья с лучшими пляжами и вкусной едой.</p><a href="#contact" data-i18n="ideas">Посмотреть идеи →</a></div></article>
+    <article class="scenario reveal"><img src="scenario-ev.jpg?v=60" alt=""><div><h3>EV Road Trip</h3><p data-i18n="s2p">Маршруты с зарядками, живописными местами и комфортом.</p><a href="#contact" data-i18n="ideas">Посмотреть идеи →</a></div></article>
+    <article class="scenario reveal"><img src="scenario-city.jpg?v=60" alt=""><div><h3 data-i18n="s3t">Городские выходные</h3><p data-i18n="s3p">Культура, достопримечательности и локальные секреты.</p><a href="#contact" data-i18n="ideas">Посмотреть идеи →</a></div></article>
+    <article class="scenario reveal"><img src="scenario-europe.jpg?v=60" alt=""><div><h3 data-i18n="s4t">Путешествие по Европе</h3><p data-i18n="s4p">Поезда, пересадки, билеты и отели — всё в одном приложении.</p><a href="#contact" data-i18n="ideas">Посмотреть идеи →</a></div></article>
+  </div>
+</section>
+
+<section class="section benefits">
+  <div class="center-head reveal">
+    <h2 data-i18n="benefitsTitle">Почему путешественники выбирают Escape</h2>
+  </div>
+  <div class="benefit-grid">
+    <article class="reveal"><i>⚡</i><b data-i18n="b1t">Быстро и легко</b><p data-i18n="b1p">Всё в одном приложении</p></article>
+    <article class="reveal"><i>🛡️</i><b data-i18n="b2t">Надёжно</b><p data-i18n="b2p">Проверенные сервисы и защита данных</p></article>
+    <article class="reveal"><i>♡</i><b data-i18n="b3t">Под вас</b><p data-i18n="b3p">Персональные идеи и рекомендации</p></article>
+    <article class="reveal"><i>◯</i><b data-i18n="b4t">Всегда рядом</b><p data-i18n="b4p">Поддержка и сопровождение 24/7</p></article>
+    <article class="reveal"><i>👥</i><b data-i18n="b5t">Сообщество</b><p data-i18n="b5p">Попутчики и друзья в путешествиях</p></article>
+    <article class="reveal"><i>🌐</i><b data-i18n="b6t">Весь мир</b><p data-i18n="b6p">Тысячи направлений и возможностей</p></article>
+  </div>
+</section>
+
+<section class="section partners">
+  <div class="center-head reveal">
+    <span class="eyebrow" data-i18n="servicesLabel">ВСЁ ПОД РУКОЙ</span>
+    <h2 data-i18n="servicesTitle">Мы работаем с ведущими travel-сервисами</h2>
+    <p class="small-note" data-i18n="servicesNote">Названия сервисов приведены как примеры экосистемы и не означают официальное партнёрство, если оно отдельно не заявлено.</p>
+  </div>
+  <div class="partner-row reveal"><b>Booking.com</b><b>Skyscanner</b><b>Google Maps</b><b>Rentalcars.com</b></div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="contact-box reveal">
+    <div>
+      <div class="contact-brand"><span class="script">Escape</span><span class="brandpin contact-pin"><i></i></span></div>
+      <h2 data-i18n="contactTitle">готовится к запуску.</h2>
+      <p data-i18n="contactText">Для партнёрств, вопросов по продукту и обращений по данным используйте email.</p>
+    </div>
+    <div class="profile">
+      <small>OWNER / CONTACT</small>
+      <strong>DMYTRO SUKHYNA</strong>
+      <a href="mailto:escape.travel.ai@gmail.com">escape.travel.ai@gmail.com</a>
+      <span data-i18n="support">Поддержка: 10:00–19:00 UTC+3</span>
+      <span>Greece · EU</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <span class="brandline"><span class="script">Escape</span><span class="brandpin footer-pin"><i></i></span></span>
+    <small>AI Travel Agent</small>
+  </div>
+
+  <div class="footer-columns">
+    <div><b data-i18n="footerProduct">Продукт</b><a href="#why" data-i18n="footerFeatures">Возможности</a><a href="#agent">AI Agent</a><a href="#world" data-i18n="footerHow">Как это работает</a></div>
+    <div><b data-i18n="footerCompany">Компания</b><a href="#contact" data-i18n="footerAbout">О нас</a><a href="#contact" data-i18n="footerCareer">Карьера</a><a href="#contact" data-i18n="footerPartners">Для партнёров</a></div>
+    <div><b data-i18n="footerSupport">Поддержка</b><a href="mailto:escape.travel.ai@gmail.com" data-i18n="footerHelp">Центр помощи</a><a href="#contact" data-i18n="navContact">Контакты</a></div>
+    <div><b data-i18n="footerLegal">Правовая информация</b><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a><a href="cookies.html">Cookie Policy</a><a href="disclaimer.html">AI Disclaimer</a><a href="community.html">Community Guidelines</a></div>
+  </div>
+
+  <div class="footer-bottom"><small>© 2026 Escape. <span data-i18n="rights">Все права защищены.</span></small><span>www.escapetravel.site</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js?v=60"></script>
+</body>
+</html>
