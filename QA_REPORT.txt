@@ -1,0 +1,29 @@
+PASS — ROUND 1 required files
+PASS — ROUND 1 local references
+PASS — ROUND 1 styles.css braces
+PASS — ROUND 1 legal.css braces
+PASS — ROUND 1 app.js syntax
+PASS — ROUND 1 legal.js syntax
+PASS — ROUND 2 main ru all HTML keys
+PASS — ROUND 2 main uk all HTML keys
+PASS — ROUND 2 main en all HTML keys
+PASS — ROUND 2 main language parity
+PASS — ROUND 2 legal page set
+PASS — ROUND 2 legal privacy languages
+PASS — ROUND 2 legal privacy content
+PASS — ROUND 2 legal terms languages
+PASS — ROUND 2 legal terms content
+PASS — ROUND 2 legal cookies languages
+PASS — ROUND 2 legal cookies content
+PASS — ROUND 2 legal disclaimer languages
+PASS — ROUND 2 legal disclaimer content
+PASS — ROUND 2 legal community languages
+PASS — ROUND 2 legal community content
+PASS — ROUND 3 all scenic images used
+PASS — ROUND 3 no vertical global road
+PASS — ROUND 3 brand wordmark
+PASS — ROUND 3 mobile breakpoints
+PASS — ROUND 3 contact data
+PASS — ROUND 3 GDPR transfer wording
+PASS — ROUND 3 terms pre-launch caveat
+PASS — ROUND 3 community safety
