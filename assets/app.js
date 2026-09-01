@@ -172,9 +172,13 @@
   function scrollProgress(el) {
     var r = el.getBoundingClientRect();
     var vh = window.innerHeight || 1;
-    var total = r.height + vh * 0.6;
-    var passed = vh * 0.85 - r.top;
-    return Math.max(0, Math.min(1, passed / total));
+    // p = 0 when the block's top enters at 88% of the viewport,
+    // p = 1 once its bottom has risen to 35% — i.e. well before it scrolls away.
+    var from = vh * 0.88;
+    var to = vh * 0.35 - r.height;
+    var span = from - to;
+    if (span < 1) span = 1;
+    return Math.max(0, Math.min(1, (from - r.top) / span));
   }
 
   var progressTargets = [];
@@ -194,7 +198,10 @@
   /* ------------------------------------------------------ fragmentation */
   function initFrag() {
     var frag = $('#frag');
-    whenVisible(frag, function () { frag.classList.add('is-collapsed'); }, 0.25);
+    // let the chips be read in full colour first, then let them fall away
+    whenVisible(frag, function () {
+      setTimeout(function () { frag.classList.add('is-collapsed'); }, reduced ? 0 : 1600);
+    }, 0.55);
   }
 
   /* --------------------------------------------------------- stat counts */
@@ -340,6 +347,11 @@
       pins.forEach(function (p) {
         p.addEventListener('mouseenter', function () { p.classList.add('is-on'); });
       });
+    }
+
+    if (globe && reduced) {
+      var svgEl = globe.querySelector('svg');
+      if (svgEl && svgEl.pauseAnimations) svgEl.pauseAnimations();
     }
 
     if (globe && !reduced) {

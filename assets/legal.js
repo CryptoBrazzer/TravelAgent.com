@@ -46,7 +46,7 @@
     }
   };
 
-  var PIN = '<svg class="pin" viewBox="0 0 44 84" aria-hidden="true"><g transform="rotate(9 22 40)" fill="currentColor">' +
+  var PIN = '<svg class="pin" viewBox="0 0 44 84" aria-hidden="true"><g transform="rotate(13 22 40)" fill="currentColor">' +
     '<path fill-rule="evenodd" d="M22 64C14 46 9 36 9 20A13 13 0 1 1 35 20C35 36 30 46 22 64ZM27.4 18A5.4 5.4 0 1 0 16.6 18A5.4 5.4 0 1 0 27.4 18Z"/>' +
     '<circle cx="22" cy="76" r="5.6"/></g></svg>';
   var BRAND = '<span class="brandmark"><span class="word">Escape</span>' + PIN + '</span>';
