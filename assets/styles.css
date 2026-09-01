@@ -977,6 +977,9 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   }
   .features::-webkit-scrollbar{display:none}
   .fcard{scroll-snap-align:center;aspect-ratio:4/5.1}
+  .map{overflow:hidden}
+  .map svg{width:190%;max-width:none;margin-left:-45%}
+  .intents button{flex:1 1 44%}
   .feed{grid-template-columns:1fr}
   .why{grid-template-columns:1fr}
   .benefits{grid-template-columns:1fr}
