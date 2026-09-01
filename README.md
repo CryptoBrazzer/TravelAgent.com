@@ -21,7 +21,7 @@ assets/
   legal.js               legal page renderer + chrome strings
   legal-docs.js          5 legal documents × 3 languages
   fonts.css              @font-face declarations
-  fonts/                 self-hosted woff2 (Manrope, Onest, Yellowtail)
+  fonts/                 self-hosted woff2 (Manrope, Onest, Great Vibes)
 img/                     WebP imagery, responsive pairs (-sm 1200w / -lg 2200w)
 favicon.svg  robots.txt  sitemap.xml  vercel.json
 ```
@@ -37,8 +37,9 @@ Russian fallback. The choice persists across pages.
 
 ## Brand
 
-The wordmark is Yellowtail set in ESCAPE red; the exclamation mark is a custom
-location-pin SVG (`#brand-pin`), tilted 9° to the right to match the script.
+The wordmark is Great Vibes set in ESCAPE red, given a hairline stroke for body;
+the exclamation mark is a custom location-pin SVG (`#brand-pin`), tilted 13° to
+the right so it sits on the script's own slant, and aligned to its baseline.
 It is defined once as an SVG symbol and referenced everywhere — never redrawn.
 
 ## Design system

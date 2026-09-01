@@ -37,7 +37,7 @@
   /* Typography */
   --font-ui:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --font-display:"Onest","Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  --font-script:"Yellowtail","Snell Roundhand","Apple Chancery",cursive;
+  --font-script:"Great Vibes","Snell Roundhand","Apple Chancery",cursive;
   --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
 
   /* Type scale */
@@ -129,14 +129,16 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .grid{display:grid;gap:clamp(16px,2vw,26px)}
 
 /* --- 4. Brand ------------------------------------------------------------ */
-.brandmark{display:inline-flex;align-items:baseline;gap:.01em;white-space:nowrap;line-height:1}
+.brandmark{display:inline-flex;align-items:baseline;gap:.19em;white-space:nowrap;line-height:1}
 .brandmark .word{
   font-family:var(--font-script);color:var(--red);
-  font-size:1.32em;line-height:.9;font-weight:400;
-  padding-right:.02em;
+  font-size:1.46em;line-height:1;font-weight:400;
+  /* Great Vibes ships in a single weight — a hairline stroke gives it body */
+  -webkit-text-stroke:.013em currentColor;
+  paint-order:stroke fill;
 }
 .brandmark .pin{
-  width:.46em;height:.95em;flex:none;color:var(--red);
+  width:.5em;height:1.04em;flex:none;color:var(--red);
   transform:translateY(.02em);
 }
 .brandmark--light .word,.brandmark--light .pin{color:#FF4A44}
@@ -478,7 +480,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .hero__copy{position:relative;z-index:2;max-width:640px}
 .hero h1{font-size:var(--t-display);line-height:1.02;text-wrap:balance}
 .hero h1 .l2{display:block;font-weight:600;color:var(--ink-2);font-size:.86em;letter-spacing:-.03em}
-.hero__brandline{display:flex;align-items:baseline;font-size:clamp(2.6rem,1.1rem + 4.4vw,5.1rem);margin-block:.06em .04em}
+.hero__brandline{display:flex;align-items:baseline;font-size:clamp(2.6rem,1.1rem + 4.4vw,5.1rem);margin-block:.2em .02em}
 .hero__sub{font-size:var(--t-lead);font-weight:600;color:var(--ink);margin-top:18px;max-width:34ch;line-height:1.42}
 .hero__sub em{font-style:normal;color:var(--ink-2);font-weight:500;display:block}
 .hero__text{margin-top:16px;max-width:44ch;color:var(--ink-2);font-size:var(--t-body)}
@@ -907,7 +909,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.82),rgba(7,14,36,.62) 45%,rgba(7,14,36,.9))}
 .cta .wrap{padding-block:clamp(80px,10vw,168px)}
 .cta h2{font-size:var(--t-h2);text-wrap:balance;max-width:22ch;margin-inline:auto}
-.cta__brand{display:flex;justify-content:center;align-items:baseline;font-size:clamp(2.1rem,1.1rem + 3.2vw,3.9rem);margin-block:.1em .06em}
+.cta__brand{display:flex;justify-content:center;align-items:baseline;font-size:clamp(2.1rem,1.1rem + 3.2vw,3.9rem);margin-block:.22em .04em}
 .cta p{margin-top:16px;color:#C5CFE6;font-size:var(--t-lead);max-width:52ch;margin-inline:auto}
 .cta__act{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
 

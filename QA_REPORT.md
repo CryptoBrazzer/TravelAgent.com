@@ -12,8 +12,8 @@ Captured and reviewed viewport slices of every section at **320, 360, 375, 390, 
 |---|---|
 | Horizontal overflow at every breakpoint | none (scrollWidth == viewport at all 11 widths) |
 | Legal pages at 360 px | no overflow on any of the five |
-| Escape! wordmark | 6 instances, all identical, all red |
-| Location-pin symbol | one `<symbol>` definition, referenced 6×, aspect ratio identical (0.478–0.479), never distorted, tilted 9° right |
+| Escape! wordmark | 6 instances, all identical, all red (Great Vibes) |
+| Location-pin symbol | one `<symbol>` definition, referenced 6×, aspect ratio identical (0.481), never distorted, tilted 13° right, sitting on the script baseline |
 | Phone device scale | hero 326 px (100%), feature 274 px (84%), secondary 238 px (73%) — within the defined bands |
 | Phone screens filled | dead space below the last row reduced to 9–30 px on all four devices |
 | Imagery | 18 photographs, WebP, responsive `srcset` (1200w / 2200w), no upscaling, no baked-in text |
