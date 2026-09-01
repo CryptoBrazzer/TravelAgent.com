@@ -1,1 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://www.escapetravel.site/</loc></url><url><loc>https://www.escapetravel.site/privacy.html</loc></url><url><loc>https://www.escapetravel.site/terms.html</loc></url><url><loc>https://www.escapetravel.site/cookies.html</loc></url><url><loc>https://www.escapetravel.site/disclaimer.html</loc></url><url><loc>https://www.escapetravel.site/community.html</loc></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.escapetravel.site/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.escapetravel.site/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.escapetravel.site/?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.escapetravel.site/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.escapetravel.site/"/>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.escapetravel.site/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.escapetravel.site/privacy.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.escapetravel.site/privacy.html?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.escapetravel.site/privacy.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.escapetravel.site/privacy.html"/>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.escapetravel.site/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.escapetravel.site/terms.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.escapetravel.site/terms.html?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.escapetravel.site/terms.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.escapetravel.site/terms.html"/>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.escapetravel.site/cookies.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.escapetravel.site/cookies.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.escapetravel.site/cookies.html?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.escapetravel.site/cookies.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.escapetravel.site/cookies.html"/>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.escapetravel.site/disclaimer.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.escapetravel.site/disclaimer.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.escapetravel.site/disclaimer.html?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.escapetravel.site/disclaimer.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.escapetravel.site/disclaimer.html"/>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.escapetravel.site/community.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.escapetravel.site/community.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.escapetravel.site/community.html?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.escapetravel.site/community.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.escapetravel.site/community.html"/>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

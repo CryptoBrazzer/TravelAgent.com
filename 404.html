@@ -1,1 +1,43 @@
-<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/"><title>Escape</title>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Страница не найдена — Escape!</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/legal.css">
+<style>
+.nf{min-height:70vh;display:grid;place-items:center;text-align:center;padding:60px 24px}
+.nf h1{font-size:clamp(2rem,1.2rem+3vw,3.2rem);margin-bottom:14px}
+.nf p{color:var(--ink-2);max-width:44ch;margin-inline:auto}
+.nf .go{display:inline-flex;align-items:center;gap:9px;margin-top:28px;padding:14px 26px;border-radius:999px;background:#E5231D;color:#fff;font-weight:700;font-size:14px}
+.nf .go:hover{text-decoration:none;opacity:.92}
+.nf .bm{font-size:34px;display:block;margin-bottom:22px}
+</style>
+</head>
+<body>
+<main class="nf">
+  <div>
+    <span class="bm"><span class="brandmark"><span class="word">Escape</span><svg class="pin" viewBox="0 0 44 84" aria-hidden="true"><g transform="rotate(9 22 40)" fill="currentColor"><path fill-rule="evenodd" d="M22 64C14 46 9 36 9 20A13 13 0 1 1 35 20C35 36 30 46 22 64ZM27.4 18A5.4 5.4 0 1 0 16.6 18A5.4 5.4 0 1 0 27.4 18Z"/><circle cx="22" cy="76" r="5.6"/></g></svg></span></span>
+    <h1 id="t">Такого маршрута нет</h1>
+    <p id="d">Страница не найдена. Возможно, ссылка устарела — вернитесь на главную и начните заново.</p>
+    <a class="go" href="/" id="b">На главную</a>
+  </div>
+</main>
+<script>
+(function(){
+ var T={ru:['Такого маршрута нет','Страница не найдена. Возможно, ссылка устарела — вернитесь на главную и начните заново.','На главную'],
+        uk:['Такого маршруту немає','Сторінку не знайдено. Можливо, посилання застаріло — поверніться на головну та почніть спочатку.','На головну'],
+        en:['This route does not exist','The page was not found. The link may be out of date — head back to the start.','Back to the site']};
+ var l='ru';try{var s=localStorage.getItem('escape.lang');if(s&&T[s])l=s;}catch(e){}
+ var q=new URLSearchParams(location.search).get('lang');if(q&&T[q])l=q;
+ document.documentElement.lang=l;
+ document.getElementById('t').textContent=T[l][0];
+ document.getElementById('d').textContent=T[l][1];
+ document.getElementById('b').textContent=T[l][2];
+ document.title=T[l][0]+' — Escape!';
+})();
+</script>
+</body>
+</html>
