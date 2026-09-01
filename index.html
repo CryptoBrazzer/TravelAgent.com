@@ -119,7 +119,7 @@
   </div>
 </header>
 
-<div class="drawer" id="drawer" hidden>
+<nav class="drawer" id="drawer" aria-label="Мобильная навигация" data-i18n-aria-label="a11yMobileNav" hidden>
   <a href="#problem" data-i18n="navWhy">Почему ESCAPE</a>
   <a href="#agent" data-i18n="navAgent">AI Agent</a>
   <a href="#how" data-i18n="navHow">Как это работает</a>
@@ -127,7 +127,7 @@
   <a href="#community" data-i18n="navCommunity">Сообщество</a>
   <a href="#contact" data-i18n="navContact">Контакты</a>
   <button class="btn btn--red" data-waitlist type="button"><span data-i18n="ctaTry">Попробовать бесплатно</span></button>
-</div>
+</nav>
 
 <main id="main">
 <!-- ===== 01 HERO ===== -->
@@ -172,7 +172,7 @@
             </div>
             <span class="ui__dot"><svg width="11" height="11" aria-hidden="true"><use href="#i-plane"/></svg></span>
           </div>
-          <h4 class="blue" data-i18n="phHeadline">Ваш уикенд начинается идеально</h4>
+          <div class="ui__h blue" data-i18n="phHeadline">Ваш уикенд начинается идеально</div>
           <div class="ui__weather">
             <div><b>22°</b><span data-i18n="dFri">Пт</span></div>
             <div class="on"><b>24°</b><span data-i18n="dSat">Сб</span></div>
@@ -600,7 +600,7 @@
       </div>
       <div class="route__in">
         <div class="route__head">
-          <span class="route__km">2 862 <small data-i18n="evKm">километра пути</small></span>
+          <span class="route__km"><span data-i18n="evKmN">2 862</span> <small data-i18n="evKm">километра пути</small></span>
           <span class="route__km">6 <small data-i18n="evCountries">стран на маршруте</small></span>
           <span class="route__km">9 <small data-i18n="evStops">точек остановки</small></span>
         </div>
@@ -609,7 +609,7 @@
           <span class="route__track" aria-hidden="true"></span>
           <span class="route__fill" id="routeFill" aria-hidden="true"></span>
           <div class="route__nodes" id="routeNodes">
-            <div class="route__node"><b>Афины</b><span data-i18n="ev1">Старт · заряд 100%</span></div>
+            <div class="route__node"><b data-i18n="ev1t">Афины</b><span data-i18n="ev1">Старт · заряд 100%</span></div>
             <div class="route__node"><b data-i18n="ev2t">Ламия</b><span data-i18n="ev2">EV-зарядка · 35 мин</span></div>
             <div class="route__node"><b data-i18n="ev3t">Игуменица</b><span data-i18n="ev3">Паром · 7 ч 30 мин</span></div>
             <div class="route__node"><b data-i18n="ev4t">Бари</b><span data-i18n="ev4">Ночёвка · зарядка ночью</span></div>
@@ -619,11 +619,11 @@
         </div>
 
         <div class="route__stats">
-          <div><b>32 ч 10 мин</b><span data-i18n="evS1">За рулём</span></div>
-          <div><b>4 ч 05 мин</b><span data-i18n="evS2">Зарядка в пути</span></div>
-          <div><b>7 ч 30 мин</b><span data-i18n="evS3">Паром</span></div>
+          <div><b data-i18n="evV1">32 ч 10 мин</b><span data-i18n="evS1">За рулём</span></div>
+          <div><b data-i18n="evV2">4 ч 05 мин</b><span data-i18n="evS2">Зарядка в пути</span></div>
+          <div><b data-i18n="evV3">7 ч 30 мин</b><span data-i18n="evS3">Паром</span></div>
           <div><b>2</b><span data-i18n="evS4">Ночёвки в пути</span></div>
-          <div><b>+3 ч 20 мин</b><span data-i18n="evS5">Заложенный запас</span></div>
+          <div><b data-i18n="evV5">+3 ч 20 мин</b><span data-i18n="evS5">Заложенный запас</span></div>
         </div>
 
         <p class="src" style="margin-top:20px;max-width:64ch;color:#8E9CC4" data-i18n="evNote">Расчёт показан как пример работы агента. Реальное время зависит от расписаний, трафика, погоды и правил пересечения границ.</p>
@@ -1010,7 +1010,7 @@
         <p data-i18n="ftAbout">Персональный AI-агент, который собирает поездку целиком и остаётся с вами в дороге. Продукт готовится к запуску.</p>
       </div>
 
-      <div class="footer__cols">
+      <nav class="footer__cols" aria-label="Навигация в подвале" data-i18n-aria-label="a11yFooterNav">
         <div>
           <b data-i18n="ftProduct">Продукт</b>
           <a href="#problem" data-i18n="navWhy">Почему ESCAPE</a>
@@ -1037,7 +1037,7 @@
           <a href="/disclaimer.html" data-i18n="lgDisclaimer">AI и travel-оговорка</a>
           <a href="/community.html" data-i18n="lgCommunity">Правила сообщества</a>
         </div>
-      </div>
+      </nav>
     </div>
 
     <div class="footer__bot">

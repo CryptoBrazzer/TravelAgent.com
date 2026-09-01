@@ -129,17 +129,17 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .grid{display:grid;gap:clamp(16px,2vw,26px)}
 
 /* --- 4. Brand ------------------------------------------------------------ */
-.brandmark{display:inline-flex;align-items:baseline;gap:.06em;white-space:nowrap;line-height:1}
+.brandmark{display:inline-flex;align-items:flex-end;gap:.02em;white-space:nowrap;line-height:1}
 .brandmark .word{
   font-family:var(--font-script);color:var(--red);
   font-size:1.32em;line-height:.9;font-weight:400;
   padding-right:.02em;
 }
 .brandmark .pin{
-  width:.30em;height:.78em;flex:none;align-self:flex-end;
-  margin-bottom:.02em;
+  width:.44em;height:.92em;flex:none;align-self:flex-end;
+  margin-bottom:.03em;color:var(--red);
 }
-.brandmark--light .word{color:#FF4A44}
+.brandmark--light .word,.brandmark--light .pin{color:#FF4A44}
 
 .pin-svg{width:100%;height:100%;display:block;overflow:visible}
 
@@ -292,7 +292,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .ui__title{font-family:var(--font-display);font-weight:700;font-size:1.02em;letter-spacing:-.02em}
 .ui__dot{width:1.7em;height:1.7em;border-radius:50%;background:var(--navy-900);display:grid;place-items:center;color:#fff;font-size:.62em}
-.ui h4{font-size:1.02em;letter-spacing:-.02em;line-height:1.24}
+.ui h4,.ui__h{font-size:1.02em;font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.24}
 .ui .blue{color:var(--blue)}
 .ui .sub{font-size:.8em;color:var(--ink-3);line-height:1.4}
 .ui .label{font-size:.72em;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
@@ -374,8 +374,8 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 
 .hero__stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
 .hero__stage .device{--w:clamp(232px,25vw,326px)}
-.hero .float--live{left:-14%;bottom:10%}
-.hero .float--upd{right:-9%;top:26%}
+.hero .float--live{left:-13%;bottom:1%}
+.hero .float--upd{left:-4%;top:-6%}
 
 /* --- 11. Fragmentation (problem) ----------------------------------------- */
 .frag{position:relative;margin-top:clamp(34px,5vw,64px)}
@@ -795,7 +795,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .cta__media img{width:100%;height:100%;object-fit:cover}
 .cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.82),rgba(7,14,36,.62) 45%,rgba(7,14,36,.9))}
 .cta .wrap{padding-block:clamp(80px,10vw,168px)}
-.cta h2{font-size:var(--t-h2);text-wrap:balance;max-width:18ch;margin-inline:auto}
+.cta h2{font-size:var(--t-h2);text-wrap:balance;max-width:22ch;margin-inline:auto}
 .cta__brand{display:flex;justify-content:center;align-items:baseline;font-size:clamp(2.1rem,1.1rem + 3.2vw,3.9rem);margin-block:.1em .06em}
 .cta p{margin-top:16px;color:#C5CFE6;font-size:var(--t-lead);max-width:52ch;margin-inline:auto}
 .cta__act{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
@@ -950,7 +950,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .hero__copy{max-width:none}
   .hero__stage{min-height:0}
   .hero .float--live{left:0;bottom:2%}
-  .hero .float--upd{right:0;top:2%}
+  .hero .float--upd{display:none}
   .split,.think,.layover,.fly,.contact{grid-template-columns:1fr}
   .split--rev .split__media{order:0}
   .scene__device{right:5%;bottom:-4%}
@@ -967,6 +967,8 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 
 @media (max-width:760px){
+  .frag__cloud span{transform:rotate(var(--rot,0deg))}
+  .frag.is-collapsed .frag__cloud span{transform:none}
   .features{
     grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(214px,72vw);
     overflow-x:auto;scroll-snap-type:x mandatory;
@@ -989,13 +991,13 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .scene__device{position:relative;right:auto;bottom:auto;margin:-9% auto 0;display:block;--w:min(226px,58vw)}
   .split__media{display:flex;flex-direction:column}
   .hero__stage .device{--w:min(272px,68vw)}
-  .hero .float--upd{display:none}
 }
 
 @media (max-width:560px){
   :root{--sp-section:clamp(58px,13vw,80px)}
   .legs{grid-template-columns:1fr}
-  .route__nodes{grid-template-columns:repeat(2,1fr)}
+  .route__nodes{grid-template-columns:repeat(2,1fr);gap:46px 14px}
+  .route__head{gap:14px 26px}
   .footer__cols{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr}
   .osgrid{grid-template-columns:1fr}
@@ -1040,3 +1042,8 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 @media (max-width:1024px){ .notes{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:560px){ .notes{grid-template-columns:1fr} }
 .notes .note{align-items:flex-start}
+
+/* CTA over photography — force light button treatment */
+.cta .btn--ghost{--btn-fg:#fff;border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.07)}
+.cta .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.14)}
+.cta__media::after{background:linear-gradient(180deg,rgba(7,14,36,.86),rgba(7,14,36,.7) 45%,rgba(7,14,36,.92))}
