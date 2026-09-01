@@ -8,6 +8,7 @@
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse  = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
   var LS = {
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
@@ -81,7 +82,62 @@
     var md = document.querySelector('meta[name="description"]');
     if (md && t('metaDesc')) md.setAttribute('content', t('metaDesc'));
     reformatCounters();
+    brandify();
     if (announce) toast(t('tLang'));
+  }
+
+  /* ---------------------------------------------------------- brand marks */
+  // Body copy should read the product name as a brand, and should make it
+  // obvious that the agent does the work itself — so both get marked up here
+  // instead of carrying markup around in every dictionary entry.
+  var SELF = {
+    ru: ['сам', 'сама', 'сами', 'самостоятельно'],
+    uk: ['сам', 'сама', 'самі', 'самостійно'],
+    en: ['itself', 'on its own', 'by itself']
+  };
+  var BRAND_SCOPE = '.lead, .hero__text, .hero__sub, .cta__lead, .fcard p, .amb__t p, .vision p';
+
+  function wrapMatches(el, re, cls) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) {
+      if (n.parentNode && n.parentNode.classList && n.parentNode.classList.contains(cls)) continue;
+      if (re.test(n.nodeValue)) nodes.push(n);
+      re.lastIndex = 0;
+    }
+    nodes.forEach(function (node) {
+      var frag = document.createDocumentFragment();
+      var text = node.nodeValue, last = 0, m;
+      re.lastIndex = 0;
+      while ((m = re.exec(text))) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var b = document.createElement('b');
+        b.className = cls;
+        b.textContent = m[0];
+        frag.appendChild(b);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function brandify() {
+    var words = SELF[lang] || SELF.ru;
+    var selfRe;
+    try {
+      selfRe = new RegExp('(?<!\\p{L})(' + words.join('|') + ')(?!\\p{L})', 'giu');
+    } catch (e) {
+      selfRe = new RegExp('\\b(' + words.join('|') + ')\\b', 'gi');
+    }
+    $$(BRAND_SCOPE).forEach(function (el) {
+      $$('b.hl, b.hl-self', el).forEach(function (b) {
+        b.parentNode.replaceChild(document.createTextNode(b.textContent), b);
+      });
+      el.normalize();
+      wrapMatches(el, /Escape!/g, 'hl');
+      wrapMatches(el, selfRe, 'hl-self');
+    });
   }
 
   /* --------------------------------------------------------------- toast */
@@ -172,13 +228,19 @@
   function scrollProgress(el) {
     var r = el.getBoundingClientRect();
     var vh = window.innerHeight || 1;
-    // p = 0 when the block's top enters at 88% of the viewport,
-    // p = 1 once its bottom has risen to 35% — i.e. well before it scrolls away.
-    var from = vh * 0.88;
-    var to = vh * 0.35 - r.height;
+    // p = 0 as the block's top enters at 92% of the viewport,
+    // p = 1 once its bottom reaches 75% — the whole block is still on screen.
+    var from = vh * 0.92;
+    var to = vh * 0.75 - r.height;
     var span = from - to;
-    if (span < 1) span = 1;
+    if (span < vh * 0.4) span = vh * 0.4;
     return Math.max(0, Math.min(1, (from - r.top) / span));
+  }
+
+  // How many items of a sequence are lit at progress p. The sequence finishes
+  // at 82% of the window so the last item never lands after the block has gone.
+  function reachedCount(p, total) {
+    return Math.floor((p / 0.82) * total);
   }
 
   var progressTargets = [];
@@ -240,8 +302,8 @@
     if (!pipe) return;
     var steps = $$('li', pipe);
 
-    trackProgress($('#think'), function (p) {
-      var reach = Math.floor(p * (steps.length + 1.4));
+    trackProgress(pipe, function (p) {
+      var reach = reachedCount(p, steps.length + 1);
       steps.forEach(function (li, i) {
         li.classList.toggle('is-on', i <= reach);
         li.classList.toggle('is-done', i < reach);
@@ -258,11 +320,11 @@
     var prog = $('#tlProg');
     var notes = $$('#notes .note');
 
-    trackProgress(tl.closest('.split'), function (p) {
-      var reach = Math.floor(p * (items.length + 0.8));
+    trackProgress(tl, function (p) {
+      var reach = reachedCount(p, items.length);
       items.forEach(function (li, i) { li.classList.toggle('is-on', i <= reach); });
       if (prog) prog.style.setProperty('--p', Math.min(100, (reach + 1) / items.length * 100) + '%');
-      var nReach = Math.floor(p * (notes.length + 1.2));
+      var nReach = reachedCount(p, notes.length);
       notes.forEach(function (n, i) { n.classList.toggle('is-on', i <= nReach); });
     });
   }
@@ -288,7 +350,7 @@
     var nodes = $$('.route__node', route);
     var fill = $('#routeFill');
     trackProgress(route, function (p) {
-      var reach = Math.floor(p * (nodes.length + 0.6));
+      var reach = reachedCount(p, nodes.length);
       nodes.forEach(function (n, i) { n.classList.toggle('is-on', i <= reach); });
       if (fill) fill.style.setProperty('--p', Math.min(100, (reach + 1) / nodes.length * 100) + '%');
     });
@@ -305,18 +367,17 @@
       return { t: li.querySelector('b').textContent, s: li.querySelector('span:last-child').textContent };
     });
 
-    btn.addEventListener('click', function () {
-      var rain = btn.dataset.state !== 'rain';
-      btn.dataset.state = rain ? 'rain' : 'dry';
-      note.dataset.state = rain ? 'rain' : 'dry';
-      note.textContent = t(rain ? 'amsNoteRain' : 'amsNoteDry');
-      btn.textContent = t(rain ? 'amsDry' : 'amsRain') || t('amsRain');
+    var scene = $('#amsScene');
+    var swapping = false;
 
+    // Swap the two affected steps out, rewrite them, fade them back in — so the
+    // plan visibly rebuilds instead of blinking into a different one.
+    function rewrite(rain) {
       if (rain) {
         items[1].classList.add('is-alt');
         items[3].classList.add('is-alt');
-        items[1].querySelector('b').textContent = t('am3');
-        items[1].querySelector('span:last-child').textContent = t('am3s');
+        items[1].querySelector('b').textContent = t('amRain2');
+        items[1].querySelector('span:last-child').textContent = t('amRain2s');
         items[1].querySelector('.ic use').setAttribute('href', '#i-tram');
         items[3].querySelector('span:last-child').textContent = t('amRainSlot') || '12:30';
       } else {
@@ -327,6 +388,28 @@
         items[1].querySelector('.ic use').setAttribute('href', '#i-bike');
         items[3].querySelector('span:last-child').textContent = original[3].s;
       }
+    }
+
+    btn.addEventListener('click', function () {
+      if (swapping) return;
+      var rain = btn.dataset.state !== 'rain';
+      btn.dataset.state = rain ? 'rain' : 'dry';
+      note.dataset.state = rain ? 'rain' : 'dry';
+      note.textContent = t(rain ? 'amsNoteRain' : 'amsNoteDry');
+      btn.textContent = t(rain ? 'amsDry' : 'amsRain') || t('amsRain');
+      if (scene) scene.classList.toggle('is-rain', rain);
+
+      if (reduced) { rewrite(rain); return; }
+
+      swapping = true;
+      items[1].classList.add('is-swap');
+      items[3].classList.add('is-swap');
+      setTimeout(function () {
+        rewrite(rain);
+        items[1].classList.remove('is-swap');
+        items[3].classList.remove('is-swap');
+        swapping = false;
+      }, 280);
     });
   }
 
@@ -349,12 +432,24 @@
       });
     }
 
-    if (globe && reduced) {
-      var svgEl = globe.querySelector('svg');
-      if (svgEl && svgEl.pauseAnimations) svgEl.pauseAnimations();
+    var svgEl = globe && globe.querySelector('svg');
+    if (svgEl && svgEl.pauseAnimations) {
+      if (reduced) {
+        svgEl.pauseAnimations();
+      } else if ('IntersectionObserver' in window) {
+        // The globe keeps a dozen SMIL animations running; off-screen they are
+        // pure battery and pure jank, so they only tick while it is in view.
+        svgEl.pauseAnimations();
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) svgEl.unpauseAnimations();
+            else svgEl.pauseAnimations();
+          });
+        }, { rootMargin: '120px' }).observe(globe);
+      }
     }
 
-    if (globe && !reduced) {
+    if (globe && !reduced && !coarse) {
       var g = $('#globeG');
       globe.addEventListener('pointermove', function (e) {
         var r = globe.getBoundingClientRect();
@@ -393,7 +488,7 @@
     var steps = $$('#flySteps li');
     whenVisible(fly, function () { fly.classList.add('is-on'); }, 0.3);
     trackProgress(fly, function (p) {
-      var reach = Math.floor(p * (nodes.length + 0.6));
+      var reach = reachedCount(p, nodes.length);
       nodes.forEach(function (n, i) { n.classList.toggle('is-on', i <= reach); });
       steps.forEach(function (s, i) { s.classList.toggle('is-on', i <= reach); });
     });
@@ -401,7 +496,9 @@
 
   /* --------------------------------------------------------- hero parallax */
   function initHeroParallax() {
-    if (reduced) return;
+    // Touch devices repaint the hero image on every scroll frame for this, and
+    // it is the one effect nobody misses — so it stays on pointer hardware.
+    if (reduced || coarse) return;
     var img = $('.hero__media img');
     if (!img) return;
     var raf = false;
