@@ -486,12 +486,24 @@
     if (!fly) return;
     var nodes = $$('.fly__n', fly);
     var steps = $$('#flySteps li');
-    whenVisible(fly, function () { fly.classList.add('is-on'); }, 0.3);
-    trackProgress(fly, function (p) {
-      var reach = reachedCount(p, nodes.length);
-      nodes.forEach(function (n, i) { n.classList.toggle('is-on', i <= reach); });
-      steps.forEach(function (s, i) { s.classList.toggle('is-on', i <= reach); });
-    });
+    var arc = $('.fly__arc', fly);
+    var C = 943; // circumference of the r=150 ring
+
+    // This one is a loop, not a journey. Scrubbing it against scroll meant the
+    // last step only lit once the block was already leaving the screen, so it
+    // runs on its own clock the moment the wheel comes into view.
+    function light(i) {
+      if (nodes[i]) nodes[i].classList.add('is-on');
+      if (steps[i]) steps[i].classList.add('is-on');
+      if (arc) arc.style.strokeDashoffset = String(Math.round(C * (1 - (i + 1) / nodes.length)));
+    }
+
+    whenVisible(fly, function () {
+      fly.classList.add('is-on');
+      nodes.forEach(function (n, i) {
+        setTimeout(function () { light(i); }, reduced ? 0 : 240 + i * 330);
+      });
+    }, 0.3);
   }
 
   /* --------------------------------------------------------- hero parallax */
