@@ -262,7 +262,12 @@
     var frag = $('#frag');
     // let the chips be read in full colour first, then let them fall away
     whenVisible(frag, function () {
-      setTimeout(function () { frag.classList.add('is-collapsed'); }, reduced ? 0 : 1600);
+      setTimeout(function () {
+        // Promote the chips only for the length of the move: keeping fifteen
+        // layers alive afterwards costs more than the animation saves.
+        frag.classList.add('is-armed', 'is-collapsed');
+        setTimeout(function () { frag.classList.remove('is-armed'); }, 1400);
+      }, reduced ? 0 : 1500);
     }, 0.55);
   }
 
