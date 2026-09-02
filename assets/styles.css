@@ -509,17 +509,18 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   padding:10px 16px;border-radius:var(--r-pill);
   background:#fff;border:1px solid var(--line);color:var(--ink-2);
   font-size:var(--t-small);font-weight:600;box-shadow:var(--sh-1);
-  transition:transform .9s var(--ease-soft),opacity .8s var(--ease-soft),filter .8s var(--ease-soft);
-  transition-delay:calc(var(--i,0) * 42ms);
+  transition:transform .62s var(--ease-soft),opacity .5s var(--ease-soft);
+  transition-delay:calc(var(--i,0) * 34ms);
   transform:translate(var(--dx,0),var(--dy,0)) rotate(var(--rot,0deg));
 }
-.frag.is-collapsed .frag__cloud span{transform:none;opacity:.48;filter:grayscale(.9)}
+.frag.is-armed .frag__cloud span{will-change:transform,opacity}
+.frag.is-collapsed .frag__cloud span{transform:none;opacity:.5}
 .frag__result{
   margin-top:clamp(28px,4vw,52px);display:flex;flex-direction:column;align-items:center;gap:14px;
-  opacity:0;transform:translateY(14px);transition:opacity .7s .78s var(--ease-soft),transform .7s .78s var(--ease-soft);
+  opacity:0;transform:translateY(14px);transition:opacity .5s .62s var(--ease-soft),transform .5s .62s var(--ease-soft);
 }
 .frag.is-collapsed .frag__result{opacity:1;transform:none}
-.frag__arrow{width:2px;height:52px;border-radius:2px;background:linear-gradient(180deg,rgba(11,21,51,.12),var(--red));transform-origin:top center;transform:scaleY(0);transition:transform .55s .92s var(--ease-soft)}
+.frag__arrow{width:2px;height:52px;border-radius:2px;background:linear-gradient(180deg,rgba(11,21,51,.12),var(--red));transform-origin:top center;transform:scaleY(0);transition:transform .45s .74s var(--ease-soft)}
 .frag.is-collapsed .frag__arrow{transform:scaleY(1)}
 .frag__node{
   display:inline-flex;align-items:center;gap:14px;padding:16px 28px;border-radius:var(--r-pill);
@@ -647,14 +648,14 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .rainfx i{
   position:absolute;inset:-70% -45%;display:block;
-  animation:rainfall .8s linear infinite;will-change:transform;
+  animation:rainfall 1.6s linear infinite;will-change:transform;
 }
-.rainfx i:nth-child(1){background-image:radial-gradient(1px 14px at 50% 50%,rgba(255,255,255,.62),rgba(255,255,255,0));background-size:13px 96px;animation-duration:.62s}
-.rainfx i:nth-child(2){background-image:radial-gradient(1px 10px at 50% 50%,rgba(255,255,255,.40),rgba(255,255,255,0));background-size:18px 74px;animation-duration:.88s;animation-delay:-.31s}
-.rainfx i:nth-child(3){background-image:radial-gradient(2px 19px at 50% 50%,rgba(255,255,255,.20),rgba(255,255,255,0));background-size:33px 132px;animation-duration:1.18s;animation-delay:-.64s}
+.rainfx i:nth-child(1){background-image:radial-gradient(1px 11px at 50% 50%,rgba(255,255,255,.58),rgba(255,255,255,0));background-size:13px 96px;animation-duration:1.35s}
+.rainfx i:nth-child(2){background-image:radial-gradient(1px 8px at 50% 50%,rgba(255,255,255,.38),rgba(255,255,255,0));background-size:18px 74px;animation-duration:1.75s;animation-delay:-.6s}
+.rainfx i:nth-child(3){background-image:radial-gradient(2px 15px at 50% 50%,rgba(255,255,255,.20),rgba(255,255,255,0));background-size:33px 132px;animation-duration:2.3s;animation-delay:-1.2s}
 @keyframes rainfall{
-  from{transform:rotate(11deg) translate3d(0,calc(var(--fall,96px) * -1),0)}
-  to{transform:rotate(11deg) translate3d(0,0,0)}
+  from{transform:rotate(4deg) translate3d(0,calc(var(--fall,96px) * -1),0)}
+  to{transform:rotate(4deg) translate3d(0,0,0)}
 }
 .scene--tall{aspect-ratio:4/4.2}
 .scene--stack{aspect-ratio:4/3.9}
@@ -1263,8 +1264,8 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   padding:9px 16px 9px 9px;border-radius:var(--r-pill);
   background:#fff;border:1px solid var(--line);
   box-shadow:0 1px 2px rgba(11,21,51,.05),0 6px 16px rgba(11,21,51,.07);
-  transition:transform .9s var(--ease-soft),opacity .8s var(--ease-soft),filter .8s var(--ease-soft);
-  transition-delay:calc(var(--i,0) * 42ms);
+  transition:transform .62s var(--ease-soft),opacity .5s var(--ease-soft);
+  transition-delay:calc(var(--i,0) * 34ms);
   transform:translate(var(--dx,0),var(--dy,0)) rotate(var(--rot,0deg));
 }
 .frag__cloud span b{font-size:var(--t-small);font-weight:700;color:var(--ink);letter-spacing:-.012em}
@@ -1278,7 +1279,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .frag__ic--purple{background:#F0E9FC;color:#7A3FD0}
 .frag__ic--red{background:#FDE9E8;color:#E5231D}
 .frag__ic--teal{background:#DFF4F4;color:#0E8C8C}
-.frag.is-collapsed .frag__cloud span{transform:none;opacity:.48;filter:grayscale(.9)}
+.frag.is-collapsed .frag__cloud span{transform:none;opacity:.5}
 
 /* --- 15b. Community, amplified ------------------------------------------- */
 .ambition{
