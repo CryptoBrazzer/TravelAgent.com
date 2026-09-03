@@ -1403,3 +1403,24 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .rainfx i:nth-child(3){display:none}
   .map .meridians ellipse{stroke-width:.8}
 }
+
+/* --- waitlist hand-off (no intake of our own yet) ------------------------ */
+.wl__stale{
+  margin-top:12px;padding:11px 14px;border-radius:var(--r-md);
+  background:#FFF6E8;border:1px solid #F2D9AE;color:#7A4E08;
+  font-size:var(--t-micro);line-height:1.45;
+}
+.wl__t{color:var(--ink-2);font-size:var(--t-small);line-height:1.55;margin-top:8px}
+.wl__warn{
+  margin-top:12px;padding:10px 13px;border-radius:var(--r-md);
+  background:#FDE9E8;border:1px solid #F6C9C6;color:#A81A15;
+  font-size:var(--t-micro);font-weight:700;line-height:1.4;
+}
+.wl__pre{
+  margin-top:14px;padding:13px 15px;border-radius:var(--r-md);
+  background:var(--surface-2);border:1px solid var(--line);
+  font:600 var(--t-micro)/1.6 var(--font-ui);color:var(--ink-2);
+  white-space:pre-wrap;word-break:break-word;max-height:190px;overflow-y:auto;
+}
+.wl__act{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.wl__act .btn{flex:1 1 auto;justify-content:center}

@@ -83,6 +83,7 @@
     if (md && t('metaDesc')) md.setAttribute('content', t('metaDesc'));
     reformatCounters();
     brandify();
+    if (waitlistRelabel) waitlistRelabel();
     if (announce) toast(t('tLang'));
   }
 
@@ -532,6 +533,8 @@
 
   /* ------------------------------------------------------------- modals */
   var lastFocus = null;
+  var waitlistReopen = null;
+  var waitlistRelabel = null;
   function openModal(id) {
     var m = document.getElementById(id);
     if (!m) return;
@@ -552,7 +555,10 @@
 
   function initModals() {
     $$('[data-waitlist]').forEach(function (b) {
-      b.addEventListener('click', function () { openModal('waitlist'); });
+      b.addEventListener('click', function () {
+        if (waitlistReopen) waitlistReopen();
+        openModal('waitlist');
+      });
     });
     $$('[data-toast]').forEach(function (b) {
       b.addEventListener('click', function () { toast(t(b.dataset.toast === 'proLater' ? 'tLater' : b.dataset.toast)); });
@@ -583,9 +589,50 @@
   }
 
   /* ----------------------------------------------------------- waitlist */
+  // Where an application is actually delivered. While this is empty the site
+  // has no intake of its own, and the form must not imply otherwise: it hands
+  // the visitor a composed email instead of thanking them for an address that
+  // never left their browser.
+  var WAITLIST_ENDPOINT = '';
+  var WAITLIST_EMAIL = 'escape.travel.ai@gmail.com';
+  var WAITLIST_KEY = 'escape.waitlist';
+
+  function readWaitlist() {
+    try { return JSON.parse(LS.get(WAITLIST_KEY) || '[]'); } catch (e) { return []; }
+  }
+  function writeWaitlist(list) { LS.set(WAITLIST_KEY, JSON.stringify(list)); }
+
+  function waitlistLetter(entry) {
+    var platforms = { ios: 'iOS', android: 'Android', any: t('wlAny') };
+    var lines = [
+      t('wlfName') + ': ' + entry.name,
+      t('wlEmail') + ': ' + entry.email,
+      t('wlfPlat') + ': ' + (platforms[entry.platform] || entry.platform)
+    ];
+    if (entry.message) lines.push(t('wlfMsg') + ': ' + entry.message);
+    lines.push('', '— www.escapetravel.site');
+    return { subject: t('wlMailSubj'), body: lines.join('\n') };
+  }
+
   function initWaitlist() {
     var form = $('#wlFormEl');
     if (!form) return;
+    var panes = ['wlForm', 'wlDone', 'wlHand', 'wlFail'];
+    var submit = $('#wlSubmitLabel');
+    var pending = null;
+
+    function show(id) {
+      panes.forEach(function (p) { var el = $('#' + p); if (el) el.hidden = p !== id; });
+    }
+
+    // The submit button names what pressing it does. Without an endpoint it
+    // composes a letter; it does not send anything.
+    function labelSubmit() {
+      if (submit) submit.textContent = t(WAITLIST_ENDPOINT ? 'wlSubmit' : 'wlSubmitMail');
+      var lead = $('#wlLead');
+      if (lead) lead.textContent = t(WAITLIST_ENDPOINT ? 'wlLead' : 'wlLeadMail');
+    }
+
     var plat = 'ios';
     $$('#wlPlat button').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -593,6 +640,83 @@
         b.setAttribute('aria-pressed', 'true');
         plat = b.dataset.plat;
       });
+    });
+
+    function handOff(entry) {
+      var letter = waitlistLetter(entry);
+      var pre = $('#wlPre');
+      var text = letter.subject + '\n\n' + letter.body;
+      if (pre) pre.textContent = text;
+      var link = $('#wlMailto');
+      if (link) {
+        link.href = 'mailto:' + WAITLIST_EMAIL +
+          '?subject=' + encodeURIComponent(letter.subject) +
+          '&body=' + encodeURIComponent(letter.body);
+      }
+      var copy = $('#wlCopy');
+      if (copy) {
+        copy.textContent = t('wlHandCopy');
+        copy.onclick = function () {
+          var done = function () { copy.textContent = t('wlHandCopied'); };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+          } else { fallbackCopy(text, done); }
+        };
+      }
+      var note = $('#wlHandDone');
+      if (note) note.hidden = true;
+      if (link) {
+        link.onclick = function () {
+          if (note) note.hidden = false;
+          // Nag once. We cannot know whether they pressed send, so after the
+          // letter has been handed over we stop treating the entry as unseen.
+          markHandedOff(entry);
+        };
+      }
+      show('wlHand');
+    }
+
+    function markHandedOff(entry) {
+      var list = readWaitlist();
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].at === entry.at) { list[i].status = 'handed'; }
+      }
+      writeWaitlist(list);
+    }
+
+    function fallbackCopy(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    function send(entry) {
+      var btn = form.querySelector('button[type=submit]');
+      if (btn) btn.disabled = true;
+      fetch(WAITLIST_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entry)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        // Delivered, so the local copy has no further purpose.
+        writeWaitlist(readWaitlist().filter(function (e) { return e.at !== entry.at; }));
+        show('wlDone');
+      }).catch(function () {
+        show('wlFail');
+      }).then(function () {
+        if (btn) btn.disabled = false;
+      });
+    }
+
+    var retry = $('#wlRetry');
+    if (retry) retry.addEventListener('click', function () {
+      if (pending && WAITLIST_ENDPOINT) send(pending); else show('wlForm');
     });
 
     form.addEventListener('submit', function (e) {
@@ -605,18 +729,36 @@
       if (!okName) { name.focus(); return; }
       if (!okMail) { mail.focus(); return; }
 
-      var list = [];
-      try { list = JSON.parse(LS.get('escape.waitlist') || '[]'); } catch (err) { list = []; }
-      list.push({
+      var entry = {
         name: name.value.trim(), email: mail.value.trim(), platform: plat,
-        message: $('#wlMsg').value.trim(), lang: lang, at: new Date().toISOString()
-      });
-      LS.set('escape.waitlist', JSON.stringify(list));
+        message: $('#wlMsg').value.trim(), lang: lang, at: new Date().toISOString(),
+        status: 'pending'
+      };
+      pending = entry;
+      var list = readWaitlist();
+      list.push(entry);
+      writeWaitlist(list);
 
-      $('#wlForm').hidden = true;
-      $('#wlDone').hidden = false;
+      if (WAITLIST_ENDPOINT) send(entry); else handOff(entry);
       form.reset();
     });
+
+    // Anyone who applied while the form only wrote to localStorage is still
+    // sitting in their own browser, believing they were signed up. Say so and
+    // offer the letter, rather than letting them keep waiting.
+    waitlistReopen = function () {
+      labelSubmit();
+      var stale = readWaitlist().filter(function (e) { return e.status !== 'handed'; }).pop();
+      var note = $('#wlStale');
+      if (!stale || WAITLIST_ENDPOINT) { if (note) note.hidden = true; show('wlForm'); return; }
+      if (note) note.hidden = false;
+      $('#wlName').value = stale.name || '';
+      $('#wlMail').value = stale.email || '';
+      if (stale.message) $('#wlMsg').value = stale.message;
+      show('wlForm');
+    };
+    waitlistRelabel = labelSubmit;
+    labelSubmit();
   }
 
   /* ------------------------------------------------------------ consent */
