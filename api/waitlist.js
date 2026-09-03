@@ -47,7 +47,10 @@ async function forward(entry) {
     ),
     body: JSON.stringify(entry)
   });
-  if (!r.ok) throw new Error('forward responded ' + r.status);
+  if (!r.ok) {
+    const detail = await r.text().catch(function () { return ''; });
+    throw new Error('forward responded ' + r.status + ' ' + detail.slice(0, 300));
+  }
 }
 
 async function email(entry) {
@@ -75,7 +78,10 @@ async function email(entry) {
       text: lines.join('\n')
     })
   });
-  if (!r.ok) throw new Error('resend responded ' + r.status);
+  if (!r.ok) {
+    const detail = await r.text().catch(function () { return ''; });
+    throw new Error('resend responded ' + r.status + ' ' + detail.slice(0, 300));
+  }
 }
 
 module.exports = async function handler(req, res) {
@@ -87,7 +93,11 @@ module.exports = async function handler(req, res) {
   // The form asks before it promises, so its button can name what pressing it
   // will actually do rather than finding out afterwards.
   if (req.method === 'GET') {
-    return res.status(200).json({ ok: true, configured: forwarding || mailing });
+    return res.status(200).json({
+      ok: true,
+      configured: forwarding || mailing,
+      mode: forwarding ? 'forward' : (mailing ? 'email' : 'none')
+    });
   }
 
   if (req.method !== 'POST') {

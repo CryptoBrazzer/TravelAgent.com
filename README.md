@@ -75,11 +75,48 @@ Vercel project (Settings → Environment Variables), then redeploy:
 The forwarded JSON is `{name, email, platform, message, lang, at}` — `platform`
 is one of `ios` / `android` / `any`, `at` is set server-side.
 
-With none of them set the endpoint answers `503 {configured:false}`. The form
-asks it on open, so the button reads "Подготовить письмо" rather than
-"Отправить заявку", and submitting composes an email the visitor sends instead
-of accepting an address into a black hole. Nothing is ever posted when the
-answer is already known to be no.
+### Setting up email delivery
+
+1. Sign up at [resend.com](https://resend.com) with the address that should
+   receive the applications.
+2. Copy an API key (it starts with `re_`).
+3. In the Vercel project, Settings → Environment Variables:
+
+   ```
+   RESEND_API_KEY = re_...
+   WAITLIST_TO    = escape.travel.ai@gmail.com
+   WAITLIST_FROM  = onboarding@resend.dev
+   ```
+
+4. Redeploy. Environment variables are read at request time, but a running
+   deployment keeps the old values, so it needs a new one.
+
+`onboarding@resend.dev` is Resend's shared sender and needs no DNS at all, but
+it can only deliver to the address that owns the Resend account. Once
+`escapetravel.site` is verified in Resend, change `WAITLIST_FROM` to something
+like `hello@escapetravel.site` and it can deliver anywhere.
+
+Applications arrive with `reply-to` set to the applicant, so answering the
+email answers the person.
+
+### Checking that it took
+
+```
+curl https://www.escapetravel.site/api/waitlist
+```
+
+`{"configured":false,"mode":"none"}` means nothing is set yet.
+`{"configured":true,"mode":"email"}` means it will send. No secret is exposed
+either way. If delivery then fails, the reason Resend gave is in the function's
+log in the Vercel dashboard — a rejected sender domain and an outage look
+nothing alike there.
+
+### While nothing is configured
+
+The endpoint answers `503 {configured:false}`. The form asks it on open, so the
+button reads "Подготовить письмо" rather than "Отправить заявку", and submitting
+composes an email the visitor sends instead of accepting an address into a black
+hole. Nothing is ever posted when the answer is already known to be no.
 
 ## Data and privacy
 
