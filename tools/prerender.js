@@ -24,13 +24,16 @@ const BASE = process.env.BASE || 'http://127.0.0.1:8899';
 
     const file = path.join(root, `${name}.html`);
     const before = fs.readFileSync(file, 'utf8');
+    let matched = false;
     const after = before.replace(
       /(<main class="wrap" id="docBody">)[\s\S]*?(<\/main>)/,
-      (m, open, close) => open + '\n' + html + '\n' + close
+      (m, open, close) => { matched = true; return open + '\n' + html + '\n' + close; }
     );
-    if (after === before) throw new Error(`${name}: could not find #docBody`);
-    fs.writeFileSync(file, after);
-    console.log(`${name}.html  ${(html.length / 1024).toFixed(1)} KB of text baked in`);
+    // An unchanged page means the text was already current, not that the
+    // anchor is missing — only a miss is an error.
+    if (!matched) throw new Error(`${name}: could not find #docBody`);
+    if (after !== before) fs.writeFileSync(file, after);
+    console.log(`${name}.html  ${(html.length / 1024).toFixed(1)} KB${after === before ? ' (already current)' : ' baked in'}`);
   }
   await br.close();
 })();

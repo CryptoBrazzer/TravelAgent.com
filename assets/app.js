@@ -589,11 +589,11 @@
   }
 
   /* ----------------------------------------------------------- waitlist */
-  // Where an application is actually delivered. While this is empty the site
-  // has no intake of its own, and the form must not imply otherwise: it hands
-  // the visitor a composed email instead of thanking them for an address that
-  // never left their browser.
-  var WAITLIST_ENDPOINT = '';
+  // Where an application is actually delivered. The endpoint reports whether a
+  // destination is configured; until one is, the form hands the visitor a
+  // composed email rather than thanking them for an address that goes nowhere.
+  var WAITLIST_ENDPOINT = '/api/waitlist';
+  var intakeReady = false;
   var WAITLIST_EMAIL = 'escape.travel.ai@gmail.com';
   var WAITLIST_KEY = 'escape.waitlist';
 
@@ -628,9 +628,21 @@
     // The submit button names what pressing it does. Without an endpoint it
     // composes a letter; it does not send anything.
     function labelSubmit() {
-      if (submit) submit.textContent = t(WAITLIST_ENDPOINT ? 'wlSubmit' : 'wlSubmitMail');
+      if (submit) submit.textContent = t(intakeReady ? 'wlSubmit' : 'wlSubmitMail');
       var lead = $('#wlLead');
-      if (lead) lead.textContent = t(WAITLIST_ENDPOINT ? 'wlLead' : 'wlLeadMail');
+      if (lead) lead.textContent = t(intakeReady ? 'wlLead' : 'wlLeadMail');
+    }
+
+    // Ask the endpoint once whether it has somewhere to put an application.
+    // Anything other than a clear yes is treated as no.
+    var probed = false;
+    function probe() {
+      if (probed || !WAITLIST_ENDPOINT) return;
+      probed = true;
+      fetch(WAITLIST_ENDPOINT, { method: 'GET' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) { intakeReady = !!(d && d.configured); labelSubmit(); })
+        .catch(function () { intakeReady = false; labelSubmit(); });
     }
 
     var plat = 'ios';
@@ -701,12 +713,30 @@
       fetch(WAITLIST_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(entry)
+        body: JSON.stringify({
+          name: entry.name, email: entry.email, platform: entry.platform,
+          message: entry.message, lang: entry.lang, company: $('#wlCompany') ? $('#wlCompany').value : ''
+        })
       }).then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        // Delivered, so the local copy has no further purpose.
-        writeWaitlist(readWaitlist().filter(function (e) { return e.at !== entry.at; }));
-        show('wlDone');
+        return r.json().catch(function () { return null; }).then(function (d) {
+          return { status: r.status, ok: r.ok, data: d };
+        });
+      }).then(function (res) {
+        if (res.ok) {
+          // Delivered, so the local copy has no further purpose.
+          writeWaitlist(readWaitlist().filter(function (e) { return e.at !== entry.at; }));
+          show('wlDone');
+          return;
+        }
+        // No destination configured yet: fall back to the letter rather than
+        // showing an error the visitor can do nothing about.
+        if (res.status === 503 && res.data && res.data.configured === false) {
+          intakeReady = false;
+          labelSubmit();
+          handOff(entry);
+          return;
+        }
+        show('wlFail');
       }).catch(function () {
         show('wlFail');
       }).then(function () {
@@ -717,6 +747,12 @@
     var retry = $('#wlRetry');
     if (retry) retry.addEventListener('click', function () {
       if (pending && WAITLIST_ENDPOINT) send(pending); else show('wlForm');
+    });
+    // Sending can fail for reasons the visitor cannot fix. The letter always
+    // works, so it stays one click away rather than leaving them at a wall.
+    var failMail = $('#wlFailMail');
+    if (failMail) failMail.addEventListener('click', function () {
+      if (pending) handOff(pending); else show('wlForm');
     });
 
     form.addEventListener('submit', function (e) {
@@ -739,7 +775,10 @@
       list.push(entry);
       writeWaitlist(list);
 
-      if (WAITLIST_ENDPOINT) send(entry); else handOff(entry);
+      // The probe already said whether there is anywhere to send this. Asking
+      // again just to be refused would cost a round trip and log an error the
+      // visitor cannot act on.
+      if (WAITLIST_ENDPOINT && intakeReady) send(entry); else handOff(entry);
       form.reset();
     });
 
@@ -747,10 +786,11 @@
     // sitting in their own browser, believing they were signed up. Say so and
     // offer the letter, rather than letting them keep waiting.
     waitlistReopen = function () {
+      probe();
       labelSubmit();
       var stale = readWaitlist().filter(function (e) { return e.status !== 'handed'; }).pop();
       var note = $('#wlStale');
-      if (!stale || WAITLIST_ENDPOINT) { if (note) note.hidden = true; show('wlForm'); return; }
+      if (!stale || intakeReady) { if (note) note.hidden = true; show('wlForm'); return; }
       if (note) note.hidden = false;
       $('#wlName').value = stale.name || '';
       $('#wlMail').value = stale.email || '';
