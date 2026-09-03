@@ -1424,3 +1424,5 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .wl__act{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .wl__act .btn{flex:1 1 auto;justify-content:center}
+/* a field only a bot will fill in */
+.wl__hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
