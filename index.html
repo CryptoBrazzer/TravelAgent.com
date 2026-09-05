@@ -31,12 +31,13 @@
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <link rel="preload" as="image" href="/img/hero-santorini-lg.webp" imagesrcset="/img/hero-santorini-sm.webp 1200w, /img/hero-santorini-lg.webp 2200w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/greatvibes-latin-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/onest-latin-700.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=f9acb6e106">
-<link rel="stylesheet" href="/assets/styles.css?v=71a0a1fb5c">
+<link rel="stylesheet" href="/assets/styles.css?v=2a95d69a2f">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Escape! AI Travel Agent","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://www.escapetravel.site/","description":"Personal AI travel agent that plans, organises and accompanies a whole journey — routes, tickets, hotels, cars, EV charging, transfers, weather and recommendations in one agent.","inLanguage":["ru","uk","en"],"author":{"@type":"Person","name":"Dmytro Sukhyna"},"publisher":{"@type":"Organization","name":"Escape!","url":"https://www.escapetravel.site/","email":"escape.travel.ai@gmail.com"}}
@@ -96,6 +97,7 @@
   <symbol id="i-umbrella" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v6.6a2.2 2.2 0 0 0 4.4 0"/><path d="M12 3v-.9"/></symbol>
   <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 8.6 4 15.4c0 1.9.6 3.4 1.5 4.6C7 17 10.6 13.6 16 12c-4.3 2.4-7.4 5.6-8.6 9 1 .4 2 .6 3.1.6 6 0 9.5-5.8 9.5-17.6Z"/></symbol>
   <symbol id="i-parking" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><path d="M9.6 17V7.4h3.1a2.9 2.9 0 0 1 0 5.8H9.6"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.6" width="6" height="11" rx="3"/><path d="M5.5 11.2a6.5 6.5 0 0 0 13 0"/><path d="M12 17.7V21"/></symbol>
   <symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor"><path d="M16.3 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8ZM14.1 5.7c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.9 1 0 2.1-.5 2.8-1.3Z"/></symbol>
   <symbol id="i-android" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.5H6.4v8.1c0 .6.5 1.1 1.1 1.1h.9v2.6a1.4 1.4 0 0 0 2.8 0v-2.6h1.6v2.6a1.4 1.4 0 0 0 2.8 0v-2.6h.9c.6 0 1.1-.5 1.1-1.1ZM4.4 9.3a1.4 1.4 0 0 0-1.4 1.4v4.9a1.4 1.4 0 0 0 2.8 0v-4.9a1.4 1.4 0 0 0-1.4-1.4Zm15.2 0a1.4 1.4 0 0 0-1.4 1.4v4.9a1.4 1.4 0 0 0 2.8 0v-4.9a1.4 1.4 0 0 0-1.4-1.4ZM15 3.6l1-1.7a.3.3 0 0 0-.5-.3l-1 1.8a6.6 6.6 0 0 0-5 0l-1-1.8a.3.3 0 0 0-.5.3l1 1.7a5.4 5.4 0 0 0-2.6 4.6h11.2A5.4 5.4 0 0 0 15 3.6ZM9.3 6.2a.6.6 0 1 1 0-1.1.6.6 0 0 1 0 1.1Zm5.4 0a.6.6 0 1 1 0-1.1.6.6 0 0 1 0 1.1Z"/></symbol>
 </defs></svg>
@@ -328,9 +330,14 @@
     </div>
 
     <div class="voice rv" style="max-width:720px;margin:clamp(24px,3vw,38px) auto 0">
-      <span class="voice__lab" data-i18n="knowVoiceLab">Вы говорите</span>
+      <div class="voice__hd">
+        <span class="voice__mic" aria-hidden="true"><svg><use href="#i-mic"/></svg></span>
+        <span class="voice__lab" data-i18n="knowVoiceLab">Голосовое сообщение</span>
+        <span class="voice__len" aria-hidden="true">0:07</span>
+      </div>
+      <span class="voice__wave" aria-hidden="true"><i style="height:30%"></i><i style="height:64%"></i><i style="height:100%"></i><i style="height:46%"></i><i style="height:82%"></i><i style="height:38%"></i><i style="height:70%"></i><i style="height:52%"></i><i style="height:88%"></i><i style="height:34%"></i><i style="height:60%"></i><i style="height:26%"></i><i style="height:74%"></i><i style="height:42%"></i><i style="height:90%"></i><i style="height:36%"></i><i style="height:66%"></i><i style="height:28%"></i><i style="height:58%"></i><i style="height:84%"></i><i style="height:44%"></i><i style="height:72%"></i><i style="height:32%"></i><i style="height:96%"></i><i style="height:40%"></i><i style="height:68%"></i><i style="height:50%"></i><i style="height:86%"></i><i style="height:30%"></i><i style="height:62%"></i><i style="height:38%"></i><i style="height:78%"></i><i style="height:46%"></i><i style="height:54%"></i><i style="height:92%"></i><i style="height:34%"></i></span>
       <p data-i18n="knowVoice">«Рим на выходные. Вдвоём. Около €1 500. Хороший отель, отличная еда, немного культуры и что-нибудь вечером.»</p>
-      <span class="voice__wave" aria-hidden="true"><i style="height:30%"></i><i style="height:64%"></i><i style="height:100%"></i><i style="height:46%"></i><i style="height:82%"></i><i style="height:38%"></i><i style="height:70%"></i><i style="height:52%"></i><i style="height:88%"></i><i style="height:34%"></i><i style="height:60%"></i><i style="height:26%"></i></span>
+      <span class="voice__hint" data-i18n="knowVoiceHint">Расшифровка — агенту всё равно, сказали вы это или написали</span>
     </div>
     <p class="quote rv" style="text-align:center;margin-top:clamp(22px,2.6vw,32px);font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.03em;line-height:1.2" data-i18n-html="knowOne">Одно намерение.<br>Одна связанная поездка.</p>
 
@@ -863,9 +870,9 @@
       <p class="lead" data-i18n="parLead">Не список мест, а готовые три дня. Escape! соберёт их сам — так, как вы и хотели поехать.</p>
 
       <div class="days">
-        <article class="day"><span class="d" data-i18n="dDay1">День 1</span><b data-i18n="pd1">Приезд и вечер у реки</b><p data-i18n="pd1s">15:00 — заселение в Марэ. 18:30 — прогулка по набережной Сены. 20:30 — ужин в двух кварталах от отеля.</p></article>
-        <article class="day"><span class="d" data-i18n="dDay2">День 2</span><b data-i18n="pd2">Искусство без очередей</b><p data-i18n="pd2s">09:30 — музей Орсе по билету на точное время. 13:00 — обед в Сен-Жермене. 16:00 — тихие дворы и книжные лавки.</p></article>
-        <article class="day"><span class="d" data-i18n="dDay3">День 3</span><b data-i18n="pd3">Монмартр и дорога домой</b><p data-i18n="pd3s">08:30 — завтрак в булочной у отеля. 10:00 — Монмартр сверху вниз пешком. 14:20 — выезд в аэропорт с запасом 40 минут.</p></article>
+        <article class="day"><span class="day__ic" aria-hidden="true"><svg><use href="#i-coffee"/></svg></span><span class="d" data-i18n="dDay1">День 1</span><b data-i18n="pd1">Приезд и вечер у реки</b><p data-i18n="pd1s">15:00 — заселение в Марэ. 18:30 — прогулка по набережной Сены. 20:30 — ужин в двух кварталах от отеля.</p></article>
+        <article class="day"><span class="day__ic" aria-hidden="true"><svg><use href="#i-museum"/></svg></span><span class="d" data-i18n="dDay2">День 2</span><b data-i18n="pd2">Искусство без очередей</b><p data-i18n="pd2s">09:30 — музей Орсе по билету на точное время. 13:00 — обед в Сен-Жермене. 16:00 — тихие дворы и книжные лавки.</p></article>
+        <article class="day"><span class="day__ic" aria-hidden="true"><svg><use href="#i-walk"/></svg></span><span class="d" data-i18n="dDay3">День 3</span><b data-i18n="pd3">Монмартр и дорога домой</b><p data-i18n="pd3s">08:30 — завтрак в булочной у отеля. 10:00 — Монмартр сверху вниз пешком. 14:20 — выезд в аэропорт с запасом 40 минут.</p></article>
       </div>
 
       <div class="tags">
@@ -1103,18 +1110,18 @@
             <li><span class="ui__ic ui__ic--blue"><svg aria-hidden="true"><use href="#i-plane"/></svg></span>
               <span class="t"><b>12 <span data-i18n="togFrom">из Афин</span></b><span data-i18n="togFindS">Тех, кто едет туда же и так же</span></span></li>
           </ul>
-          <div class="ui__cta" data-i18n="togJoin">Присоединиться к Escape</div>
+          <button class="ui__cta" type="button" data-waitlist data-i18n="togJoin">Присоединиться к Escape</button>
         </div>
         <p class="src" style="margin-top:14px" data-i18n="togNotDating">Это подбор попутчиков, а не знакомства. Люди сходятся вокруг места, куда оба хотят.</p>
       </div>
 
       <div class="split__copy rv rv-d1">
         <div class="match">
-          <span class="match__av">M</span>
+          <img class="match__av" src="/img/av-maria.webp" width="120" height="120" loading="lazy" decoding="async" alt="" aria-hidden="true">
           <span class="match__b">
             <span class="match__n">Maria</span>
             <span class="match__tags">
-              <span data-i18n="matchBudget">Похожий бюджет</span><span data-i18n="matchDates">Те же даты</span>
+              <span class="is-key" data-i18n="matchBudget">Похожий бюджет</span><span class="is-key" data-i18n="matchDates">Те же даты</span>
               <span data-i18n="matchPace">Активный темп</span><span data-i18n="matchFood">Любит поесть</span>
               <span data-i18n="matchNight">Совпадает по вечерам</span>
             </span>
@@ -1132,10 +1139,7 @@
 </section>
 
 <!-- ===== 15c TRIP ROOMS ===== -->
-<section class="section section--dark section--photo">
-  <div class="section__bg" aria-hidden="true">
-    <img src="/img/terrace-sm.webp" srcset="/img/terrace-sm.webp 1200w, /img/terrace-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
-  </div>
+<section class="section section--dark">
   <div class="wrap">
     <div class="head rv">
       <span class="status status--vision" data-i18n="stVision">Направление</span>
@@ -1146,7 +1150,7 @@
       <div class="amb__t" style="flex:1">
         <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
           <span style="font-family:var(--font-display);font-size:var(--t-h3);font-weight:800;letter-spacing:-.03em">Tokyo</span>
-          <span class="src">10–18.10 · 143 <span data-i18n="togInterested">интересуются</span> · 27 <span data-i18n="togGoing">едут</span></span>
+          <span class="src">10–18.10 · <span data-i18n="roomDays">8 дней</span></span>
         </div>
         <div class="room__feats">
           <span><svg aria-hidden="true"><use href="#i-users"/></svg><span data-i18n="roomChat">Чат</span></span>
@@ -1178,7 +1182,7 @@
           <div class="pass__name">DMYTRO</div>
           <div class="pass__lvl" data-i18n="passLevel">Исследователь · уровень 27</div>
         </div>
-        <svg class="pass__pin" aria-hidden="true"><use href="#brand-pin"/></svg>
+        <img class="pass__av" src="/img/av-dmytro.webp" width="120" height="120" loading="lazy" decoding="async" alt="" aria-hidden="true">
       </div>
       <div class="pass__grid">
         <div><div class="pass__k">32</div><div class="pass__c" data-i18n="passCountries">стран</div></div>
@@ -1231,15 +1235,56 @@
     </div>
 
     <div class="chal rv">
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-spark"/></svg><span data-i18n="ch1">Куда ещё не были</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-route"/></svg><span data-i18n="ch2">3 страны за 30 дней</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-compare"/></svg><span data-i18n="ch3">Уикенд за €300</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-ferry"/></svg><span data-i18n="ch4">Средиземноморье</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-map"/></svg><span data-i18n="ch5">Неочевидная Европа</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-star"/></svg><span data-i18n="ch6">7 чудес</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-trips"/></svg><span data-i18n="ch7">5 новых городов за год</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-coffee"/></svg><span data-i18n="ch8">Гастрономические столицы</span></div>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-star"/></svg></span>
+        <b data-i18n="ch6">7 чудес света</b>
+        <p data-i18n="ch6s">Петра, Колизей, Мачу-Пикчу, Чичен-Ица, Тадж-Махал, Христос-Искупитель, Великая стена</p>
+        <span class="chal__meta" data-i18n="chCount7">0 / 7</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-spark"/></svg></span>
+        <b data-i18n="ch1">Куда ещё не были</b>
+        <p data-i18n="ch1s">Агент выбирает страну, которой нет в вашем паспорте, и собирает поездку под ваши даты</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-route"/></svg></span>
+        <b data-i18n="ch2">3 страны за 30 дней</b>
+        <p data-i18n="ch2s">Один маршрут через три границы: поезда, паром и ночёвки уже посчитаны</p>
+        <span class="chal__meta" data-i18n="chCount3">0 / 3</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-compare"/></svg></span>
+        <b data-i18n="ch3">Уикенд за €300</b>
+        <p data-i18n="ch3s">Перелёт, две ночи и еда укладываются в бюджет — агент ищет ту неделю, когда это возможно</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-ferry"/></svg></span>
+        <b data-i18n="ch4">Средиземноморье</b>
+        <p data-i18n="ch4s">Пятнадцать портов от Барселоны до Афин, по одному за поездку</p>
+        <span class="chal__meta" data-i18n="chCount15">0 / 15</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-map"/></svg></span>
+        <b data-i18n="ch5">Неочевидная Европа</b>
+        <p data-i18n="ch5s">Города, которые не попадают в списки: Гент, Мостар, Тбилиси, Порту</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-trips"/></svg></span>
+        <b data-i18n="ch7">5 новых городов за год</b>
+        <p data-i18n="ch7s">По одному раз в два месяца — агент напоминает, когда цены падают</p>
+        <span class="chal__meta" data-i18n="chCount5">0 / 5</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-coffee"/></svg></span>
+        <b data-i18n="ch8">Гастрономические столицы</b>
+        <p data-i18n="ch8s">Сан-Себастьян, Болонья, Лион, Стамбул — поездка вокруг стола</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
     </div>
+    <p class="src rv" style="margin-top:12px" data-i18n="chSwipe">Листайте — челленджей будет больше</p>
 
     <div class="chal__live rv rv-d1">
       <div class="chal__hd">
@@ -1254,7 +1299,7 @@
         <span class="src" data-i18n="chFound">Escape! нашёл, чем закрыть третью:</span>
         <span style="font-family:var(--font-display);font-size:var(--t-h4);font-weight:800;letter-spacing:-.025em" data-i18n="chRoute">Афины → София</span>
         <span class="pill">€39</span>
-        <span class="btn btn--red btn--sm" style="margin-left:auto" data-i18n="chBuild">Собрать эту поездку</span>
+        <button class="btn btn--red btn--sm" type="button" data-waitlist style="margin-left:auto"><span data-i18n="chBuild">Собрать эту поездку</span></button>
       </div>
     </div>
   </div>
@@ -1317,10 +1362,10 @@
             <li><span class="ui__ic ui__ic--blue"><svg aria-hidden="true"><use href="#i-plane"/></svg></span>
               <span class="t"><b data-i18n="mineRebuilt">Перелёт и жильё пересобраны</b><span data-i18n="mineRebuiltS">На двоих, с погодой в октябре</span></span></li>
           </ul>
-          <div class="ui__cta" data-i18n="mineBtn">Забрать себе</div>
+          <button class="ui__cta" type="button" data-waitlist data-i18n="mineBtn">Забрать себе</button>
         </div>
 
-        <div class="card" style="margin-top:18px;border-left:3px solid var(--red)">
+        <div class="card" style="margin-top:18px;border-left:4px solid var(--red)">
           <h3 style="font-size:var(--t-h4)" data-i18n-html="helpTitle">Были там? Помогите тому,<br>кто только собирается.</h3>
           <p class="small" style="color:var(--ink-2);font-size:var(--t-micro);line-height:1.5;margin-top:10px" data-i18n="helpAsk">Планируете Токио? 23 путешественника из вашей сети были там недавно.</p>
           <p class="small" style="color:var(--ink-2);font-size:var(--t-micro);line-height:1.5;margin-top:8px" data-i18n="helpGive">Вы были в Токио. Одна рекомендация — и кто-то поедет увереннее.</p>
@@ -1349,7 +1394,7 @@
             <li><span class="ui__ic ui__ic--teal"><svg aria-hidden="true"><use href="#i-car"/></svg></span>
               <span class="t"><b data-i18n="locTime">38 минут от дома</b><span data-i18n="locWhat">Пляж, обед, закат</span></span></li>
           </ul>
-          <div class="ui__cta" data-i18n="locBtn">Собрать мой день</div>
+          <button class="ui__cta" type="button" data-waitlist data-i18n="locBtn">Собрать мой день</button>
         </div>
       </div>
     </div>
@@ -1357,23 +1402,27 @@
 </section>
 
 <!-- ===== 15i YEAR IN ESCAPES ===== -->
-<section class="section section--dark">
+<section class="section section--dark section--tight">
   <div class="wrap">
-    <div class="head rv">
-      <span class="status status--vision" data-i18n="stVision">Направление</span>
-      <h2 data-i18n-html="wrTitle">Ваш год<br>в поездках.</h2>
-      <p class="lead" data-i18n="wrLead">В конце года — не отчёт, а история: где вы были, что оказалось лучшим и каким путешественником вы стали.</p>
-    </div>
-    <div class="wrapped rv">
-      <div class="wrapped__c"><div class="wrapped__n">21</div><div class="wrapped__l" data-i18n="wrTrips">поездок</div></div>
-      <div class="wrapped__c"><div class="wrapped__n">16</div><div class="wrapped__l" data-i18n="wrCountries">стран</div></div>
-      <div class="wrapped__c"><div class="wrapped__n">43</div><div class="wrapped__l" data-i18n="wrCities">городов</div></div>
-      <div class="wrapped__c"><div class="wrapped__n">61&#8239;840</div><div class="wrapped__l" data-i18n="wrKm">км</div></div>
-    </div>
-    <div class="wrapped__meta rv rv-d1">
-      <div><small data-i18n="wrFav">Любимый город</small><b>Rome</b></div>
-      <div><small data-i18n="wrSpont">Самая спонтанная</small><b>Budapest</b></div>
-      <div><small data-i18n="wrType">Тип путешественника</small><b data-i18n="wrTypeVal">Спонтанный исследователь</b></div>
+    <div class="yr rv">
+      <div class="yr__hd">
+        <span class="status status--vision" data-i18n="stVision">Направление</span>
+        <h3 data-i18n="wrTitle">Ваш год в поездках</h3>
+        <p data-i18n="wrLead">В конце года — не отчёт, а история: где вы были, что оказалось лучшим и каким путешественником вы стали.</p>
+      </div>
+      <div class="yr__bd">
+        <div class="yr__nums">
+          <div><b>21</b><span data-i18n="wrTrips">поездок</span></div>
+          <div><b>16</b><span data-i18n="wrCountries">стран</span></div>
+          <div><b>43</b><span data-i18n="wrCities">городов</span></div>
+          <div><b>61&#8239;840</b><span data-i18n="wrKm">км</span></div>
+        </div>
+        <div class="yr__meta">
+          <div><small data-i18n="wrFav">Любимый город</small><b>Rome</b></div>
+          <div><small data-i18n="wrSpont">Самая спонтанная</small><b>Budapest</b></div>
+          <div><small data-i18n="wrType">Тип путешественника</small><b data-i18n="wrTypeVal">Спонтанный исследователь</b></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1429,7 +1478,7 @@
 
     <div class="card-info rv rv-d1">
       <div class="card-info__row">
-        <span class="ic"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
+        <img class="ic ic--app" src="/img/app-icon-512.png" width="72" height="72" loading="lazy" decoding="async" alt="" aria-hidden="true">
         <span><small data-i18n="conProject">Проект</small><b>ESCAPE! · AI Travel Agent</b></span>
       </div>
       <div class="card-info__row">
@@ -1624,7 +1673,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/assets/i18n.js?v=5d1c17b4be"></script>
-<script src="/assets/app.js?v=0e64ea22fd" defer></script>
+<script src="/assets/i18n.js?v=6404fb2afe"></script>
+<script src="/assets/app.js?v=0a7f744ce6" defer></script>
 </body>
 </html>

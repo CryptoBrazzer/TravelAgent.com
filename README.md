@@ -28,7 +28,8 @@ api/
 tools/
   stamp.js               content-hash the asset URLs
   prerender.js           bake legal text into the pages for no-JS readers
-favicon.svg  robots.txt  sitemap.xml  vercel.json
+favicon.svg  apple-touch-icon.png  site.webmanifest
+robots.txt   sitemap.xml           vercel.json
 ```
 
 ## Languages
