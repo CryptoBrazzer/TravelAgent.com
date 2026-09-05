@@ -6,7 +6,7 @@ Static site, no build step: upload the repository root as-is.
 ## Structure
 
 ```
-index.html               single-page product story (25 sections)
+index.html               single-page product story (26 sections)
 privacy.html             ┐
 terms.html               │
 cookies.html             ├ legal pages (shared renderer, content in assets/legal-docs.js)
@@ -129,7 +129,7 @@ entry. Consent is granular and refusing is as easy as accepting.
 
 ## Imagery
 
-Eighteen photographs, all Unsplash-licensed, fetched at q80 — the set was
+Nineteen photographs. Eighteen are Unsplash-licensed, fetched at q80 — the set was
 re-encoded from q58 after the artefacts showed on the sea and the sky. Each
 one is used at most twice on the page, and never twice as a section
 background; only five sections carry a full-bleed photograph at all. The rest
@@ -137,8 +137,12 @@ are given a ground of their own — two very low light sources in the brand's
 blue and red — because a page where every section reaches for stock imagery
 reads as filler.
 
+The nineteenth is the operator's own artwork — the app icon with the
+wordmark cropped away, used at its native 950px in the proactivity section.
+
 Pictures have to be true to the copy beside them: the layover story runs
-JFK to Manhattan, so the photograph is New York.
+JFK to Manhattan, so the photograph is New York, and the proactive nudge
+names Santorini because Santorini is what the picture beside it shows.
 
 Contrast over a photograph cannot be computed from CSS alone. `photocontrast.js`
 in the QA set hides the text in each photo-backed section, screenshots the bare
