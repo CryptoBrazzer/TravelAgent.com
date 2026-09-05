@@ -31,12 +31,13 @@
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <link rel="preload" as="image" href="/img/hero-santorini-lg.webp" imagesrcset="/img/hero-santorini-sm.webp 1200w, /img/hero-santorini-lg.webp 2200w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/greatvibes-latin-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/onest-latin-700.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=f9acb6e106">
-<link rel="stylesheet" href="/assets/styles.css?v=ceff93e9c8">
+<link rel="stylesheet" href="/assets/styles.css?v=2a95d69a2f">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Escape! AI Travel Agent","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://www.escapetravel.site/","description":"Personal AI travel agent that plans, organises and accompanies a whole journey — routes, tickets, hotels, cars, EV charging, transfers, weather and recommendations in one agent.","inLanguage":["ru","uk","en"],"author":{"@type":"Person","name":"Dmytro Sukhyna"},"publisher":{"@type":"Organization","name":"Escape!","url":"https://www.escapetravel.site/","email":"escape.travel.ai@gmail.com"}}
@@ -1138,10 +1139,7 @@
 </section>
 
 <!-- ===== 15c TRIP ROOMS ===== -->
-<section class="section section--dark section--photo">
-  <div class="section__bg" aria-hidden="true">
-    <img src="/img/terrace-sm.webp" srcset="/img/terrace-sm.webp 1200w, /img/terrace-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
-  </div>
+<section class="section section--dark">
   <div class="wrap">
     <div class="head rv">
       <span class="status status--vision" data-i18n="stVision">Направление</span>
@@ -1152,7 +1150,7 @@
       <div class="amb__t" style="flex:1">
         <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
           <span style="font-family:var(--font-display);font-size:var(--t-h3);font-weight:800;letter-spacing:-.03em">Tokyo</span>
-          <span class="src">10–18.10 · 143 <span data-i18n="togInterested">интересуются</span> · 27 <span data-i18n="togGoing">едут</span></span>
+          <span class="src">10–18.10 · <span data-i18n="roomDays">8 дней</span></span>
         </div>
         <div class="room__feats">
           <span><svg aria-hidden="true"><use href="#i-users"/></svg><span data-i18n="roomChat">Чат</span></span>
@@ -1367,7 +1365,7 @@
           <button class="ui__cta" type="button" data-waitlist data-i18n="mineBtn">Забрать себе</button>
         </div>
 
-        <div class="card" style="margin-top:18px;border-left:3px solid var(--red)">
+        <div class="card" style="margin-top:18px;border-left:4px solid var(--red)">
           <h3 style="font-size:var(--t-h4)" data-i18n-html="helpTitle">Были там? Помогите тому,<br>кто только собирается.</h3>
           <p class="small" style="color:var(--ink-2);font-size:var(--t-micro);line-height:1.5;margin-top:10px" data-i18n="helpAsk">Планируете Токио? 23 путешественника из вашей сети были там недавно.</p>
           <p class="small" style="color:var(--ink-2);font-size:var(--t-micro);line-height:1.5;margin-top:8px" data-i18n="helpGive">Вы были в Токио. Одна рекомендация — и кто-то поедет увереннее.</p>
@@ -1404,23 +1402,27 @@
 </section>
 
 <!-- ===== 15i YEAR IN ESCAPES ===== -->
-<section class="section section--dark">
+<section class="section section--dark section--tight">
   <div class="wrap">
-    <div class="head rv">
-      <span class="status status--vision" data-i18n="stVision">Направление</span>
-      <h2 data-i18n-html="wrTitle">Ваш год<br>в поездках.</h2>
-      <p class="lead" data-i18n="wrLead">В конце года — не отчёт, а история: где вы были, что оказалось лучшим и каким путешественником вы стали.</p>
-    </div>
-    <div class="wrapped rv">
-      <div class="wrapped__c"><div class="wrapped__n">21</div><div class="wrapped__l" data-i18n="wrTrips">поездок</div></div>
-      <div class="wrapped__c"><div class="wrapped__n">16</div><div class="wrapped__l" data-i18n="wrCountries">стран</div></div>
-      <div class="wrapped__c"><div class="wrapped__n">43</div><div class="wrapped__l" data-i18n="wrCities">городов</div></div>
-      <div class="wrapped__c"><div class="wrapped__n">61&#8239;840</div><div class="wrapped__l" data-i18n="wrKm">км</div></div>
-    </div>
-    <div class="wrapped__meta rv rv-d1">
-      <div><small data-i18n="wrFav">Любимый город</small><b>Rome</b></div>
-      <div><small data-i18n="wrSpont">Самая спонтанная</small><b>Budapest</b></div>
-      <div><small data-i18n="wrType">Тип путешественника</small><b data-i18n="wrTypeVal">Спонтанный исследователь</b></div>
+    <div class="yr rv">
+      <div class="yr__hd">
+        <span class="status status--vision" data-i18n="stVision">Направление</span>
+        <h3 data-i18n="wrTitle">Ваш год в поездках</h3>
+        <p data-i18n="wrLead">В конце года — не отчёт, а история: где вы были, что оказалось лучшим и каким путешественником вы стали.</p>
+      </div>
+      <div class="yr__bd">
+        <div class="yr__nums">
+          <div><b>21</b><span data-i18n="wrTrips">поездок</span></div>
+          <div><b>16</b><span data-i18n="wrCountries">стран</span></div>
+          <div><b>43</b><span data-i18n="wrCities">городов</span></div>
+          <div><b>61&#8239;840</b><span data-i18n="wrKm">км</span></div>
+        </div>
+        <div class="yr__meta">
+          <div><small data-i18n="wrFav">Любимый город</small><b>Rome</b></div>
+          <div><small data-i18n="wrSpont">Самая спонтанная</small><b>Budapest</b></div>
+          <div><small data-i18n="wrType">Тип путешественника</small><b data-i18n="wrTypeVal">Спонтанный исследователь</b></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1476,7 +1478,7 @@
 
     <div class="card-info rv rv-d1">
       <div class="card-info__row">
-        <span class="ic"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
+        <img class="ic ic--app" src="/img/app-icon-512.png" width="72" height="72" loading="lazy" decoding="async" alt="" aria-hidden="true">
         <span><small data-i18n="conProject">Проект</small><b>ESCAPE! · AI Travel Agent</b></span>
       </div>
       <div class="card-info__row">
@@ -1671,7 +1673,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/assets/i18n.js?v=361813b17f"></script>
+<script src="/assets/i18n.js?v=6404fb2afe"></script>
 <script src="/assets/app.js?v=0a7f744ce6" defer></script>
 </body>
 </html>
