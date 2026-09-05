@@ -32,7 +32,7 @@
   --red:#E5231D;
   --red-soft:#FDF2F1;
   /* the brand red drops below 4.5:1 at text sizes — this is the same hue, passing */
-  --red-ink:#D3201B;
+  --red-ink:#C81C17;
 
   --ok:#12A150;
 
@@ -303,7 +303,17 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .device--lg{--w:312px}
 
 /* ---- app chrome ---- */
-.ui{display:flex;flex-direction:column;height:100%;overflow:hidden}
+.ui{display:flex;flex-direction:column;overflow:hidden}
+.device .ui{height:100%}
+/* Used standalone — outside a phone frame — .ui had no card of its own: on a
+   white section that was invisible, on a photograph it looked unfinished. */
+.ui{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-2)}
+.device .ui{background:none;border:0;border-radius:0;box-shadow:none}
+/* white on a pale photograph needs more than a hairline to sit on */
+.section--photo:not(.section--dark) .ui,
+.section--photo:not(.section--dark) .card,
+.section--photo:not(.section--dark) .day,
+.section--photo:not(.section--dark) .chain li{box-shadow:var(--sh-2);border-color:#DCE3EF}
 
 .ui__bar{
   display:flex;align-items:center;gap:.6em;
@@ -629,7 +639,13 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .trip p{font-size:var(--t-micro);color:var(--ink-2);line-height:1.5}
 
 /* --- 15. Split section (image + phone + copy) ---------------------------- */
-.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4.4vw,76px);align-items:center}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4.4vw,76px);align-items:stretch}
+/* the picture fills the row instead of floating in it: the two columns start
+   and end together, which is what "съехало" kept meaning */
+.split__media{display:flex;flex-direction:column}
+.split__media > .scene{flex:1;height:auto}
+.split__media > .scene--wide{flex:0 0 auto;align-self:center;width:100%}
+
 .split--rev .split__media{order:2}
 .split__copy h2{font-size:var(--t-h2);margin-block:14px 18px;text-wrap:balance}
 .split__media{position:relative}
@@ -700,16 +716,19 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 .notes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(30px,3.6vw,52px)}
 .note{
-  display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:var(--r-md);
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);
+  display:flex;align-items:center;gap:13px;padding:17px 18px;border-radius:var(--r-lg);
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
   opacity:0;transform:translateX(16px);
   transition:opacity .32s var(--ease),transform .32s var(--ease);
 }
 .note.is-on{opacity:1;transform:none}
-.note i{width:30px;height:30px;border-radius:9px;flex:none;display:grid;place-items:center;background:rgba(229,35,29,.16);color:#FF6A64}
-.note i svg{width:15px;height:15px}
-.note b{display:block;font-size:var(--t-small);font-weight:700;color:#fff}
-.note small{color:#93A0C4;font-size:var(--t-micro)}
+.note i{width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;background:rgba(229,35,29,.18);color:#FF8E88}
+.note i svg{width:17px;height:17px}
+.note b{display:block;font-size:var(--t-small);font-weight:700;color:#fff;letter-spacing:-.015em}
+.note small{color:#A9B5D4;font-size:var(--t-micro);line-height:1.45;display:block;margin-top:3px}
+.notes .note:nth-child(2) i{background:rgba(31,90,224,.22);color:#93B7F7}
+.notes .note:nth-child(3) i{background:rgba(18,161,80,.2);color:#8FE3C2}
+.notes .note:nth-child(4) i{background:rgba(219,132,18,.22);color:#F5C77E}
 
 /* --- 17. Replan demo ----------------------------------------------------- */
 .replan{
@@ -729,9 +748,12 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .replan__bar .btn{margin-left:auto}
 .legs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
 .leg{background:#fff;padding:clamp(16px,2vw,24px);display:flex;flex-direction:column;gap:8px;position:relative;transition:background .5s var(--ease)}
-.leg__ic{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--surface-2);color:var(--ink-2)}
-.leg__ic svg{width:17px;height:17px}
-.leg b{font-size:var(--t-small);font-weight:700}
+.leg__ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--sky);color:var(--blue-deep)}
+.leg:nth-child(2) .leg__ic{background:#E3F6EA;color:#0D7F3F}
+.leg:nth-child(3) .leg__ic{background:#FFF0DC;color:#B0741E}
+.leg:nth-child(4) .leg__ic{background:#F0E9FC;color:#6A34BC}
+.leg__ic svg{width:19px;height:19px}
+.leg b{font-size:var(--t-small);font-weight:700;letter-spacing:-.015em}
 .leg .time{font-family:var(--font-mono);font-size:var(--t-body);font-weight:700;letter-spacing:-.02em}
 .leg .old{text-decoration:line-through;color:var(--ink-3);font-size:var(--t-small);margin-right:7px;font-weight:500}
 .leg .new{color:var(--blue);opacity:0;transition:opacity .5s .2s var(--ease)}
@@ -821,16 +843,22 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .section--dark .tags > span{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:#C5CFE6}
 
 /* --- 21. Amsterdam chain ------------------------------------------------- */
-.chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:24px}
+.chain{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:24px}
 .chain li{
-  flex:1 1 128px;border-radius:var(--r-md);border:1px solid var(--line);background:#fff;
-  padding:14px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--sh-1);
+  border-radius:var(--r-lg);border:1px solid var(--line);background:#fff;
+  padding:18px 16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--sh-1);
   transition:transform .5s var(--ease),border-color .4s;
 }
-.chain li .ic{width:30px;height:30px;border-radius:9px;background:var(--sky-2);color:var(--blue-deep);display:grid;place-items:center}
-.chain li .ic svg{width:15px;height:15px}
-.chain li b{font-size:var(--t-micro);font-weight:800;letter-spacing:-.01em}
-.chain li span{font-size:11px;color:var(--ink-3);font-weight:600}
+.chain li .ic{width:36px;height:36px;border-radius:11px;background:var(--sky);color:var(--blue-deep);display:grid;place-items:center}
+.chain li .ic svg{width:18px;height:18px}
+.chain li b{font-size:var(--t-small);font-weight:700;letter-spacing:-.018em;line-height:1.25}
+.chain li span{font-size:var(--t-micro);color:var(--ink-2);font-weight:500;line-height:1.45}
+.chain li:nth-child(2) .ic{background:#E3F6EA;color:#0D7F3F}
+.chain li:nth-child(3) .ic{background:#F0E9FC;color:#6A34BC}
+.chain li:nth-child(4) .ic{background:#FFF0DC;color:#B0741E}
+.chain li:nth-child(5) .ic{background:#DFF4F4;color:#0B7B7B}
+@media (max-width:900px){ .chain{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:560px){ .chain{grid-template-columns:repeat(2,minmax(0,1fr))} }
 .chain li.is-alt{border-color:var(--blue);background:#F5F9FF}
 .chain li{transition:border-color .55s var(--ease-soft),background-color .55s var(--ease-soft),opacity .26s var(--ease-soft),transform .26s var(--ease-soft)}
 .chain li.is-swap{opacity:0;transform:translateY(-7px) scale(.96)}
@@ -1260,14 +1288,14 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,
     rgba(251,250,247,.66) 0,
-    rgba(251,250,247,.9) 96px,
+    rgba(251,250,247,.91) 54px,
     rgba(251,250,247,.91) calc(100% - 110px),
     rgba(251,250,247,.68) 100%);
 }
 .section--photo.section--surface .section__bg::after{
   background:linear-gradient(180deg,
     rgba(244,246,250,.66) 0,
-    rgba(244,246,250,.9) 96px,
+    rgba(244,246,250,.91) 54px,
     rgba(244,246,250,.91) calc(100% - 110px),
     rgba(244,246,250,.68) 100%);
 }
@@ -1530,10 +1558,18 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 /* --- trip room ---------------------------------------------------------- */
 .room__feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px;margin-top:18px}
-.room__feats span{display:flex;align-items:center;gap:9px;font-size:var(--t-micro);font-weight:600;
-  color:rgba(255,255,255,.86);background:rgba(255,255,255,.06);border:1px solid var(--line-soft,rgba(255,255,255,.1));
-  border-radius:10px;padding:10px 12px}
-.room__feats svg{width:14px;height:14px;color:#93B7F7;flex:none}
+.room__feats > span{display:flex;align-items:center;gap:11px;font-size:var(--t-small);font-weight:600;
+  color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+  border-radius:var(--r-md);padding:14px 16px;transition:background .4s var(--ease),border-color .4s var(--ease)}
+.room__feats > span:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.22)}
+.room__feats > span > span{background:none;border:0;padding:0;border-radius:0}
+.room__feats svg{width:17px;height:17px;color:#93B7F7;flex:none}
+.room__feats > span:nth-child(2) svg{color:#8FE3C2}
+.room__feats > span:nth-child(3) svg{color:#FF8E88}
+.room__feats > span:nth-child(4) svg{color:#8FE3C2}
+.room__feats > span:nth-child(5) svg{color:#F5C77E}
+.room__feats > span:nth-child(6) svg{color:#C4A9F5}
+.room__feats > span:nth-child(7) svg{color:#93B7F7}
 
 /* --- trending escapes --------------------------------------------------- */
 .trend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(12px,1.4vw,18px);margin-top:clamp(24px,3vw,38px)}
