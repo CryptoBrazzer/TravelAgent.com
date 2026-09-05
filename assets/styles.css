@@ -503,7 +503,9 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .hero__sub em{font-style:normal;color:var(--ink-2);font-weight:500;display:block}
 .hero__text{margin-top:16px;max-width:44ch;color:var(--ink-2);font-size:var(--t-body)}
 .hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.hero__stores{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.hero__stores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px;max-width:420px}
+.hero__stores .chip{justify-content:flex-start}
+.hero__stores .chip .soon{margin-left:auto}
 
 .hero__stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
 .hero__stage .device{--w:clamp(232px,25vw,326px)}
@@ -1059,6 +1061,10 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .rv.is-in{opacity:1;transform:none}
 .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
 .rv-d4{transition-delay:.32s}.rv-d5{transition-delay:.4s}.rv-d6{transition-delay:.48s}
+/* The feature cards live in a horizontal carousel on a phone; sliding them
+   vertically on the way in fights the direction the reader is already moving
+   them. They fade, and the only movement left is the one the thumb makes. */
+.fcard.rv{transform:none}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip{
@@ -1440,7 +1446,8 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   transition:background .22s var(--ease),border-color .22s var(--ease),color .22s var(--ease);
 }
 .modes button:hover{border-color:var(--ink-3);color:var(--ink)}
-.modes button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.modes button[aria-pressed="true"]{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
+.modes button[aria-pressed="true"] svg{color:#FF8E88}
 .modes button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 /* --- a spoken request, shown as speech rather than a form ---------------- */
@@ -1448,26 +1455,38 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   position:relative;border-radius:var(--r-lg);border:1px solid var(--line);background:#fff;
   padding:clamp(20px,2.4vw,30px);box-shadow:var(--sh-2);
 }
+.voice__hd{display:flex;align-items:center;gap:11px}
+.voice__mic{
+  width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:var(--red);color:#fff;box-shadow:0 4px 12px rgba(229,35,29,.3);
+}
+.voice__mic svg{width:16px;height:16px}
 .voice__lab{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.voice__len{margin-left:auto;font-size:var(--t-micro);font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .voice p{
-  margin:12px 0 0;font-family:var(--font-display);font-size:clamp(1.05rem,.9rem + .8vw,1.6rem);
+  margin:14px 0 0;font-family:var(--font-display);font-size:clamp(1.05rem,.9rem + .8vw,1.6rem);
   line-height:1.35;letter-spacing:-.022em;font-weight:600;color:var(--ink);
 }
-.voice__wave{display:flex;align-items:flex-end;gap:3px;height:22px;margin-top:16px}
-.voice__wave i{width:3px;border-radius:2px;background:var(--red);opacity:.75;display:block}
+.voice__hint{display:block;margin-top:12px;font-size:var(--t-micro);color:var(--ink-3)}
+.voice__wave{display:flex;align-items:center;gap:4px;height:26px;margin-top:14px}
+.voice__wave i{flex:1 1 0;max-width:5px;border-radius:2px;background:var(--red);opacity:.7;display:block;min-height:3px}
+/* the first third is "played": the rest waits, the way a voice note looks */
+.voice__wave i:nth-child(-n+13){opacity:1}
+.voice__wave i:nth-child(n+14){background:var(--line-strong);opacity:1}
 
 /* --- travel match ------------------------------------------------------- */
-.match{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:var(--r-lg);
+.match{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;border-radius:var(--r-lg);
   background:#fff;border:1px solid var(--line);box-shadow:var(--sh-2)}
-.match__av{width:54px;height:54px;border-radius:50%;flex:none;display:grid;place-items:center;
-  background:linear-gradient(140deg,#FFD9A0,#F2A65A);color:#7A4B12;font-weight:800;font-size:20px;
-  font-family:var(--font-display)}
+.match__av{width:56px;height:56px;border-radius:50%;flex:none;object-fit:cover;
+  box-shadow:0 0 0 2px #fff,0 0 0 4px var(--sky-2)}
 .match__b{flex:1;min-width:0}
 .match__n{font-family:var(--font-display);font-size:var(--t-h4);font-weight:700;letter-spacing:-.02em}
-.match__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.match__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.match__tags .is-key{color:var(--blue-deep);background:var(--sky);border:1px solid var(--sky-2);font-weight:700}
 .match__tags span{font-size:11px;font-weight:600;color:var(--ink-2);background:var(--surface-2);
   border-radius:var(--r-pill);padding:3px 9px}
-.match__pct{flex:none;text-align:center}
+.match__pct{flex:none;text-align:center;align-self:center;margin-left:8px;
+  padding:10px 16px;border-radius:var(--r-md);background:#E9F8F0;border:1px solid #9FDCBB}
 .match__pct b{display:block;font-family:var(--font-display);font-size:28px;font-weight:800;
   letter-spacing:-.04em;color:#0D7F3F;line-height:1}
 .match__pct span{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;
@@ -1507,7 +1526,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .pass__top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;position:relative;z-index:1}
 .pass__name{font-family:var(--font-display);font-size:clamp(1.5rem,1.1rem + 1.5vw,2.3rem);font-weight:800;letter-spacing:-.035em;line-height:1}
 .pass__lvl{font-size:var(--t-micro);font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#FF6A63;margin-top:8px}
-.pass__pin{width:38px;height:38px;color:#FF6A63;flex:none}
+.pass__av{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px rgba(255,255,255,.16),0 0 0 4px rgba(255,106,99,.5)}
 .pass__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(20px,2.4vw,30px);
   border-top:1px solid rgba(255,255,255,.14);padding-top:clamp(18px,2vw,26px);position:relative;z-index:1}
 .pass__k{font-family:var(--font-display);font-size:clamp(1.3rem,1rem + 1.2vw,2rem);font-weight:800;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}

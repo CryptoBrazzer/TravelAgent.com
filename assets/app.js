@@ -225,6 +225,21 @@
     io.observe(el);
   }
 
+  // A ratio is the wrong measure for a block taller than the screen: fifteen
+  // chips on a phone can only ever reach about half a viewport of ratio, so a
+  // 0.55 threshold fired at the very bottom of the block. This fires when the
+  // block's own top has come a quarter of the way up the screen, whatever its
+  // height.
+  function whenTopReached(el, cb, frac) {
+    if (!el) return;
+    if (reduced || !('IntersectionObserver' in window)) { cb(); return; }
+    var pct = Math.round((frac == null ? 0.28 : frac) * 100);
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { cb(); io.disconnect(); } });
+    }, { threshold: 0, rootMargin: '0px 0px -' + pct + '% 0px' });
+    io.observe(el);
+  }
+
   /* --- progress of an element through the viewport, 0..1 --------------- */
   function scrollProgress(el) {
     var r = el.getBoundingClientRect();
@@ -262,14 +277,14 @@
   function initFrag() {
     var frag = $('#frag');
     // let the chips be read in full colour first, then let them fall away
-    whenVisible(frag, function () {
+    whenTopReached(frag, function () {
       setTimeout(function () {
         // Promote the chips only for the length of the move: keeping fifteen
         // layers alive afterwards costs more than the animation saves.
         frag.classList.add('is-armed', 'is-collapsed');
         setTimeout(function () { frag.classList.remove('is-armed'); }, 1400);
-      }, reduced ? 0 : 1500);
-    }, 0.55);
+      }, reduced ? 0 : 900);
+    }, 0.3);
   }
 
   /* --------------------------------------------------------- stat counts */
