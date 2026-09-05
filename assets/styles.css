@@ -1693,13 +1693,15 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   /* three ranks read as rows here; two-plus-orphan does not */
   .rank{grid-template-columns:1fr;gap:8px}
   .rank__c{display:flex;align-items:baseline;justify-content:space-between;gap:14px;text-align:left;padding:13px 18px}
+  .rank__v{white-space:nowrap}
   .rank__l{margin-top:0}
 
-  /* the score becomes a corner badge so the traits get the full width */
-  .match{position:relative;align-items:flex-start;padding-top:18px}
-  .match__pct{position:absolute;top:16px;right:18px;text-align:right}
-  .match__n{padding-right:88px}
-  .match__pct b{font-size:24px}
+  /* avatar and score on one line, the traits with the whole width beneath */
+  .match{flex-wrap:wrap;align-items:center;row-gap:12px}
+  .match__av{order:-2}
+  .match__pct{order:-1;margin-left:auto;padding:8px 14px}
+  .match__pct b{font-size:22px}
+  .match__b{flex:1 1 100%;order:1}
 }
 /* a bar promises a scale; figures without a denominator get none */
 .wprog__row--plain .wprog__lab{grid-column:2/-1}
