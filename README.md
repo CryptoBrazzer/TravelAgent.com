@@ -129,7 +129,7 @@ entry. Consent is granular and refusing is as easy as accepting.
 
 ## Imagery
 
-Nineteen photographs. Eighteen are Unsplash-licensed, fetched at q80 — the set was
+Twenty photographs. Nineteen are Unsplash-licensed, fetched at q80 — the set was
 re-encoded from q58 after the artefacts showed on the sea and the sky. Each
 one is used at most twice on the page, and never twice as a section
 background; only five sections carry a full-bleed photograph at all. The rest
@@ -137,7 +137,8 @@ are given a ground of their own — two very low light sources in the brand's
 blue and red — because a page where every section reaches for stock imagery
 reads as filler.
 
-The nineteenth is the operator's own artwork — the app icon with the
+The hero is fetched at 2560px — a hero is the one place a smaller source
+shows. The twentieth image is the operator's own artwork — the app icon with the
 wordmark cropped away, used at its native 950px in the proactivity section.
 
 Pictures have to be true to the copy beside them: the layover story runs
