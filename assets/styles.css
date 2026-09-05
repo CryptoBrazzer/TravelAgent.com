@@ -905,6 +905,13 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .why article:hover{transform:translateY(-5px);box-shadow:var(--sh-2)}
 .why .ic{width:44px;height:44px;border-radius:14px;background:var(--sky);color:var(--blue-deep);display:grid;place-items:center}
+/* six reasons, six colours — one tint for all six read as a single grey idea */
+.why article:nth-child(1) .ic{background:#E7F0FF;color:#1F5AE0}
+.why article:nth-child(2) .ic{background:#FDE9E8;color:#C21B16}
+.why article:nth-child(3) .ic{background:#FFF0DC;color:#B0741E}
+.why article:nth-child(4) .ic{background:#F0E9FC;color:#6A34BC}
+.why article:nth-child(5) .ic{background:#E3F6EA;color:#0D7F3F}
+.why article:nth-child(6) .ic{background:#DFF4F4;color:#0B7B7B}
 .why .ic svg{width:21px;height:21px}
 .why h3{font-size:var(--t-h4);letter-spacing:-.025em}
 .why p{font-size:var(--t-small);color:var(--ink-2);line-height:1.55}
@@ -1534,6 +1541,14 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);
   font-size:var(--t-small);font-weight:700;letter-spacing:-.01em;color:var(--ink)}
 .chal__c svg{width:16px;height:16px;color:var(--red);flex:none}
+/* eight challenges in one red reads as a list; the colours make them places */
+.chal__c:nth-child(8n+2) svg{color:#1F5AE0}
+.chal__c:nth-child(8n+3) svg{color:#0D7F3F}
+.chal__c:nth-child(8n+4) svg{color:#0B7B7B}
+.chal__c:nth-child(8n+5) svg{color:#6A34BC}
+.chal__c:nth-child(8n+6) svg{color:#B0741E}
+.chal__c:nth-child(8n+7) svg{color:#1F5AE0}
+.chal__c:nth-child(8n+0) svg{color:#0D7F3F}
 .chal__live{margin-top:clamp(22px,2.6vw,34px);border-radius:var(--r-lg);border:1px solid var(--line);
   background:#fff;box-shadow:var(--sh-2);overflow:hidden}
 .chal__hd{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--line);background:var(--surface)}
