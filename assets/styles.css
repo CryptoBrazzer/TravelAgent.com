@@ -641,6 +641,9 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .scene > img{width:100%;height:100%;object-fit:cover}
 .scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.28) 0%,rgba(7,14,36,.02) 45%,rgba(7,14,36,.42) 100%)}
 .scene__device{position:absolute;z-index:4;right:-2%;bottom:-9%}
+/* a wide frame keeps a panorama whole instead of cropping it to a portrait */
+.scene--wide{aspect-ratio:950/436}
+.scene--wide::after{background:linear-gradient(180deg,rgba(7,14,36,.14) 0%,rgba(7,14,36,0) 42%,rgba(7,14,36,.2) 100%)}
 
 /* rain overlay — Amsterdam weather swap */
 .scene > img{transition:filter 1s var(--ease-soft),transform 1s var(--ease-soft)}
@@ -1163,6 +1166,8 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   .scene{aspect-ratio:4/3.4}
   .scene--stack{aspect-ratio:16/10;margin-bottom:0}
   .scene--tall{aspect-ratio:4/3.4}
+  /* the panorama stays a panorama at every width */
+  .scene--wide{aspect-ratio:950/436}
   .scene__device{position:relative;right:auto;bottom:auto;margin:-9% auto 0;display:block;--w:min(226px,58vw)}
   .split__media{display:flex;flex-direction:column}
   .hero__stage .device{--w:min(272px,68vw)}
