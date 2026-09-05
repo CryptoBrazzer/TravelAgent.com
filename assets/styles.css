@@ -12,7 +12,7 @@
   --navy-600:#1D2F63;
   --ink:#0B1533;
   --ink-2:#4A567F;
-  --ink-3:#666E89;
+  --ink-3:#555D7B;
 
   --white:#FFFFFF;
   --white-warm:#FBFAF7;
@@ -373,7 +373,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .ui__shot figcaption b{display:block;font-size:.9em;font-weight:700;letter-spacing:-.015em}
 .ui__shot figcaption span{display:block;font-size:.74em;opacity:.9}
-.ui__shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,0) 42%,rgba(7,14,36,.68))}
+.ui__shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,0) 34%,rgba(7,14,36,.55) 62%,rgba(7,14,36,.88) 100%)}
 .ui__shot .fav{
   position:absolute;top:.5em;right:.5em;width:1.5em;height:1.5em;border-radius:50%;
   background:rgba(255,255,255,.9);display:grid;place-items:center;z-index:2;color:var(--ink-2);
@@ -748,8 +748,8 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 /* --- 19. EV route -------------------------------------------------------- */
 .route{margin-top:clamp(28px,4vw,52px);border-radius:var(--r-xl);overflow:hidden;position:relative;box-shadow:var(--sh-3);background:var(--navy-900)}
 .route__img{position:absolute;inset:0}
-.route__img img{width:100%;height:100%;object-fit:cover;opacity:.42}
-.route__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.72),rgba(7,14,36,.94))}
+.route__img img{width:100%;height:100%;object-fit:cover;opacity:.6;filter:saturate(1.15)}
+.route__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.52),rgba(7,14,36,.86))}
 .route__in{position:relative;padding:clamp(24px,3.4vw,52px);color:#fff}
 .route__head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 34px}
 .route__km{font-family:var(--font-display);font-size:clamp(2.2rem,1.2rem + 3.2vw,4rem);font-weight:700;letter-spacing:-.045em;line-height:.95}
@@ -905,6 +905,13 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .why article:hover{transform:translateY(-5px);box-shadow:var(--sh-2)}
 .why .ic{width:44px;height:44px;border-radius:14px;background:var(--sky);color:var(--blue-deep);display:grid;place-items:center}
+/* six reasons, six colours — one tint for all six read as a single grey idea */
+.why article:nth-child(1) .ic{background:#E7F0FF;color:#1F5AE0}
+.why article:nth-child(2) .ic{background:#FDE9E8;color:#C21B16}
+.why article:nth-child(3) .ic{background:#FFF0DC;color:#B0741E}
+.why article:nth-child(4) .ic{background:#F0E9FC;color:#6A34BC}
+.why article:nth-child(5) .ic{background:#E3F6EA;color:#0D7F3F}
+.why article:nth-child(6) .ic{background:#DFF4F4;color:#0B7B7B}
 .why .ic svg{width:21px;height:21px}
 .why h3{font-size:var(--t-h4);letter-spacing:-.025em}
 .why p{font-size:var(--t-small);color:var(--ink-2);line-height:1.55}
@@ -1084,10 +1091,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .split--rev .split__media{order:0}
   .scene__device{right:5%;bottom:-4%}
   .legs{grid-template-columns:repeat(2,1fr)}
-  .route__nodes{grid-template-columns:repeat(3,1fr);gap:26px 8px}
-  .route__track,.route__fill{display:none}
-  .route__node::before{top:-22px}
-  .route__line{padding-top:30px}
   .footer__top{grid-template-columns:1fr}
   .footer__cols{grid-template-columns:repeat(2,1fr)}
   .days{grid-template-columns:1fr}
@@ -1123,8 +1126,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 @media (max-width:560px){
   :root{--sp-section:clamp(58px,13vw,80px)}
   .legs{grid-template-columns:1fr}
-  .route__nodes{grid-template-columns:repeat(2,1fr);gap:46px 14px}
-  .route__head{gap:14px 26px}
   .footer__cols{grid-template-columns:1fr}
   .hero__actions .btn{width:100%}
   .cta__act .btn{width:100%}
@@ -1201,17 +1202,32 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 /* --- photographic section backdrop (used to break up the white) ---------- */
 .section--photo{position:relative;isolation:isolate;overflow:clip}
 .section__bg{position:absolute;inset:0;z-index:-2}
-.section__bg img{width:100%;height:100%;object-fit:cover}
+/* The photography is the point. It was washed to 93% white and might as well
+   not have been there; it now carries colour, and the veil only opens where
+   no copy sits — the first and last 8% of a section, which is padding. */
+.section__bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.18) contrast(1.04)}
 .section__bg::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,#FBFAF7 0%,rgba(251,250,247,.93) 30%,rgba(251,250,247,.9) 70%,#FBFAF7 100%);
+  background:linear-gradient(180deg,
+    rgba(251,250,247,.66) 0,
+    rgba(251,250,247,.9) 96px,
+    rgba(251,250,247,.91) calc(100% - 110px),
+    rgba(251,250,247,.68) 100%);
 }
 .section--photo.section--surface .section__bg::after{
-  background:linear-gradient(180deg,var(--surface) 0%,rgba(244,246,250,.93) 30%,rgba(244,246,250,.9) 70%,var(--surface) 100%);
+  background:linear-gradient(180deg,
+    rgba(244,246,250,.66) 0,
+    rgba(244,246,250,.9) 96px,
+    rgba(244,246,250,.91) calc(100% - 110px),
+    rgba(244,246,250,.68) 100%);
 }
-.section--photo.section--dark .section__bg img{opacity:.42}
+.section--photo.section--dark .section__bg img{opacity:.66}
 .section--photo.section--dark .section__bg::after{
-  background:linear-gradient(180deg,var(--navy-900) 0%,rgba(7,14,36,.86) 34%,rgba(7,14,36,.88) 66%,var(--navy-900) 100%);
+  background:linear-gradient(180deg,
+    rgba(7,14,36,.58) 0,
+    rgba(7,14,36,.83) 96px,
+    rgba(7,14,36,.84) calc(100% - 110px),
+    rgba(7,14,36,.6) 100%);
 }
 
 /* --- fragmented services: readable chips, not grey on white -------------- */
@@ -1525,6 +1541,14 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);
   font-size:var(--t-small);font-weight:700;letter-spacing:-.01em;color:var(--ink)}
 .chal__c svg{width:16px;height:16px;color:var(--red);flex:none}
+/* eight challenges in one red reads as a list; the colours make them places */
+.chal__c:nth-child(8n+2) svg{color:#1F5AE0}
+.chal__c:nth-child(8n+3) svg{color:#0D7F3F}
+.chal__c:nth-child(8n+4) svg{color:#0B7B7B}
+.chal__c:nth-child(8n+5) svg{color:#6A34BC}
+.chal__c:nth-child(8n+6) svg{color:#B0741E}
+.chal__c:nth-child(8n+7) svg{color:#1F5AE0}
+.chal__c:nth-child(8n+0) svg{color:#0D7F3F}
 .chal__live{margin-top:clamp(22px,2.6vw,34px);border-radius:var(--r-lg);border:1px solid var(--line);
   background:#fff;box-shadow:var(--sh-2);overflow:hidden}
 .chal__hd{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--line);background:var(--surface)}
@@ -1589,3 +1613,58 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 /* a bar promises a scale; figures without a denominator get none */
 .wprog__row--plain .wprog__lab{grid-column:2/-1}
+
+/* --- the route below the desktop width ----------------------------------- */
+/* Six stops cannot sit side by side, and the old fallback dropped the line
+   entirely: a grid of disconnected dots claiming to be a route. It becomes
+   what it actually is on a narrow screen — a vertical timeline that fills. */
+@media (max-width:1024px){
+  .route__head{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+  .route__km{font-size:clamp(1.5rem,1rem + 2.6vw,2.4rem);line-height:1}
+  .route__km small{font-size:9px;letter-spacing:.1em;margin-top:7px;line-height:1.3}
+  .route__line{padding-top:0;padding-left:32px}
+  .route__track{top:7px;bottom:7px;left:5px;right:auto;width:2px;height:auto}
+  .route__fill{
+    top:7px;left:5px;width:2px;height:var(--p,0%);
+    background:linear-gradient(180deg,var(--red),#FF8E62);transition:height .18s linear;
+  }
+  .route__nodes{grid-template-columns:1fr;gap:20px}
+  .route__node{padding-right:0}
+  .route__node::before{top:1px;left:-32px}
+  .route__stats{grid-template-columns:repeat(2,1fr)}
+}
+
+/* --- the trail ----------------------------------------------------------- */
+/* The dashed line from point A to point B, with a stop on it, is the one
+   drawing the brand repeats everywhere. It belongs on the page too — as the
+   join between sections, so the story reads as one route rather than a list. */
+.trail{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  gap:clamp(30px,9vw,110px);height:74px;
+  margin-block:clamp(18px,2.4vw,30px) clamp(2px,.6vw,8px);
+  z-index:1;pointer-events:none;
+}
+.trail::before{
+  content:"";position:absolute;left:6%;right:6%;top:50%;
+  border-top:2px dashed rgba(229,35,29,.42);
+}
+.trail span{
+  position:relative;width:40px;height:40px;border-radius:50%;flex:none;
+  background:#fff;display:grid;place-items:center;color:var(--blue);
+  box-shadow:0 2px 4px rgba(11,21,51,.06),0 10px 24px rgba(11,21,51,.14);
+}
+.trail span svg{width:18px;height:18px}
+.trail span:nth-child(2){color:var(--red)}
+.trail span:nth-child(4){color:#B0741E}
+.section--dark + .trail,.trail.trail--dark{--trail-dot:#0E1830}
+.trail.trail--dark::before{border-top-color:rgba(255,106,99,.45)}
+.trail.trail--dark span{background:#101B39;color:#9FB4EA;box-shadow:0 10px 26px rgba(0,0,0,.45)}
+.trail.trail--dark span:nth-child(2){color:#FF6A63}
+@media (max-width:560px){
+  .trail{height:60px;gap:22px}
+  .trail span{width:34px;height:34px}
+  .trail span svg{width:15px;height:15px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .trail span{transition:transform .6s var(--ease-soft),opacity .6s var(--ease-soft)}
+}
