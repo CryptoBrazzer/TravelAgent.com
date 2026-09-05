@@ -139,6 +139,11 @@ reads as filler.
 Pictures have to be true to the copy beside them: the layover story runs
 JFK to Manhattan, so the photograph is New York.
 
+Contrast over a photograph cannot be computed from CSS alone. `photocontrast.js`
+in the QA set hides the text in each photo-backed section, screenshots the bare
+ground and measures the real pixels behind every line — currently no failures at
+1440px or 390px, worst margin 3.56:1 against a 3:1 requirement.
+
 ## Content rules observed
 
 No fake App Store links, partnerships, integrations, reviews, user counts or
