@@ -36,7 +36,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/greatvibes-latin-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/onest-latin-700.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=f9acb6e106">
-<link rel="stylesheet" href="/assets/styles.css?v=6424fe3477">
+<link rel="stylesheet" href="/assets/styles.css?v=acd3e58319">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Escape! AI Travel Agent","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://www.escapetravel.site/","description":"Personal AI travel agent that plans, organises and accompanies a whole journey — routes, tickets, hotels, cars, EV charging, transfers, weather and recommendations in one agent.","inLanguage":["ru","uk","en"],"author":{"@type":"Person","name":"Dmytro Sukhyna"},"publisher":{"@type":"Organization","name":"Escape!","url":"https://www.escapetravel.site/","email":"escape.travel.ai@gmail.com"}}
@@ -112,6 +112,7 @@
       <a href="#problem" data-i18n="navWhy">Почему ESCAPE</a>
       <a href="#agent" data-i18n="navAgent">AI Agent</a>
       <a href="#how" data-i18n="navHow">Как это работает</a>
+      <a href="#community" data-i18n="navCommunity">Сообщество</a>
       <a href="#world" data-i18n="navWorld">Весь мир</a>
       <a href="#together" data-i18n="navTogether">Вместе</a>
       <a href="#identity" data-i18n="navIdentity">Travel-профиль</a>
@@ -132,9 +133,10 @@
   <a href="#problem" data-i18n="navWhy">Почему ESCAPE</a>
   <a href="#agent" data-i18n="navAgent">AI Agent</a>
   <a href="#how" data-i18n="navHow">Как это работает</a>
+  <a href="#community" data-i18n="navCommunity">Сообщество</a>
   <a href="#world" data-i18n="navWorld">Весь мир</a>
   <a href="#together" data-i18n="navTogether">Вместе</a>
-      <a href="#identity" data-i18n="navIdentity">Travel-профиль</a>
+  <a href="#identity" data-i18n="navIdentity">Travel-профиль</a>
   <a href="#contact" data-i18n="navContact">Контакты</a>
   <button class="btn btn--red" data-waitlist type="button"><span data-i18n="ctaTry">Попробовать бесплатно</span></button>
 </nav>
@@ -476,7 +478,6 @@
             <span class="ui__avatar"></span>
           </div>
           <div class="ui__body">
-            <div>
               <div class="ui__title" data-i18n-html="phAgTitle">Ваша поездка, <span class="ac">по-вашему</span></div>
             <ul class="ui__steps">
               <li><span class="ui__ic ui__ic--blue"><svg aria-hidden="true"><use href="#i-plane"/></svg></span>
@@ -614,7 +615,7 @@
 
   <div class="wrap">
     <div class="notes rv" id="notes">
-      <div class="note"><i><svg aria-hidden="true"><use href="#i-alert"/></svg></i><span><b data-i18n="nt1">Гейт изменён → B17</b><small data-i18n="nt1s">Новый маршрут по терминалу построен</small></span></li>
+      <div class="note"><i><svg aria-hidden="true"><use href="#i-alert"/></svg></i><span><b data-i18n="nt1">Гейт изменён → B17</b><small data-i18n="nt1s">Новый маршрут по терминалу построен</small></span></div>
       <div class="note"><i><svg aria-hidden="true"><use href="#i-weather"/></svg></i><span><b data-i18n="nt2">Дождь через 40 минут</b><small data-i18n="nt2s">Прогулка сдвинута, кафе рядом предложено</small></span></div>
       <div class="note"><i><svg aria-hidden="true"><use href="#i-train"/></svg></i><span><b data-i18n="nt3">Поезд опаздывает на 12 минут</b><small data-i18n="nt3s">Запас времени пересчитан</small></span></div>
       <div class="note"><i><svg aria-hidden="true"><use href="#i-clock"/></svg></i><span><b data-i18n="nt4">Выходите сейчас, чтобы успеть</b><small data-i18n="nt4s">С учётом трафика и очереди на контроле</small></span></div>
@@ -672,6 +673,70 @@
         <b data-i18n="adaptDone">План обновлён.</b>
         <p data-i18n="adaptDoneS">Вам не нужно перестраивать поездку вручную. Именно это отличает агента от статичного маршрута в заметках.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08b COMMUNITY ===== -->
+<section class="section section--dark section--photo" id="community">
+  <div class="section__bg" aria-hidden="true">
+    <img src="/img/community-sm.webp" srcset="/img/community-sm.webp 1200w, /img/community-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
+  </div>
+  <div class="wrap">
+    <div class="head head--center rv">
+      <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
+      <span class="eyebrow" data-i18n="comEyebrow">Сообщество</span>
+      <h2><span data-i18n="comTitleA">Путешествия объединяют.</span><br><span class="brandmark brandmark--inline"><span class="word">Escape</span><svg class="pin" aria-hidden="true"><use href="#brand-pin"/></svg></span> <span data-i18n-html="comTitleB">помогает найти своих.</span></h2>
+      <p class="lead" data-i18n="comLead">Поездку можно опубликовать, позвать друзей, найти попутчиков или присоединиться к чужому маршруту. Планировать в одиночку больше не нужно.</p>
+    </div>
+
+    <div class="ambition rv">
+      <span class="ambition__ic"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
+      <div class="ambition__t">
+        <b data-i18n="comAmbT">Мы строим самое большое сообщество путешественников в мире</b>
+        <p data-i18n="comAmbP">Не ещё одну ленту с фотографиями, а место, где поездки складываются вместе: кто-то ищет попутчиков на road trip, кто-то зовёт на закат, кто-то подсказывает, куда пойти с детьми. Это и есть самая сильная часть Escape!</p>
+      </div>
+    </div>
+
+    <div class="commgrid">
+      <ul class="commfeat rv">
+        <li><i class="frag__ic frag__ic--blue"><svg aria-hidden="true"><use href="#i-map"/></svg></i><span data-i18n="cf1">Опубликовать поездку</span></li>
+        <li><i class="frag__ic frag__ic--green"><svg aria-hidden="true"><use href="#i-users"/></svg></i><span data-i18n="cf2">Пригласить друзей</span></li>
+        <li><i class="frag__ic frag__ic--orange"><svg aria-hidden="true"><use href="#i-search"/></svg></i><span data-i18n="cf3">Найти попутчиков</span></li>
+        <li><i class="frag__ic frag__ic--purple"><svg aria-hidden="true"><use href="#i-shield"/></svg></i><span data-i18n="cf4">Приватные и открытые поездки</span></li>
+        <li><i class="frag__ic frag__ic--teal"><svg aria-hidden="true"><use href="#i-route"/></svg></i><span data-i18n="cf5">Делиться маршрутами</span></li>
+        <li><i class="frag__ic frag__ic--red"><svg aria-hidden="true"><use href="#i-star"/></svg></i><span data-i18n="cf6">Рекомендовать места</span></li>
+        <li><i class="frag__ic frag__ic--purple"><svg aria-hidden="true"><use href="#i-heart"/></svg></i><span data-i18n="cf7">Семейные группы</span></li>
+        <li><i class="frag__ic frag__ic--orange"><svg aria-hidden="true"><use href="#i-coffee"/></svg></i><span data-i18n="cf8">Встречи на выходных</span></li>
+      </ul>
+
+      <div class="feed rv rv-d1">
+        <article class="post">
+          <div class="post__top"><span class="av" style="--a1:#F0866A;--a2:#E5231D">E</span><span><b>Emma</b><small data-i18n="cm1w">Санторини · 12–14 сентября</small></span></div>
+          <q data-i18n="cm1">Кто хочет встретить закат на Санторини?</q>
+          <div class="post__meta"><span data-i18n="cmOpen">Открытая поездка</span><span data-i18n="cm1s">2 свободных места</span></div>
+        </article>
+        <article class="post">
+          <div class="post__top"><span class="av" style="--a1:#6FA8F5;--a2:#1F5AE0">A</span><span><b>Alex</b><small data-i18n="cm2w">Афины → Черногория · 9 дней</small></span></div>
+          <q data-i18n="cm2">Road trip Афины → Черногория. Есть ещё 2 места.</q>
+          <div class="post__meta"><span data-i18n="cmCar">Автомобиль</span><span data-i18n="cm2s">Делим расходы на топливо</span></div>
+        </article>
+        <article class="post">
+          <div class="post__top"><span class="av" style="--a1:#7FCB9B;--a2:#12A150">F</span><span><b data-i18n="cm3n">Family Trip</b><small data-i18n="cm3w">Валенсия · выходные</small></span></div>
+          <q data-i18n="cm3">Ищем компанию с детьми для прогулки по городу.</q>
+          <div class="post__meta"><span data-i18n="cmFamily">Семейная</span><span data-i18n="cm3s">Дети 5–9 лет</span></div>
+        </article>
+        <article class="post">
+          <div class="post__top"><span class="av" style="--a1:#C9A0F0;--a2:#7A3FD0">W</span><span><b data-i18n="cm4n">Weekend</b><small data-i18n="cm4w">Афины · эти выходные</small></span></div>
+          <q data-i18n="cm4">Кто в Афинах в эти выходные?</q>
+          <div class="post__meta"><span data-i18n="cmLocal">Локальная встреча</span><span data-i18n="cm4s">Кофе и прогулка</span></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="commcta rv">
+      <button class="btn btn--red" type="button" data-waitlist><span data-i18n="comJoin">Быть среди первых</span><svg class="arw" width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="src" data-i18n="comNote">Примеры интерфейса. Сообщество откроется вместе с продуктом — количество участников до запуска мы не публикуем.</p>
     </div>
   </div>
 </section>
@@ -754,8 +819,8 @@
             <div class="route__node"><b data-i18n="ev3t">Игуменица</b><span data-i18n="ev3">Паром · 7 ч 30 мин</span></div>
             <div class="route__node"><b data-i18n="ev4t">Бари</b><span data-i18n="ev4">Ночёвка · зарядка ночью</span></div>
             <div class="route__node"><b data-i18n="ev5t">Граница</b><span data-i18n="ev5">Запас 40 мин на контроль</span></div>
-            <div class="route__node"><b data-i18n="ev6t">Сучава</b><span data-i18n="ev6">Прибытие · день 4</span></li>
-          </ul>
+            <div class="route__node"><b data-i18n="ev6t">Сучава</b><span data-i18n="ev6">Прибытие · день 4</span></div>
+          </div>
         </div>
 
         <div class="route__stats">
@@ -1036,69 +1101,6 @@
   </div>
 </section>
 
-<!-- ===== 15 COMMUNITY ===== -->
-<section class="section section--dark section--photo" id="community">
-  <div class="section__bg" aria-hidden="true">
-    <img src="/img/community-sm.webp" srcset="/img/community-sm.webp 1200w, /img/community-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
-  </div>
-  <div class="wrap">
-    <div class="head head--center rv">
-      <span class="eyebrow" data-i18n="comEyebrow">Сообщество</span>
-      <h2><span data-i18n="comTitleA">Путешествия объединяют.</span><br><span class="brandmark brandmark--inline"><span class="word">Escape</span><svg class="pin" aria-hidden="true"><use href="#brand-pin"/></svg></span> <span data-i18n-html="comTitleB">помогает найти своих.</span></h2>
-      <p class="lead" data-i18n="comLead">Поездку можно опубликовать, позвать друзей, найти попутчиков или присоединиться к чужому маршруту. Планировать в одиночку больше не нужно.</p>
-    </div>
-
-    <div class="ambition rv">
-      <span class="ambition__ic"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
-      <div class="ambition__t">
-        <b data-i18n="comAmbT">Мы строим самое большое сообщество путешественников в мире</b>
-        <p data-i18n="comAmbP">Не ещё одну ленту с фотографиями, а место, где поездки складываются вместе: кто-то ищет попутчиков на road trip, кто-то зовёт на закат, кто-то подсказывает, куда пойти с детьми. Это и есть самая сильная часть Escape!</p>
-      </div>
-    </div>
-
-    <div class="commgrid">
-      <ul class="commfeat rv">
-        <li><i class="frag__ic frag__ic--blue"><svg aria-hidden="true"><use href="#i-map"/></svg></i><span data-i18n="cf1">Опубликовать поездку</span></li>
-        <li><i class="frag__ic frag__ic--green"><svg aria-hidden="true"><use href="#i-users"/></svg></i><span data-i18n="cf2">Пригласить друзей</span></li>
-        <li><i class="frag__ic frag__ic--orange"><svg aria-hidden="true"><use href="#i-search"/></svg></i><span data-i18n="cf3">Найти попутчиков</span></li>
-        <li><i class="frag__ic frag__ic--purple"><svg aria-hidden="true"><use href="#i-shield"/></svg></i><span data-i18n="cf4">Приватные и открытые поездки</span></li>
-        <li><i class="frag__ic frag__ic--teal"><svg aria-hidden="true"><use href="#i-route"/></svg></i><span data-i18n="cf5">Делиться маршрутами</span></li>
-        <li><i class="frag__ic frag__ic--red"><svg aria-hidden="true"><use href="#i-star"/></svg></i><span data-i18n="cf6">Рекомендовать места</span></li>
-        <li><i class="frag__ic frag__ic--purple"><svg aria-hidden="true"><use href="#i-heart"/></svg></i><span data-i18n="cf7">Семейные группы</span></li>
-        <li><i class="frag__ic frag__ic--orange"><svg aria-hidden="true"><use href="#i-coffee"/></svg></i><span data-i18n="cf8">Встречи на выходных</span></li>
-      </ul>
-
-      <div class="feed rv rv-d1">
-        <article class="post">
-          <div class="post__top"><span class="av" style="--a1:#F0866A;--a2:#E5231D">E</span><span><b>Emma</b><small data-i18n="cm1w">Санторини · 12–14 сентября</small></span></li>
-          <q data-i18n="cm1">Кто хочет встретить закат на Санторини?</q>
-          <div class="post__meta"><span data-i18n="cmOpen">Открытая поездка</span><span data-i18n="cm1s">2 свободных места</span></div>
-        </article>
-        <article class="post">
-          <div class="post__top"><span class="av" style="--a1:#6FA8F5;--a2:#1F5AE0">A</span><span><b>Alex</b><small data-i18n="cm2w">Афины → Черногория · 9 дней</small></span></div>
-          <q data-i18n="cm2">Road trip Афины → Черногория. Есть ещё 2 места.</q>
-          <div class="post__meta"><span data-i18n="cmCar">Автомобиль</span><span data-i18n="cm2s">Делим расходы на топливо</span></div>
-        </article>
-        <article class="post">
-          <div class="post__top"><span class="av" style="--a1:#7FCB9B;--a2:#12A150">F</span><span><b data-i18n="cm3n">Family Trip</b><small data-i18n="cm3w">Валенсия · выходные</small></span></div>
-          <q data-i18n="cm3">Ищем компанию с детьми для прогулки по городу.</q>
-          <div class="post__meta"><span data-i18n="cmFamily">Семейная</span><span data-i18n="cm3s">Дети 5–9 лет</span></div>
-        </article>
-        <article class="post">
-          <div class="post__top"><span class="av" style="--a1:#C9A0F0;--a2:#7A3FD0">W</span><span><b data-i18n="cm4n">Weekend</b><small data-i18n="cm4w">Афины · эти выходные</small></span></div>
-          <q data-i18n="cm4">Кто в Афинах в эти выходные?</q>
-          <div class="post__meta"><span data-i18n="cmLocal">Локальная встреча</span><span data-i18n="cm4s">Кофе и прогулка</span></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="commcta rv">
-      <button class="btn btn--red" type="button" data-waitlist><span data-i18n="comJoin">Быть среди первых</span><svg class="arw" width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-      <p class="src" data-i18n="comNote">Примеры интерфейса. Сообщество откроется вместе с продуктом — количество участников до запуска мы не публикуем.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ===== 15b LET'S ESCAPE TOGETHER ===== -->
 <section class="section section--surface" id="together">
   <div class="wrap">
@@ -1228,7 +1230,7 @@
           </div>
         </div>
         <div class="wprog__rows">
-          <div class="wprog__row"><span class="wprog__n">32</span><span class="wprog__bar"><i style="width:16%"></i></span><span class="wprog__lab" data-i18n="wpCountries">стран из 195</span></li>
+          <div class="wprog__row"><span class="wprog__n">32</span><span class="wprog__bar"><i style="width:16%"></i></span><span class="wprog__lab" data-i18n="wpCountries">стран из 195</span></div>
           <div class="wprog__row"><span class="wprog__n">4</span><span class="wprog__bar"><i style="width:57%"></i></span><span class="wprog__lab" data-i18n="wpContinents">континента из 7</span></div>
           <div class="wprog__row wprog__row--plain"><span class="wprog__n">118</span><span class="wprog__lab" data-i18n="wpCities">городов</span></div>
           <div class="wprog__row wprog__row--plain"><span class="wprog__n">27&#8239;400</span><span class="wprog__lab" data-i18n="passKm">км пройдено</span></div>
@@ -1483,7 +1485,7 @@
     </div>
 
     <div class="osgrid rv">
-      <div class="oslayer"><span class="ic"><svg aria-hidden="true"><use href="#i-search"/></svg></span><b>Discover</b><span data-i18n="os1">Идеи, направления и поводы поехать</span></li>
+      <div class="oslayer"><span class="ic"><svg aria-hidden="true"><use href="#i-search"/></svg></span><b>Discover</b><span data-i18n="os1">Идеи, направления и поводы поехать</span></div>
       <div class="oslayer"><span class="ic"><svg aria-hidden="true"><use href="#i-map"/></svg></span><b>Plan</b><span data-i18n="os2">Маршрут, время, бюджет и приоритеты</span></div>
       <div class="oslayer"><span class="ic"><svg aria-hidden="true"><use href="#i-ticket"/></svg></span><b>Handoff</b><span data-i18n="os3">Подбор варианта и передача провайдеру — оформляет он</span></div>
       <div class="oslayer"><span class="ic"><svg aria-hidden="true"><use href="#i-route"/></svg></span><b>Move</b><span data-i18n="os4">Пересадки, транспорт и запас времени в дороге</span></div>

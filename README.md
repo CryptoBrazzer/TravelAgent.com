@@ -6,7 +6,7 @@ Static site, no build step: upload the repository root as-is.
 ## Structure
 
 ```
-index.html               single-page product story (20 sections)
+index.html               single-page product story (28 sections)
 privacy.html             ┐
 terms.html               │
 cookies.html             ├ legal pages (shared renderer, content in assets/legal-docs.js)
