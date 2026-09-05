@@ -30,7 +30,7 @@
   --champagne:#EFE3D2;
 
   --red:#E5231D;
-  --red-soft:#FCE9E8;
+  --red-soft:#FDF2F1;
   /* the brand red drops below 4.5:1 at text sizes — this is the same hue, passing */
   --red-ink:#D3201B;
 
@@ -129,6 +129,8 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .muted{color:var(--ink-3)}
 .src{font-size:var(--t-micro);color:var(--ink-3);letter-spacing:.01em}
 .section--dark .src{color:#7682A7}
+/* the same grey over a photograph falls to 3.5:1 — it gets its own value there */
+.section--dark.section--photo .src{color:#98A5C8}
 
 .head{max-width:var(--maxw-narrow)}
 .head--center{margin-inline:auto;text-align:center}
@@ -926,7 +928,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .cta{position:relative;isolation:isolate;overflow:clip;color:#fff;text-align:center}
 .cta__media{position:absolute;inset:0;z-index:-2}
 .cta__media img{width:100%;height:100%;object-fit:cover}
-.cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.86),rgba(7,14,36,.74) 45%,rgba(7,14,36,.92))}
+.cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.88),rgba(7,14,36,.82) 45%,rgba(7,14,36,.93))}
 .cta .wrap{padding-block:clamp(80px,10vw,168px)}
 .cta h2{font-size:var(--t-h2);text-wrap:balance;max-width:22ch;margin-inline:auto}
 .cta__brand{display:flex;justify-content:center;align-items:baseline;font-size:clamp(2.1rem,1.1rem + 3.2vw,3.9rem);margin-block:.22em .04em}
@@ -1184,7 +1186,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 /* CTA over photography — force light button treatment */
 .cta .btn--ghost{--btn-fg:#fff;border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.07)}
 .cta .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.14)}
-.cta__media::after{background:linear-gradient(180deg,rgba(7,14,36,.86),rgba(7,14,36,.7) 45%,rgba(7,14,36,.92))}
+.cta__media::after{background:linear-gradient(180deg,rgba(7,14,36,.88),rgba(7,14,36,.82) 45%,rgba(7,14,36,.93))}
 
 /* ---- request bubble + ready row inside the hero phone ---- */
 .ui__ask{
