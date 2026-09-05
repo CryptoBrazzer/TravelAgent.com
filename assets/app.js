@@ -362,6 +362,26 @@
     });
   }
 
+  /* ------------------------------------------------- hero: the two modes */
+  // The two scenarios are the whole proposition, so the hero shows both rather
+  // than describing them. These buttons switch the phone; they promise nothing
+  // the product cannot already do on this page.
+  function initModes() {
+    var group = $('#modes');
+    if (!group) return;
+    var panes = $$('[data-pane]');
+    if (!panes.length) return;
+    $$('button', group).forEach(function (b) {
+      b.addEventListener('click', function () {
+        var mode = b.dataset.mode;
+        $$('button', group).forEach(function (o) {
+          o.setAttribute('aria-pressed', String(o === b));
+        });
+        panes.forEach(function (p) { p.hidden = p.dataset.pane !== mode; });
+      });
+    });
+  }
+
   /* --------------------------------------------------- Amsterdam swap */
   function initAmsterdam() {
     var btn = $('#rainBtn');
@@ -888,6 +908,7 @@
     initReplan();
     initRoute();
     initAmsterdam();
+    initModes();
     initWorld();
     initFlywheel();
     initHeroParallax();
