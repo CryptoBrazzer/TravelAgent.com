@@ -36,7 +36,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/greatvibes-latin-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/onest-latin-700.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=f9acb6e106">
-<link rel="stylesheet" href="/assets/styles.css?v=ad8ac2e8af">
+<link rel="stylesheet" href="/assets/styles.css?v=ceff93e9c8">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Escape! AI Travel Agent","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://www.escapetravel.site/","description":"Personal AI travel agent that plans, organises and accompanies a whole journey — routes, tickets, hotels, cars, EV charging, transfers, weather and recommendations in one agent.","inLanguage":["ru","uk","en"],"author":{"@type":"Person","name":"Dmytro Sukhyna"},"publisher":{"@type":"Organization","name":"Escape!","url":"https://www.escapetravel.site/","email":"escape.travel.ai@gmail.com"}}
@@ -869,9 +869,9 @@
       <p class="lead" data-i18n="parLead">Не список мест, а готовые три дня. Escape! соберёт их сам — так, как вы и хотели поехать.</p>
 
       <div class="days">
-        <article class="day"><span class="d" data-i18n="dDay1">День 1</span><b data-i18n="pd1">Приезд и вечер у реки</b><p data-i18n="pd1s">15:00 — заселение в Марэ. 18:30 — прогулка по набережной Сены. 20:30 — ужин в двух кварталах от отеля.</p></article>
-        <article class="day"><span class="d" data-i18n="dDay2">День 2</span><b data-i18n="pd2">Искусство без очередей</b><p data-i18n="pd2s">09:30 — музей Орсе по билету на точное время. 13:00 — обед в Сен-Жермене. 16:00 — тихие дворы и книжные лавки.</p></article>
-        <article class="day"><span class="d" data-i18n="dDay3">День 3</span><b data-i18n="pd3">Монмартр и дорога домой</b><p data-i18n="pd3s">08:30 — завтрак в булочной у отеля. 10:00 — Монмартр сверху вниз пешком. 14:20 — выезд в аэропорт с запасом 40 минут.</p></article>
+        <article class="day"><span class="day__ic" aria-hidden="true"><svg><use href="#i-coffee"/></svg></span><span class="d" data-i18n="dDay1">День 1</span><b data-i18n="pd1">Приезд и вечер у реки</b><p data-i18n="pd1s">15:00 — заселение в Марэ. 18:30 — прогулка по набережной Сены. 20:30 — ужин в двух кварталах от отеля.</p></article>
+        <article class="day"><span class="day__ic" aria-hidden="true"><svg><use href="#i-museum"/></svg></span><span class="d" data-i18n="dDay2">День 2</span><b data-i18n="pd2">Искусство без очередей</b><p data-i18n="pd2s">09:30 — музей Орсе по билету на точное время. 13:00 — обед в Сен-Жермене. 16:00 — тихие дворы и книжные лавки.</p></article>
+        <article class="day"><span class="day__ic" aria-hidden="true"><svg><use href="#i-walk"/></svg></span><span class="d" data-i18n="dDay3">День 3</span><b data-i18n="pd3">Монмартр и дорога домой</b><p data-i18n="pd3s">08:30 — завтрак в булочной у отеля. 10:00 — Монмартр сверху вниз пешком. 14:20 — выезд в аэропорт с запасом 40 минут.</p></article>
       </div>
 
       <div class="tags">
@@ -1109,7 +1109,7 @@
             <li><span class="ui__ic ui__ic--blue"><svg aria-hidden="true"><use href="#i-plane"/></svg></span>
               <span class="t"><b>12 <span data-i18n="togFrom">из Афин</span></b><span data-i18n="togFindS">Тех, кто едет туда же и так же</span></span></li>
           </ul>
-          <div class="ui__cta" data-i18n="togJoin">Присоединиться к Escape</div>
+          <button class="ui__cta" type="button" data-waitlist data-i18n="togJoin">Присоединиться к Escape</button>
         </div>
         <p class="src" style="margin-top:14px" data-i18n="togNotDating">Это подбор попутчиков, а не знакомства. Люди сходятся вокруг места, куда оба хотят.</p>
       </div>
@@ -1237,15 +1237,56 @@
     </div>
 
     <div class="chal rv">
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-spark"/></svg><span data-i18n="ch1">Куда ещё не были</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-route"/></svg><span data-i18n="ch2">3 страны за 30 дней</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-compare"/></svg><span data-i18n="ch3">Уикенд за €300</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-ferry"/></svg><span data-i18n="ch4">Средиземноморье</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-map"/></svg><span data-i18n="ch5">Неочевидная Европа</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-star"/></svg><span data-i18n="ch6">7 чудес</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-trips"/></svg><span data-i18n="ch7">5 новых городов за год</span></div>
-      <div class="chal__c"><svg aria-hidden="true"><use href="#i-coffee"/></svg><span data-i18n="ch8">Гастрономические столицы</span></div>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-star"/></svg></span>
+        <b data-i18n="ch6">7 чудес света</b>
+        <p data-i18n="ch6s">Петра, Колизей, Мачу-Пикчу, Чичен-Ица, Тадж-Махал, Христос-Искупитель, Великая стена</p>
+        <span class="chal__meta" data-i18n="chCount7">0 / 7</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-spark"/></svg></span>
+        <b data-i18n="ch1">Куда ещё не были</b>
+        <p data-i18n="ch1s">Агент выбирает страну, которой нет в вашем паспорте, и собирает поездку под ваши даты</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-route"/></svg></span>
+        <b data-i18n="ch2">3 страны за 30 дней</b>
+        <p data-i18n="ch2s">Один маршрут через три границы: поезда, паром и ночёвки уже посчитаны</p>
+        <span class="chal__meta" data-i18n="chCount3">0 / 3</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-compare"/></svg></span>
+        <b data-i18n="ch3">Уикенд за €300</b>
+        <p data-i18n="ch3s">Перелёт, две ночи и еда укладываются в бюджет — агент ищет ту неделю, когда это возможно</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-ferry"/></svg></span>
+        <b data-i18n="ch4">Средиземноморье</b>
+        <p data-i18n="ch4s">Пятнадцать портов от Барселоны до Афин, по одному за поездку</p>
+        <span class="chal__meta" data-i18n="chCount15">0 / 15</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-map"/></svg></span>
+        <b data-i18n="ch5">Неочевидная Европа</b>
+        <p data-i18n="ch5s">Города, которые не попадают в списки: Гент, Мостар, Тбилиси, Порту</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-trips"/></svg></span>
+        <b data-i18n="ch7">5 новых городов за год</b>
+        <p data-i18n="ch7s">По одному раз в два месяца — агент напоминает, когда цены падают</p>
+        <span class="chal__meta" data-i18n="chCount5">0 / 5</span>
+      </article>
+      <article class="chal__c">
+        <span class="chal__ic" aria-hidden="true"><svg><use href="#i-coffee"/></svg></span>
+        <b data-i18n="ch8">Гастрономические столицы</b>
+        <p data-i18n="ch8s">Сан-Себастьян, Болонья, Лион, Стамбул — поездка вокруг стола</p>
+        <span class="chal__meta" data-i18n="chOpen">открыт</span>
+      </article>
     </div>
+    <p class="src rv" style="margin-top:12px" data-i18n="chSwipe">Листайте — челленджей будет больше</p>
 
     <div class="chal__live rv rv-d1">
       <div class="chal__hd">
@@ -1260,7 +1301,7 @@
         <span class="src" data-i18n="chFound">Escape! нашёл, чем закрыть третью:</span>
         <span style="font-family:var(--font-display);font-size:var(--t-h4);font-weight:800;letter-spacing:-.025em" data-i18n="chRoute">Афины → София</span>
         <span class="pill">€39</span>
-        <span class="btn btn--red btn--sm" style="margin-left:auto" data-i18n="chBuild">Собрать эту поездку</span>
+        <button class="btn btn--red btn--sm" type="button" data-waitlist style="margin-left:auto"><span data-i18n="chBuild">Собрать эту поездку</span></button>
       </div>
     </div>
   </div>
@@ -1323,7 +1364,7 @@
             <li><span class="ui__ic ui__ic--blue"><svg aria-hidden="true"><use href="#i-plane"/></svg></span>
               <span class="t"><b data-i18n="mineRebuilt">Перелёт и жильё пересобраны</b><span data-i18n="mineRebuiltS">На двоих, с погодой в октябре</span></span></li>
           </ul>
-          <div class="ui__cta" data-i18n="mineBtn">Забрать себе</div>
+          <button class="ui__cta" type="button" data-waitlist data-i18n="mineBtn">Забрать себе</button>
         </div>
 
         <div class="card" style="margin-top:18px;border-left:3px solid var(--red)">
@@ -1355,7 +1396,7 @@
             <li><span class="ui__ic ui__ic--teal"><svg aria-hidden="true"><use href="#i-car"/></svg></span>
               <span class="t"><b data-i18n="locTime">38 минут от дома</b><span data-i18n="locWhat">Пляж, обед, закат</span></span></li>
           </ul>
-          <div class="ui__cta" data-i18n="locBtn">Собрать мой день</div>
+          <button class="ui__cta" type="button" data-waitlist data-i18n="locBtn">Собрать мой день</button>
         </div>
       </div>
     </div>
@@ -1630,7 +1671,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/assets/i18n.js?v=fd8dbfa2e2"></script>
+<script src="/assets/i18n.js?v=361813b17f"></script>
 <script src="/assets/app.js?v=0a7f744ce6" defer></script>
 </body>
 </html>

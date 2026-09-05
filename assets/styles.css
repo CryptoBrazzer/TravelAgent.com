@@ -411,6 +411,13 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   margin-top:auto;text-align:center;font-size:.86em;font-weight:800;letter-spacing:-.01em;
   padding:.7em .8em;border-radius:.8em;background:var(--red);color:#fff;flex:none;
 }
+.device .ui__cta{cursor:default}
+/* the same bar standing on the page is a real button and behaves like one */
+button.ui__cta{width:100%;display:block;border:0;cursor:pointer;font-family:inherit;
+  transition:background .22s var(--ease),transform .22s var(--ease)}
+button.ui__cta:hover{background:#C21B16}
+button.ui__cta:active{transform:translateY(1px)}
+button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 /* ---- tab bar ---- */
 .ui__tabs{
@@ -783,17 +790,31 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 
 /* --- 20. Paris / itinerary cards ----------------------------------------- */
 .days{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.5vw,20px);margin-top:26px}
-.day{border-radius:var(--r-lg);border:1px solid var(--line);background:#fff;padding:clamp(16px,1.9vw,22px);box-shadow:var(--sh-1);display:flex;flex-direction:column;gap:8px}
+.day{border-radius:var(--r-lg);border:1px solid var(--line);background:#fff;padding:clamp(18px,2.1vw,26px);box-shadow:var(--sh-1);display:flex;flex-direction:column;gap:9px}
+.day__ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;margin-bottom:3px}
+.day__ic svg{width:18px;height:18px}
+.day:nth-child(1) .day__ic{background:#FFF0DC;color:#B0741E}
+.day:nth-child(2) .day__ic{background:#F0E9FC;color:#6A34BC}
+.day:nth-child(3) .day__ic{background:#E7F0FF;color:#1F5AE0}
 .day .d{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red-ink)}
-.day b{font-size:var(--t-small);font-weight:700;letter-spacing:-.01em}
-.day p{font-size:var(--t-micro);color:var(--ink-2);line-height:1.5}
+.day b{font-size:var(--t-h4);font-weight:700;letter-spacing:-.022em;line-height:1.2}
+.day p{font-size:var(--t-small);color:var(--ink-2);line-height:1.55}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+@media (max-width:560px){
+  .tags{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .tags > span{justify-content:flex-start}
+}
 .tags > span{
   display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:var(--r-pill);
   background:#fff;border:1px solid var(--line);font-size:var(--t-micro);font-weight:700;color:var(--ink-2);
   box-shadow:var(--sh-1);
 }
 .tags > span svg{width:13px;height:13px;color:var(--red);flex:none}
+.tags > span:nth-child(6n+2) svg{color:#B0741E}
+.tags > span:nth-child(6n+3) svg{color:#6A34BC}
+.tags > span:nth-child(6n+4) svg{color:#0D7F3F}
+.tags > span:nth-child(6n+5) svg{color:#1F5AE0}
+.tags > span:nth-child(6n+0) svg{color:#0B7B7B}
 .section--dark .tags > span{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:#C5CFE6}
 
 /* --- 21. Amsterdam chain ------------------------------------------------- */
@@ -1563,19 +1584,36 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .rank__l{font-size:var(--t-micro);color:#A9B5D4;margin-top:7px}
 
 /* --- challenges --------------------------------------------------------- */
-.chal{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:clamp(22px,2.6vw,34px)}
-.chal__c{display:flex;align-items:center;gap:11px;padding:14px 16px;border-radius:var(--r-md);
+.chal{
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(232px,1fr);gap:12px;
+  margin-top:clamp(22px,2.6vw,34px);overflow-x:auto;scroll-snap-type:x mandatory;
+  margin-inline:calc(var(--gutter) * -1);padding:4px var(--gutter) 14px;scrollbar-width:none;
+}
+.chal::-webkit-scrollbar{display:none}
+.chal__c{
+  scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;
+  padding:18px 18px 16px;border-radius:var(--r-lg);
   background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);
-  font-size:var(--t-small);font-weight:700;letter-spacing:-.01em;color:var(--ink)}
-.chal__c svg{width:16px;height:16px;color:var(--red);flex:none}
-/* eight challenges in one red reads as a list; the colours make them places */
-.chal__c:nth-child(8n+2) svg{color:#1F5AE0}
-.chal__c:nth-child(8n+3) svg{color:#0D7F3F}
-.chal__c:nth-child(8n+4) svg{color:#0B7B7B}
-.chal__c:nth-child(8n+5) svg{color:#6A34BC}
-.chal__c:nth-child(8n+6) svg{color:#B0741E}
-.chal__c:nth-child(8n+7) svg{color:#1F5AE0}
-.chal__c:nth-child(8n+0) svg{color:#0D7F3F}
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+}
+.chal__c:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.chal__ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  background:var(--surface-2);color:var(--red);flex:none}
+.chal__ic svg{width:18px;height:18px}
+.chal__c b{font-size:var(--t-h4);font-weight:700;letter-spacing:-.022em;line-height:1.2}
+.chal__c p{font-size:var(--t-micro);color:var(--ink-2);line-height:1.5;flex:1}
+.chal__meta{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-variant-numeric:tabular-nums}
+/* the first card is the one worth arriving on */
+.chal__c:first-child{border-color:rgba(229,35,29,.35);box-shadow:0 2px 6px rgba(229,35,29,.08),0 14px 34px rgba(11,21,51,.1)}
+.chal__c:first-child .chal__ic{background:var(--red);color:#fff}
+.chal__c:nth-child(2) .chal__ic{color:#1F5AE0}
+.chal__c:nth-child(3) .chal__ic{color:#0D7F3F}
+.chal__c:nth-child(4) .chal__ic{color:#B0741E}
+.chal__c:nth-child(5) .chal__ic{color:#0B7B7B}
+.chal__c:nth-child(6) .chal__ic{color:#6A34BC}
+.chal__c:nth-child(7) .chal__ic{color:#1F5AE0}
+.chal__c:nth-child(8) .chal__ic{color:#B0741E}
 .chal__live{margin-top:clamp(22px,2.6vw,34px);border-radius:var(--r-lg);border:1px solid var(--line);
   background:#fff;box-shadow:var(--sh-2);overflow:hidden}
 .chal__hd{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--line);background:var(--surface)}
