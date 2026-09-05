@@ -37,7 +37,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/greatvibes-latin-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/onest-latin-700.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=f9acb6e106">
-<link rel="stylesheet" href="/assets/styles.css?v=f4be6b2117">
+<link rel="stylesheet" href="/assets/styles.css?v=b404bc7867">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Escape! AI Travel Agent","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://www.escapetravel.site/","description":"Personal AI travel agent that plans, organises and accompanies a whole journey — routes, tickets, hotels, cars, EV charging, transfers, weather and recommendations in one agent.","inLanguage":["ru","uk","en"],"author":{"@type":"Person","name":"Dmytro Sukhyna"},"publisher":{"@type":"Organization","name":"Escape!","url":"https://www.escapetravel.site/","email":"escape.travel.ai@gmail.com"}}
@@ -283,7 +283,7 @@
 <!-- ===== 02 PROBLEM ===== -->
 <section class="section" id="problem">
   <div class="wrap">
-    <div class="head head--center rv">
+    <div class="head rv">
       <span class="eyebrow" data-i18n="probEyebrow">Проблема</span>
       <h2 data-i18n-html="probTitle">Путешествия огромны.<br>Планирование всё ещё раздроблено.</h2>
       <p class="lead" data-i18n="probLead">Одна поездка — это десяток вкладок и несколько приложений. И ни одно из них не знает, как выглядит ваш день целиком.</p>
@@ -314,7 +314,7 @@
           <span class="brandmark brandmark--light"><span class="word">Escape</span><svg class="pin" aria-hidden="true"><use href="#brand-pin"/></svg></span>
           <small data-i18n="fragNode">Один AI-агент</small>
         </span>
-        <p class="lead" style="text-align:center;max-width:46ch" data-i18n="fragNote">Один запрос вместо пятнадцати вкладок. Агент связывает решения между собой — и учитывает, как одно меняет другое.</p>
+        <p class="lead" style="max-width:46ch" data-i18n="fragNote">Один запрос вместо пятнадцати вкладок. Агент связывает решения между собой — и учитывает, как одно меняет другое.</p>
       </div>
     </div>
   </div>
@@ -323,7 +323,7 @@
 <!-- ===== 04 ONE REQUEST ===== -->
 <section class="section" id="agent">
   <div class="wrap">
-    <div class="head head--center rv">
+    <div class="head rv">
       <span class="status status--now" data-i18n="stNow">Работает сейчас</span>
       <span class="eyebrow" data-i18n="knowEyebrow">Сценарий первый</span>
       <h2 data-i18n-html="knowTitle">Знаете, куда хотите?<br>Скажите один раз.</h2>
@@ -340,7 +340,7 @@
       <p data-i18n="knowVoice">«Рим на выходные. Вдвоём. Около €1 500. Хороший отель, отличная еда, немного культуры и что-нибудь вечером.»</p>
       <span class="voice__hint" data-i18n="knowVoiceHint">Расшифровка. Агенту всё равно, сказали вы это или написали.</span>
     </div>
-    <p class="quote rv" style="text-align:center;margin-top:clamp(22px,2.6vw,32px);font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.03em;line-height:1.2" data-i18n-html="knowOne">Одно намерение.<br>Одна связанная поездка.</p>
+    <p class="quote rv" style="margin-top:clamp(22px,2.6vw,32px);font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.03em;line-height:1.2" data-i18n-html="knowOne">Одно намерение.<br>Одна связанная поездка.</p>
 
     <div class="trail rv" aria-hidden="true">
       <span><svg aria-hidden="true"><use href="#i-plane"/></svg></span>
@@ -659,7 +659,7 @@
     <img src="/img/escape-friends-sm.webp" srcset="/img/escape-friends-sm.webp 1400w, /img/escape-friends-lg.webp 1672w" sizes="100vw" width="1672" height="941" loading="lazy" decoding="async" alt="">
   </div>
   <div class="wrap">
-    <div class="head head--center rv">
+    <div class="head rv">
       <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
       <span class="eyebrow" data-i18n="comEyebrow">Сообщество</span>
       <h2><span data-i18n="comTitleA">Путешествия объединяют.</span><br><span class="brandmark brandmark--inline"><span class="word">Escape</span><svg class="pin" aria-hidden="true"><use href="#brand-pin"/></svg></span> <span data-i18n-html="comTitleB">помогает найти своих.</span></h2>
@@ -922,7 +922,7 @@
 <!-- ===== 13 ANYWHERE IN THE WORLD ===== -->
 <section class="section section--dark" id="world">
   <div class="wrap">
-    <div class="head head--center rv">
+    <div class="head rv">
       <span class="eyebrow" data-i18n="wldEyebrow">Весь мир</span>
       <h2 data-i18n-html="wldTitle">Любая точка мира —<br>только скажите, чего вы хотите.</h2>
       <p class="lead" data-i18n="wldLead">Выходные в соседнем городе или месяц на другом континенте — Escape! одинаково соберёт всё сам.</p>
@@ -1079,25 +1079,29 @@
 
 <!-- ===== 14b PROACTIVITY ===== -->
 <section class="section section--surface" id="proactive">
-  <div class="wrap split split--rev">
-    <div class="split__media rv">
-      <figure class="scene scene--wide">
-        <img src="/img/escape-view.webp" width="950" height="436" loading="lazy" decoding="async" alt="Санторини на закате: белые дома, синий купол и море" data-i18n-alt="altEscapeView">
-      </figure>
-    </div>
-    <div class="split__copy rv rv-d1">
+  <div class="wrap">
+    <div class="head rv">
       <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
       <span class="eyebrow" style="margin-top:14px;display:block" data-i18n="proEyebrow">Проактивность</span>
       <h2 data-i18n-html="proTitle">Следующая поездка<br>может найти вас первой.</h2>
       <p class="lead" data-i18n="proLead">Escape! запоминает, куда вы ездите, как путешествуете, сколько тратите, что сохраняете и от чего отказываетесь. Чем больше поездок, тем меньше нужно объяснять.</p>
+    </div>
 
-      <div class="card" style="margin-top:clamp(20px,2.4vw,28px);border-left:4px solid var(--red)">
-        <span class="eyebrow" data-i18n="proNudgeLab">Escape! пишет первым</span>
-        <p style="margin-top:11px;font-size:var(--t-small);line-height:1.55;color:var(--ink-2)" data-i18n="proNudge">Санторини лежит в вашем списке восемь месяцев. Билеты из вашего города сейчас укладываются в ваш бюджет на октябрь. Собрать поездку?</p>
-        <button class="btn btn--sm btn--red" type="button" data-waitlist style="margin-top:14px"><span data-i18n="proYes">Собрать маршрут</span></button>
+    <figure class="scene scene--wide rv rv-d1" style="margin-top:clamp(26px,3.2vw,44px)">
+      <img src="/img/escape-view.webp" width="950" height="436" loading="lazy" decoding="async" alt="Санторини на закате: белые дома, синий купол и море" data-i18n-alt="altEscapeView">
+    </figure>
+
+    <div class="split" style="margin-top:clamp(24px,3vw,40px);align-items:center">
+      <div class="split__copy rv">
+        <div class="card" style="border-left:4px solid var(--red)">
+          <span class="eyebrow" data-i18n="proNudgeLab">Escape! пишет первым</span>
+          <p style="margin-top:11px;font-size:var(--t-small);line-height:1.55;color:var(--ink-2)" data-i18n="proNudge">Санторини лежит в вашем списке восемь месяцев. Билеты из вашего города сейчас укладываются в ваш бюджет на октябрь. Собрать поездку?</p>
+          <button class="btn btn--sm btn--red" type="button" data-waitlist style="margin-top:14px"><span data-i18n="proYes">Собрать маршрут</span></button>
+        </div>
       </div>
-
-      <p class="quote" style="margin-top:clamp(20px,2.4vw,28px);font-family:var(--font-display);font-size:var(--t-h4);font-weight:700;letter-spacing:-.025em;line-height:1.25" data-i18n-html="proSmarter">Каждая поездка делает<br>следующий Escape! умнее.</p>
+      <div class="split__copy rv rv-d1">
+        <p class="quote" style="font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.028em;line-height:1.2" data-i18n-html="proSmarter">Каждая поездка делает<br>следующий Escape! умнее.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1115,7 +1119,7 @@
       <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
       <span class="status status--vision" data-i18n="stVision">Направление</span>
     </div>
-    <div class="head head--center rv">
+    <div class="head rv">
       <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
       <span class="eyebrow" data-i18n="togEyebrow">Поехали вместе</span>
       <h2 data-i18n-html="togTitle">Знаете, куда хотите,<br>но ехать не с кем?</h2>
@@ -1201,7 +1205,7 @@
     <img src="/img/coast-dusk-sm.webp" srcset="/img/coast-dusk-sm.webp 1200w, /img/coast-dusk-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
   </div>
   <div class="wrap">
-    <div class="head head--center rv">
+    <div class="head rv">
       <span class="status status--vision" data-i18n="stVision">Направление</span>
       <span class="eyebrow" data-i18n="idEyebrow">Travel-профиль</span>
       <h2 data-i18n-html="idTitle">Ваша жизнь<br>в путешествиях.</h2>
@@ -1225,7 +1229,7 @@
     </div>
 
     <div class="rv rv-d1" style="margin-top:clamp(34px,4vw,58px)">
-      <h3 style="font-size:var(--t-h3);text-align:center;max-width:20ch;margin-inline:auto" data-i18n-html="wpTitle">Сколько мира<br>вы уже видели?</h3>
+      <h3 style="font-size:var(--t-h3);max-width:20ch" data-i18n-html="wpTitle">Сколько мира<br>вы уже видели?</h3>
       <div class="wprog" style="margin-top:clamp(24px,3vw,38px)">
         <div class="wprog__ring">
           <svg viewBox="0 0 120 120" aria-hidden="true">
@@ -1243,7 +1247,7 @@
           <div class="wprog__row wprog__row--plain"><span class="wprog__n">27&#8239;400</span><span class="wprog__lab" data-i18n="passKm">км пройдено</span></div>
         </div>
       </div>
-      <p class="quote" style="text-align:center;margin-top:clamp(26px,3vw,40px);font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.03em;line-height:1.2" data-i18n-html="awNotBucket">Мир — не список желаний.<br>Это шкала прогресса.</p>
+      <p class="quote" style="margin-top:clamp(26px,3vw,40px);font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.03em;line-height:1.2" data-i18n-html="awNotBucket">Мир — не список желаний.<br>Это шкала прогресса.</p>
 
       <h3 style="font-size:var(--t-h4);margin-top:clamp(30px,3.6vw,46px)" data-i18n="rankTitle">Рейтинг исследователей</h3>
       <div class="rank">
@@ -1375,47 +1379,6 @@
   </div>
 </section>
 
-<!-- ===== 15g MAKE IT MINE + INSIDERS ===== -->
-<section class="section section--surface section--photo" id="mine">
-  <div class="section__bg" aria-hidden="true">
-    <img src="/img/road-sm.webp" srcset="/img/road-sm.webp 1200w, /img/road-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
-  </div>
-  <div class="wrap">
-    <div class="split">
-      <div class="split__copy rv">
-        <span class="status status--vision" data-i18n="stVision">Направление</span>
-        <span class="eyebrow" style="margin-top:14px;display:block" data-i18n="mineEyebrow">Чужой маршрут</span>
-        <h2 data-i18n-html="mineTitle">Чужой маршрут —<br>под ваш город и ваши даты.</h2>
-        <p class="lead" data-i18n="mineLead">Кто-то опубликовал поездку, которая вам нравится. Escape! собирает её заново: вылет из вашего города, ваши числа, ваш бюджет и погода на эти дни. Вы едете по чужой идее, но своей поездкой.</p>
-        <h3 style="font-size:var(--t-h4);margin-top:clamp(24px,2.8vw,34px)" data-i18n-html="mineInsiders">Маршруты от тех,<br>кто там живёт.</h3>
-        <p class="small" style="color:var(--ink-2);margin-top:10px;font-size:var(--t-small);line-height:1.55" data-i18n="mineInsidersS">Локальные жители и опытные путешественники публикуют маршруты, места и выходные. Escape! превращает вдохновение в поездку, которую можно поехать.</p>
-      </div>
-
-      <div class="split__copy rv rv-d1">
-        <div class="ui" style="max-width:none">
-          <div style="padding:16px 18px;border-bottom:1px solid var(--line)">
-            <div style="font-family:var(--font-display);font-size:var(--t-h4);font-weight:800;letter-spacing:-.025em" data-i18n="mineAuthor">48 часов в Риме</div>
-            <div style="font-size:var(--t-micro);color:var(--ink-2);font-weight:600;margin-top:2px" data-i18n="mineAuthorS">Марко, живёт там</div>
-          </div>
-          <ul class="ui__steps" style="padding:16px 18px">
-            <li><span class="ui__ic ui__ic--green"><svg aria-hidden="true"><use href="#i-map"/></svg></span>
-              <span class="t"><b data-i18n="mineAdapt">Подстроено под вас</b><span data-i18n="mineAdaptS">Ваш город, даты, бюджет, темп</span></span></li>
-            <li><span class="ui__ic ui__ic--blue"><svg aria-hidden="true"><use href="#i-plane"/></svg></span>
-              <span class="t"><b data-i18n="mineRebuilt">Перелёт и жильё пересобраны</b><span data-i18n="mineRebuiltS">На двоих, с погодой в октябре</span></span></li>
-          </ul>
-          <button class="ui__cta" type="button" data-waitlist data-i18n="mineBtn">Забрать себе</button>
-        </div>
-
-        <div class="card" style="margin-top:18px;border-left:4px solid var(--red)">
-          <h3 style="font-size:var(--t-h4)" data-i18n-html="helpTitle">Совет от того,<br>кто уже вернулся.</h3>
-          <p class="small" style="color:var(--ink-2);font-size:var(--t-micro);line-height:1.5;margin-top:10px" data-i18n="helpAsk">Собираетесь в Токио — видите заметки тех, кто был там недавно.</p>
-          <p class="small" style="color:var(--ink-2);font-size:var(--t-micro);line-height:1.5;margin-top:8px" data-i18n="helpGive">Вернулись из Токио — одна заметка, и кто-то поедет увереннее.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== 15h LOCAL ESCAPE ===== -->
 <section class="section section--photo">
   <div class="section__bg" aria-hidden="true">
@@ -1486,7 +1449,7 @@
     <img src="/img/friends-sail-sm.webp" srcset="/img/friends-sail-sm.webp 1200w, /img/friends-sail-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
   </div>
   <div class="wrap">
-    <div class="head head--center rv">
+    <div class="head rv">
       <span class="eyebrow" data-i18n="whyEyebrow">Почему Escape!</span>
       <h2 data-i18n="whyTitle">Шесть причин, по которым это работает иначе</h2>
     </div>
@@ -1729,7 +1692,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/assets/i18n.js?v=f329308a33"></script>
+<script src="/assets/i18n.js?v=6b3ca18e69"></script>
 <script src="/assets/app.js?v=0a7f744ce6" defer></script>
 </body>
 </html>
