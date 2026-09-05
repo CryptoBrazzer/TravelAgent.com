@@ -43,11 +43,11 @@
   --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
 
   /* Type scale */
-  --t-display:clamp(2.35rem,1.15rem + 3.6vw,4.35rem);
-  --t-h2:clamp(1.85rem,1.05rem + 2.3vw,3.05rem);
-  --t-h3:clamp(1.3rem,1.02rem + .85vw,1.85rem);
-  --t-h4:clamp(1.05rem,.96rem + .3vw,1.22rem);
-  --t-lead:clamp(1.02rem,.96rem + .3vw,1.19rem);
+  --t-display:clamp(2.5rem,1.1rem + 4.2vw,4.9rem);
+  --t-h2:clamp(1.95rem,1.02rem + 2.7vw,3.4rem);
+  --t-h3:clamp(1.34rem,1.02rem + .95vw,1.95rem);
+  --t-h4:clamp(1.06rem,.96rem + .34vw,1.26rem);
+  --t-lead:clamp(1.04rem,.96rem + .38vw,1.26rem);
   --t-body:clamp(.95rem,.92rem + .14vw,1.03rem);
   --t-small:.875rem;
   --t-micro:.75rem;
@@ -98,7 +98,9 @@ button{background:none;border:0;cursor:pointer}
 ::selection{background:var(--red);color:#fff}
 [hidden]{display:none!important}
 
-h1,h2,h3,h4,.display{font-family:var(--font-display);font-weight:700;letter-spacing:-.028em;line-height:1.08}
+h1,h2,h3,h4,.display{font-family:var(--font-display);font-weight:700;letter-spacing:-.032em;line-height:1.06}
+h3,h4{letter-spacing:-.024em;line-height:1.16}
+p{text-wrap:pretty}
 h3,h4{letter-spacing:-.02em;line-height:1.22}
 
 /* --- 3. Layout ----------------------------------------------------------- */
@@ -111,14 +113,18 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .section--dark h1,.section--dark h2,.section--dark h3{color:#fff}
 
 .eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:var(--t-micro);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink-3);
 }
-.eyebrow::before{content:"";width:18px;height:1px;background:var(--red);flex:none}
+.eyebrow::before{
+  content:"";width:26px;height:2px;border-radius:2px;flex:none;
+  background:linear-gradient(90deg,var(--red),rgba(229,35,29,0));
+}
+.section--dark .eyebrow::before{background:linear-gradient(90deg,#FF6A63,rgba(255,106,99,0))}
 .section--dark .eyebrow{color:#8E9CC4}
 
-.lead{font-size:var(--t-lead);color:var(--ink-2);line-height:1.6;max-width:62ch}
+.lead{font-size:var(--t-lead);color:var(--ink-2);line-height:1.62;max-width:58ch;letter-spacing:-.006em}
 .section--dark .lead{color:#A9B5D4}
 .muted{color:var(--ink-3)}
 .src{font-size:var(--t-micro);color:var(--ink-3);letter-spacing:.01em}
@@ -550,7 +556,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .fcard:hover{transform:translateY(-6px);box-shadow:var(--sh-3)}
 .fcard:hover img{transform:scale(1.07)}
-.fcard b{display:block;font-family:var(--font-display);font-size:clamp(1rem,.94rem + .3vw,1.2rem);font-weight:700;letter-spacing:-.02em}
+.fcard b{display:block;font-family:var(--font-display);font-size:clamp(.98rem,.92rem + .26vw,1.14rem);font-weight:700;letter-spacing:-.022em;line-height:1.15;overflow-wrap:anywhere;hyphens:auto}
 .fcard p{font-size:var(--t-micro);color:rgba(255,255,255,.82);margin-top:5px;line-height:1.42}
 .fcard i{
   position:absolute;top:clamp(12px,1.2vw,18px);left:clamp(14px,1.3vw,20px);
@@ -1667,4 +1673,27 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 @media (prefers-reduced-motion:no-preference){
   .trail span{transition:transform .6s var(--ease-soft),opacity .6s var(--ease-soft)}
+}
+
+/* --- grounds -------------------------------------------------------------- */
+/* Not every section wants a photograph — a page of them is noise, and stock
+   imagery used as filler is the first thing that reads as cheap. The sections
+   without one get a ground of their own instead: two very low light sources in
+   the brand's own blue and red, well under the threshold where they'd compete
+   with the type. */
+.section--dark:not(.section--photo){position:relative;isolation:isolate;overflow:clip}
+.section--dark:not(.section--photo)::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(56% 44% at 6% -8%, rgba(31,90,224,.22), transparent 66%),
+    radial-gradient(46% 38% at 98% 106%, rgba(229,35,29,.16), transparent 68%);
+}
+.section:not(.section--dark):not(.section--photo):not(.section--sky){
+  position:relative;isolation:isolate;overflow:clip;
+}
+.section:not(.section--dark):not(.section--photo):not(.section--sky)::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(44% 34% at 100% 0%, rgba(31,90,224,.055), transparent 68%),
+    radial-gradient(38% 30% at 0% 100%, rgba(229,35,29,.045), transparent 70%);
 }
