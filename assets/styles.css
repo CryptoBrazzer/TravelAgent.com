@@ -134,6 +134,9 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .section--dark .src{color:#7682A7}
 /* the same grey over a photograph falls to 3.5:1 — it gets its own value there */
 .section--dark.section--photo .src{color:#98A5C8}
+/* the veil now opens a little sooner at the top edge, so the eyebrow that sits
+   in that band needs the same treatment the small print already had */
+.section--dark.section--photo .eyebrow{color:#A9B5D6}
 
 .head{max-width:var(--maxw-narrow)}
 /* the globe sits on an axis; its heading belongs on the same one */
@@ -238,14 +241,20 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .nav a:hover::after,.nav a.is-active::after{transform:scaleX(1)}
 .nav a.is-active{color:var(--ink)}
 
-.langs{display:flex;align-items:center;gap:1px;flex:none;padding:3px;border-radius:var(--r-pill);background:var(--surface-2)}
+/* It sat in a solid beige pill and pulled the eye before the navigation did.
+   It is glass now: barely there until you look for it. */
+.langs{
+  display:flex;align-items:center;gap:1px;flex:none;padding:3px;border-radius:var(--r-pill);
+  background:rgba(255,255,255,.3);border:1px solid rgba(20,26,44,.06);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+}
 .langs button{
   padding:6px 11px;border-radius:var(--r-pill);min-width:50px;min-height:36px;
   font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--ink-3);
   transition:background .25s var(--ease),color .25s var(--ease);
 }
 .langs button:hover{color:var(--ink)}
-.langs button[aria-pressed="true"]{background:var(--white);color:var(--ink);box-shadow:var(--sh-1)}
+.langs button[aria-pressed="true"]{background:rgba(255,255,255,.9);color:var(--ink);box-shadow:0 1px 3px rgba(16,24,40,.07)}
 
 .burger{display:none;width:42px;height:42px;border-radius:var(--r-sm);align-items:center;justify-content:center;flex:none}
 .burger span{display:block;width:19px;height:1.8px;background:var(--ink);border-radius:2px;position:relative;transition:.3s var(--ease)}
@@ -513,7 +522,7 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   background:
     linear-gradient(100deg,#FBFAF7 0%,#FBFAF7 26%,rgba(251,250,247,.94) 38%,rgba(251,250,247,.55) 50%,rgba(251,250,247,.06) 66%,rgba(251,250,247,0) 78%),
     linear-gradient(180deg,rgba(251,250,247,.9) 0%,rgba(251,250,247,0) 22%),
-    linear-gradient(0deg,rgba(251,250,247,.96) 0%,rgba(251,250,247,0) 26%);
+    linear-gradient(0deg,rgba(251,250,247,1) 0%,rgba(251,250,247,.97) 4%,rgba(251,250,247,0) 28%);
 }
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(20px,3vw,48px);align-items:center;min-height:min(78vh,700px)}
 .hero__copy{position:relative;z-index:2;max-width:640px}
@@ -989,7 +998,7 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .cta{position:relative;isolation:isolate;overflow:clip;color:#fff;text-align:center}
 .cta__media{position:absolute;inset:0;z-index:-2}
 .cta__media img{width:100%;height:100%;object-fit:cover}
-.cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,.88),rgba(7,14,36,.82) 45%,rgba(7,14,36,.93))}
+.cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,14,36,1) 0,rgba(7,14,36,.88) 150px,rgba(7,14,36,.82) 45%,rgba(7,14,36,.93))}
 .cta .wrap{padding-block:clamp(80px,10vw,168px)}
 .cta h2{font-size:var(--t-h2);text-wrap:balance;max-width:22ch;margin-inline:auto}
 .cta__brand{display:flex;justify-content:center;align-items:baseline;font-size:clamp(2.1rem,1.1rem + 3.2vw,3.9rem);margin-block:.22em .04em}
@@ -1284,7 +1293,7 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 /* CTA over photography — force light button treatment */
 .cta .btn--ghost{--btn-fg:#fff;border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.07)}
 .cta .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.14)}
-.cta__media::after{background:linear-gradient(180deg,rgba(7,14,36,.88),rgba(7,14,36,.82) 45%,rgba(7,14,36,.93))}
+.cta__media::after{background:linear-gradient(180deg,rgba(7,14,36,1) 0,rgba(7,14,36,.88) 150px,rgba(7,14,36,.82) 45%,rgba(7,14,36,.93))}
 
 /* ---- request bubble + ready row inside the hero phone ---- */
 .ui__ask{
@@ -1307,15 +1316,40 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 /* --- photographic section backdrop (used to break up the white) ---------- */
 .section--photo{position:relative;isolation:isolate;overflow:clip}
-/* the seam between a photograph and the ground next to it, dissolved */
+/* Every seam on this page is a ramp rather than a line, and the ramp is
+   exactly as tall as the section's own padding — so it has faded to nothing
+   before the first word of copy sits on it. A light section keeps the cream
+   ground it already has; one that meets a dark screen starts (or ends) in
+   navy instead and lifts out of it. */
+.section{
+  --edge:var(--sp-section);
+  --fade-top:linear-gradient(180deg,rgba(251,250,247,1) 0%,rgba(251,250,247,.55) 38%,rgba(251,250,247,0) 100%);
+  --fade-bot:linear-gradient(0deg, rgba(251,250,247,1) 0%,rgba(251,250,247,.55) 38%,rgba(251,250,247,0) 100%);
+}
+/* Navy fading straight to cream passes through grey and looks like smoke.
+   It goes out through dusk blue instead, and the section it lands in opens
+   its padding to give the ramp somewhere to happen. */
+.section--dark + .section:not(.section--dark){
+  --edge:calc(var(--sp-section) * 1.6);
+  padding-top:calc(var(--sp-section) * 1.6);
+  --fade-top:linear-gradient(180deg,
+    rgba(7,14,36,1) 0%,rgba(10,21,54,.9) 13%,rgba(19,38,88,.6) 33%,
+    rgba(33,60,124,.28) 55%,rgba(52,86,158,.09) 76%,rgba(70,108,180,0) 100%);
+}
+.section:not(.section--dark):has(+ .section--dark),
+.section:not(.section--dark):has(+ .cta){
+  --edge:calc(var(--sp-section) * 1.6);
+  padding-bottom:calc(var(--sp-section) * 1.6);
+  --fade-bot:linear-gradient(0deg,
+    rgba(7,14,36,1) 0%,rgba(10,21,54,.9) 13%,rgba(19,38,88,.6) 33%,
+    rgba(33,60,124,.28) 55%,rgba(52,86,158,.09) 76%,rgba(70,108,180,0) 100%);
+}
+.section--photo:not(.section--dark)::before,
 .section--photo:not(.section--dark)::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:120px;z-index:-1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(251,250,247,0),var(--white-warm));
+  content:"";position:absolute;left:0;right:0;height:var(--edge);z-index:-1;pointer-events:none;
 }
-.section--photo:not(.section--dark)::before{
-  content:"";position:absolute;left:0;right:0;top:0;height:110px;z-index:-1;pointer-events:none;
-  background:linear-gradient(0deg,rgba(251,250,247,0),var(--white-warm));
-}
+.section--photo:not(.section--dark)::before{top:0;background:var(--fade-top)}
+.section--photo:not(.section--dark)::after{bottom:0;background:var(--fade-bot)}
 .section__bg{position:absolute;inset:0;z-index:-2}
 /* The photography is the point. It was washed to 93% white and might as well
    not have been there; it now carries colour, and the veil only opens where
@@ -1339,13 +1373,17 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .section--photo.section--dark .section__bg img{opacity:.66}
 .section--photo.section--dark .section__bg::after{
   background:linear-gradient(180deg,
-    rgba(7,14,36,.58) 0,
-    rgba(7,14,36,.83) 96px,
-    rgba(7,14,36,.84) calc(100% - 110px),
-    rgba(7,14,36,.6) 100%);
+    rgba(7,14,36,1) 0,
+    rgba(7,14,36,.62) 84px,
+    rgba(7,14,36,.83) 176px,
+    rgba(7,14,36,.84) calc(100% - 190px),
+    rgba(7,14,36,.63) calc(100% - 84px),
+    rgba(7,14,36,1) 100%);
 }
 
 /* --- fragmented services: readable chips, not grey on white -------------- */
+/* the one line that closes the block sits on the same axis as the node above it */
+.frag__note{max-width:52ch;margin-inline:auto;text-align:center}
 .frag__cloud span{
   display:inline-flex;align-items:center;gap:9px;
   padding:9px 16px 9px 9px;border-radius:var(--r-pill);
@@ -1878,4 +1916,11 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   background:
     radial-gradient(44% 34% at 100% 0%, rgba(31,90,224,.055), transparent 68%),
     radial-gradient(38% 30% at 0% 100%, rgba(229,35,29,.045), transparent 70%);
+}
+.section:not(.section--dark):not(.section--photo)::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:var(--fade-top),var(--fade-bot);
+  background-repeat:no-repeat;
+  background-position:top,bottom;
+  background-size:100% var(--edge),100% var(--edge);
 }
