@@ -6,7 +6,7 @@ Static site, no build step: upload the repository root as-is.
 ## Structure
 
 ```
-index.html               single-page product story (20 sections)
+index.html               single-page product story (25 sections)
 privacy.html             ┐
 terms.html               │
 cookies.html             ├ legal pages (shared renderer, content in assets/legal-docs.js)
@@ -129,8 +129,9 @@ entry. Consent is granular and refusing is as easy as accepting.
 ## Content rules observed
 
 No fake App Store links, partnerships, integrations, reviews, user counts or
-live booking data. Market statistics are attributed to UN Tourism (World
-Tourism Barometer, January 2025) and WTTC (Economic Impact Research 2025).
+live booking data. The page shows what the product does, not how large the
+market is — market sizing, the growth loop and the platform vision belong in
+a deck, not here. Every block that is not live yet carries a status label.
 
 ## Local preview
 
