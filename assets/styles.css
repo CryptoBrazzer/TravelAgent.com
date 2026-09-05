@@ -108,8 +108,11 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .section{padding-block:var(--sp-section);position:relative}
 .section--tight{padding-block:calc(var(--sp-section) * .72)}
 .section--dark{background:var(--navy-900);color:#EDF1FA}
-.section--surface{background:var(--surface)}
-.section--sky{background:linear-gradient(180deg,#FBFAF7 0%,var(--sky) 55%,#FBFAF7 100%)}
+/* Alternating cream and beige drew a hard line at every join. The light
+   sections share one ground; the photographs and the dark sections are what
+   separate them. --surface stays what it always was for cards and chips. */
+.section--surface{background:var(--white-warm)}
+.section--sky{background:var(--white-warm)}
 .section--dark h1,.section--dark h2,.section--dark h3{color:#fff}
 
 .eyebrow{
@@ -133,6 +136,9 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .section--dark.section--photo .src{color:#98A5C8}
 
 .head{max-width:var(--maxw-narrow)}
+/* the globe sits on an axis; its heading belongs on the same one */
+.head--mid{margin-inline:auto;text-align:center}
+.head--mid .lead{margin-inline:auto}
 .head h2{font-size:var(--t-h2);margin-block:14px 16px;text-wrap:balance}
 
 .grid{display:grid;gap:clamp(16px,2vw,26px)}
@@ -657,7 +663,6 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .scene__device{position:absolute;z-index:4;right:-2%;bottom:-9%}
 /* a wide frame keeps a panorama whole instead of cropping it to a portrait */
 .scene--wide{aspect-ratio:950/436}
-.wrap > .scene--wide{width:100%}
 .scene--wide::after{background:linear-gradient(180deg,rgba(7,14,36,.14) 0%,rgba(7,14,36,0) 42%,rgba(7,14,36,.2) 100%)}
 
 /* rain overlay — Amsterdam weather swap */
@@ -865,11 +870,14 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .weatherswap .btn{flex:none}
 
 /* --- 22. World ----------------------------------------------------------- */
-.world{position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--navy-900);margin-top:clamp(30px,4vw,54px);box-shadow:var(--sh-3)}
+.world{
+  position:relative;overflow:hidden;margin-top:clamp(26px,3.4vw,44px);
+  margin-inline:calc(50% - 50vw);width:100vw;
+}
 .world__bg{position:absolute;inset:0}
-.world__bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
-.world__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,rgba(7,14,36,.28),rgba(7,14,36,.93) 78%)}
-.world__in{position:relative;padding:clamp(24px,3.2vw,52px)}
+.world__bg img{width:100%;height:100%;object-fit:cover;opacity:.6}
+.world__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 80% at 50% 42%,rgba(7,14,36,.2),rgba(7,14,36,.88) 74%),linear-gradient(180deg,var(--navy-900),rgba(7,14,36,0) 16%,rgba(7,14,36,0) 84%,var(--navy-900))}
+.world__in{position:relative;padding:clamp(26px,3.4vw,54px) var(--gutter);max-width:var(--maxw);margin-inline:auto}
 .map{position:relative;width:100%;max-width:940px;margin-inline:auto}
 .map svg{width:100%;height:auto;display:block}
 .map .dots circle{fill:rgba(255,255,255,.16)}
@@ -987,6 +995,27 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .cta__brand{display:flex;justify-content:center;align-items:baseline;font-size:clamp(2.1rem,1.1rem + 3.2vw,3.9rem);margin-block:.22em .04em}
 .cta p{margin-top:16px;color:#D9E1F1;font-size:var(--t-lead);max-width:52ch;margin-inline:auto}
 .cta__act{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+
+/* the contact card, on the closing screen rather than in a section of its own */
+.cta__card{
+  margin:clamp(34px,4vw,56px) auto 0;max-width:640px;text-align:left;
+  border-radius:var(--r-lg);border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  overflow:hidden;
+}
+.cta__row{display:flex;gap:15px;align-items:center;padding:15px clamp(16px,2vw,24px);
+  border-bottom:1px solid rgba(255,255,255,.12)}
+.cta__row:last-child{border-bottom:0}
+.cta__ic{width:36px;height:36px;border-radius:11px;flex:none;display:grid;place-items:center;
+  background:rgba(255,255,255,.12);color:#fff}
+.cta__ic svg{width:17px;height:17px}
+.cta__app{width:36px;height:36px;border-radius:10px;flex:none;object-fit:cover}
+.cta__row small{display:block;font-size:10px;font-weight:800;letter-spacing:.13em;
+  text-transform:uppercase;color:#A9B5D4;margin-bottom:3px}
+.cta__row b,.cta__row a{font-size:var(--t-small);font-weight:700;letter-spacing:-.012em;color:#fff;word-break:break-word}
+.cta__row a{display:inline-block;padding-block:9px;margin-block:-7px}
+.cta__row a:hover{color:#FF8E88}
+@media (max-width:560px){ .cta__card{margin-inline:0} }
 
 /* --- 29. Contact + footer ------------------------------------------------ */
 .contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(26px,4vw,64px);align-items:start}
@@ -1195,7 +1224,6 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   .scene--tall{aspect-ratio:4/3.4}
   /* the panorama stays a panorama at every width */
   .scene--wide{aspect-ratio:950/436}
-.wrap > .scene--wide{width:100%}
   .scene__device{position:relative;right:auto;bottom:auto;margin:-9% auto 0;display:block;--w:min(226px,58vw)}
   .split__media{display:flex;flex-direction:column}
   .hero__stage .device{--w:min(272px,68vw)}
@@ -1279,6 +1307,15 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
 /* --- photographic section backdrop (used to break up the white) ---------- */
 .section--photo{position:relative;isolation:isolate;overflow:clip}
+/* the seam between a photograph and the ground next to it, dissolved */
+.section--photo:not(.section--dark)::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:120px;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(251,250,247,0),var(--white-warm));
+}
+.section--photo:not(.section--dark)::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:110px;z-index:-1;pointer-events:none;
+  background:linear-gradient(0deg,rgba(251,250,247,0),var(--white-warm));
+}
 .section__bg{position:absolute;inset:0;z-index:-2}
 /* The photography is the point. It was washed to 93% white and might as well
    not have been there; it now carries colour, and the veil only opens where
@@ -1473,32 +1510,10 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .wl__hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 /* ==========================================================================
-   NEW PRODUCT DIRECTION — status labelling, dual scenario, identity, social
+   NEW PRODUCT DIRECTION — dual scenario, identity, social
    Built on the existing tokens and components; nothing here restyles the old.
    ========================================================================== */
 
-/* --- status: every future-facing block says where it actually stands ------ */
-.status{
-  display:inline-flex;align-items:center;gap:6px;flex:none;
-  font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
-  padding:4px 10px;border-radius:var(--r-pill);border:1px solid;white-space:nowrap;
-}
-.status::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;flex:none}
-.status--now{color:#0D7F3F;border-color:#9FDCBB;background:#E9F8F0}
-.status--dev{color:#8A5A05;border-color:#EBCB8B;background:#FDF4E3}
-.status--next{color:#123CA8;border-color:#A9C4F4;background:#EAF2FD}
-.status--vision{color:#5B4396;border-color:#C2B0EC;background:#F1EBFC}
-.section--dark .status--now,.cta .status--now{color:#6FE0A6;border-color:rgba(111,224,166,.42);background:rgba(111,224,166,.12)}
-.section--dark .status--dev,.cta .status--dev{color:#F5C169;border-color:rgba(245,193,105,.42);background:rgba(245,193,105,.12)}
-.section--dark .status--next,.cta .status--next{color:#93B7F7;border-color:rgba(147,183,247,.42);background:rgba(147,183,247,.12)}
-.section--dark .status--vision,.cta .status--vision{color:#BEA9F4;border-color:rgba(190,169,244,.42);background:rgba(190,169,244,.12)}
-.head .status{margin-bottom:14px}
-.statusbar{
-  display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;
-  padding:16px 20px;border-radius:var(--r-lg);border:1px dashed var(--line-strong);
-  background:var(--surface);margin-top:clamp(26px,3vw,40px);
-}
-.statusbar p{margin:0;font-size:var(--t-micro);color:var(--ink-2);line-height:1.5;flex:1;min-width:260px}
 
 /* --- hero: the two scenarios as a real toggle, not two promises ---------- */
 .modes{display:flex;align-items:center;gap:8px;margin-top:22px;flex-wrap:wrap}
@@ -1767,6 +1782,46 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   .route__stats{grid-template-columns:repeat(2,1fr)}
 }
 
+/* --- the moments it writes on --------------------------------------------- */
+.beats{list-style:none;margin:0;padding:0;display:grid;gap:clamp(13px,1.6vw,19px)}
+.beats li{position:relative;padding-left:24px}
+.beats li::before{
+  content:"";position:absolute;left:0;top:.52em;width:9px;height:9px;border-radius:50%;
+  background:var(--red);box-shadow:0 0 0 4px rgba(216,42,36,.13);
+}
+.beats b{display:block;font-size:var(--t-small);font-weight:800;letter-spacing:-.012em;color:var(--ink)}
+.beats span{display:block;margin-top:3px;font-size:var(--t-small);line-height:1.5;color:var(--ink-2)}
+
+/* --- a band: the picture carrying its own heading ------------------------ */
+.band{
+  position:relative;border-radius:var(--r-xl);overflow:hidden;isolation:isolate;
+  aspect-ratio:950/436;box-shadow:var(--sh-3);background:var(--navy-800);
+}
+.band > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(94deg,rgba(6,16,38,.86) 0%,rgba(6,16,38,.7) 34%,rgba(6,16,38,.16) 62%,rgba(6,16,38,0) 82%);
+}
+.band__copy{
+  position:relative;z-index:2;max-width:min(52%,560px);color:#fff;
+  padding:clamp(26px,4vw,64px);display:flex;flex-direction:column;justify-content:center;height:100%;
+}
+.band__copy .eyebrow{color:#D9E1F1}
+.band__copy .eyebrow::before{background:linear-gradient(90deg,#FF6A63,rgba(255,106,99,0))}
+.band__copy h2{font-size:var(--t-h2);margin-block:14px 14px;color:#fff}
+.band__copy p{font-size:var(--t-lead);line-height:1.5;color:#DCE4F4;max-width:34ch}
+@media (max-width:900px){
+  .band{aspect-ratio:auto}
+  .band > img{position:relative;height:auto;aspect-ratio:950/436}
+  .band::after{background:linear-gradient(180deg,rgba(6,16,38,.1) 0%,rgba(6,16,38,.5) 44%,rgba(6,16,38,.92) 76%)}
+  .band__copy{max-width:none;height:auto;position:absolute;inset:auto 0 0 0}
+}
+@media (max-width:560px){
+  .band > img{aspect-ratio:4/3.6}
+  .band__copy{padding:20px}
+  .band__copy p{font-size:var(--t-small)}
+}
+
 /* --- the trail ----------------------------------------------------------- */
 /* The dashed line from point A to point B, with a stop on it, is the one
    drawing the brand repeats everywhere. It belongs on the page too — as the
@@ -1815,10 +1870,10 @@ button.ui__cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
     radial-gradient(56% 44% at 6% -8%, rgba(31,90,224,.22), transparent 66%),
     radial-gradient(46% 38% at 98% 106%, rgba(229,35,29,.16), transparent 68%);
 }
-.section:not(.section--dark):not(.section--photo):not(.section--sky){
+.section:not(.section--dark):not(.section--photo){
   position:relative;isolation:isolate;overflow:clip;
 }
-.section:not(.section--dark):not(.section--photo):not(.section--sky)::before{
+.section:not(.section--dark):not(.section--photo)::before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:
     radial-gradient(44% 34% at 100% 0%, rgba(31,90,224,.055), transparent 68%),

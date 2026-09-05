@@ -37,7 +37,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/greatvibes-latin-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/onest-latin-700.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css?v=f9acb6e106">
-<link rel="stylesheet" href="/assets/styles.css?v=b404bc7867">
+<link rel="stylesheet" href="/assets/styles.css?v=bc7d1e9721">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Escape! AI Travel Agent","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://www.escapetravel.site/","description":"Personal AI travel agent that plans, organises and accompanies a whole journey — routes, tickets, hotels, cars, EV charging, transfers, weather and recommendations in one agent.","inLanguage":["ru","uk","en"],"author":{"@type":"Person","name":"Dmytro Sukhyna"},"publisher":{"@type":"Organization","name":"Escape!","url":"https://www.escapetravel.site/","email":"escape.travel.ai@gmail.com"}}
@@ -324,7 +324,6 @@
 <section class="section" id="agent">
   <div class="wrap">
     <div class="head rv">
-      <span class="status status--now" data-i18n="stNow">Работает сейчас</span>
       <span class="eyebrow" data-i18n="knowEyebrow">Сценарий первый</span>
       <h2 data-i18n-html="knowTitle">Знаете, куда хотите?<br>Скажите один раз.</h2>
       <p class="lead" data-i18n="knowLead">Дальше Escape! связывает всё между собой сам: перелёт, жильё, трансфер, столики, музеи, погоду и запас времени между ними.</p>
@@ -660,7 +659,6 @@
   </div>
   <div class="wrap">
     <div class="head rv">
-      <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
       <span class="eyebrow" data-i18n="comEyebrow">Сообщество</span>
       <h2><span data-i18n="comTitleA">Путешествия объединяют.</span><br><span class="brandmark brandmark--inline"><span class="word">Escape</span><svg class="pin" aria-hidden="true"><use href="#brand-pin"/></svg></span> <span data-i18n-html="comTitleB">помогает найти своих.</span></h2>
       <p class="lead" data-i18n="comLead">Поездку можно опубликовать, позвать друзей, найти попутчиков или присоединиться к чужому маршруту. Планировать в одиночку больше не нужно.</p>
@@ -748,7 +746,7 @@
 
     <div class="rv rv-d1">
       <figure class="scene">
-        <img src="/img/nyc-sm.webp" srcset="/img/nyc-sm.webp 1200w, /img/nyc-lg.webp 2200w" sizes="(max-width:1024px) 92vw, 50vw" width="1200" height="675" loading="lazy" decoding="async" alt="Мосты Нью-Йорка на фоне заката" data-i18n-alt="altNyc" data-i18n-alt="Мосты Нью-Йорка на фоне заката" data-i18n-alt="altNyc">
+        <img src="/img/nyc-sm.webp" srcset="/img/nyc-sm.webp 1200w, /img/nyc-lg.webp 2200w" sizes="(max-width:1024px) 92vw, 50vw" width="1200" height="675" loading="lazy" decoding="async" alt="Мосты Нью-Йорка на фоне заката" data-i18n-alt="altNyc">
       </figure>
 
     </div>
@@ -777,7 +775,7 @@
 
     <div class="route rv" id="route">
       <div class="route__img">
-        <img src="/img/road-sm.webp" srcset="/img/road-sm.webp 1200w, /img/road-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="Горная дорога вдоль побережья" data-i18n-alt="altEv" data-i18n-alt="Горная дорога вдоль побережья" data-i18n-alt="altEv">
+        <img src="/img/road-sm.webp" srcset="/img/road-sm.webp 1200w, /img/road-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="Горная дорога вдоль побережья" data-i18n-alt="altEv">
       </div>
       <div class="route__in">
         <div class="route__head">
@@ -922,7 +920,7 @@
 <!-- ===== 13 ANYWHERE IN THE WORLD ===== -->
 <section class="section section--dark" id="world">
   <div class="wrap">
-    <div class="head rv">
+    <div class="head head--mid rv">
       <span class="eyebrow" data-i18n="wldEyebrow">Весь мир</span>
       <h2 data-i18n-html="wldTitle">Любая точка мира —<br>только скажите, чего вы хотите.</h2>
       <p class="lead" data-i18n="wldLead">Выходные в соседнем городе или месяц на другом континенте — Escape! одинаково соберёт всё сам.</p>
@@ -958,16 +956,12 @@
               <!-- meridians sweeping to read as a slow rotation -->
               <g class="meridians" clip-path="url(#globeClip)" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1">
                 <ellipse cx="360" cy="170" ry="150" rx="150">
-                  <animate attributeName="rx" values="150;0;150" keyTimes="0;.5;1" dur="18s" begin="0s" repeatCount="indefinite"/>
                 </ellipse>
                 <ellipse cx="360" cy="170" ry="150" rx="106">
-                  <animate attributeName="rx" values="150;0;150" keyTimes="0;.5;1" dur="18s" begin="-4.5s" repeatCount="indefinite"/>
                 </ellipse>
                 <ellipse cx="360" cy="170" ry="150" rx="0">
-                  <animate attributeName="rx" values="150;0;150" keyTimes="0;.5;1" dur="18s" begin="-9s" repeatCount="indefinite"/>
                 </ellipse>
                 <ellipse cx="360" cy="170" ry="150" rx="106">
-                  <animate attributeName="rx" values="150;0;150" keyTimes="0;.5;1" dur="18s" begin="-13.5s" repeatCount="indefinite"/>
                 </ellipse>
               </g>
 
@@ -1050,8 +1044,7 @@
       </figure>
     </div>
     <div class="split__copy rv rv-d1">
-      <span class="status status--dev" data-i18n="stDev">В разработке</span>
-      <span class="eyebrow" style="margin-top:14px;display:block" data-i18n="surEyebrow">Сценарий второй</span>
+      <span class="eyebrow" style="display:block" data-i18n="surEyebrow">Сценарий второй</span>
       <h2 data-i18n="surTitle">Не знаете, куда ехать?</h2>
       <p class="lead" data-i18n="surLead">Дайте бюджет, свободные даты и предпочтения. Или не давайте ничего, кроме «удиви меня». Escape! сам ищет поездку под вашу жизнь, вместо того чтобы ждать, пока вы выберете точку на карте.</p>
       <p class="quote" style="margin-top:18px;font-family:var(--font-display);font-size:var(--t-h4);font-weight:700;letter-spacing:-.025em;line-height:1.25" data-i18n-html="surNoSearch">Не ищите поездку.<br>Пусть поездка найдёт вас.</p>
@@ -1080,27 +1073,31 @@
 <!-- ===== 14b PROACTIVITY ===== -->
 <section class="section section--surface" id="proactive">
   <div class="wrap">
-    <div class="head rv">
-      <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
-      <span class="eyebrow" style="margin-top:14px;display:block" data-i18n="proEyebrow">Проактивность</span>
-      <h2 data-i18n-html="proTitle">Следующая поездка<br>может найти вас первой.</h2>
-      <p class="lead" data-i18n="proLead">Escape! запоминает, куда вы ездите, как путешествуете, сколько тратите, что сохраняете и от чего отказываетесь. Чем больше поездок, тем меньше нужно объяснять.</p>
-    </div>
-
-    <figure class="scene scene--wide rv rv-d1" style="margin-top:clamp(26px,3.2vw,44px)">
+    <figure class="band rv">
       <img src="/img/escape-view.webp" width="950" height="436" loading="lazy" decoding="async" alt="Санторини на закате: белые дома, синий купол и море" data-i18n-alt="altEscapeView">
+      <figcaption class="band__copy">
+        <span class="eyebrow" data-i18n="proEyebrow">Проактивность</span>
+        <h2 data-i18n-html="proTitle">Следующая поездка<br>может найти вас первой.</h2>
+        <p data-i18n="proSub">Не вы ищете поездку. Escape! сам замечает момент и пишет вам.</p>
+      </figcaption>
     </figure>
 
-    <div class="split" style="margin-top:clamp(24px,3vw,40px);align-items:center">
+    <div class="split" style="margin-top:clamp(26px,3.2vw,44px);align-items:start">
       <div class="split__copy rv">
         <div class="card" style="border-left:4px solid var(--red)">
           <span class="eyebrow" data-i18n="proNudgeLab">Escape! пишет первым</span>
-          <p style="margin-top:11px;font-size:var(--t-small);line-height:1.55;color:var(--ink-2)" data-i18n="proNudge">Санторини лежит в вашем списке восемь месяцев. Билеты из вашего города сейчас укладываются в ваш бюджет на октябрь. Собрать поездку?</p>
+          <p style="margin-top:11px;font-size:var(--t-body);line-height:1.55;color:var(--ink)" data-i18n="proNudge">Санторини лежит в вашем списке восемь месяцев. Билеты из вашего города сейчас укладываются в ваш бюджет на октябрь. Собрать поездку?</p>
           <button class="btn btn--sm btn--red" type="button" data-waitlist style="margin-top:14px"><span data-i18n="proYes">Собрать маршрут</span></button>
         </div>
       </div>
       <div class="split__copy rv rv-d1">
-        <p class="quote" style="font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.028em;line-height:1.2" data-i18n-html="proSmarter">Каждая поездка делает<br>следующий Escape! умнее.</p>
+        <p class="quote" style="font-family:var(--font-display);font-size:var(--t-h3);font-weight:700;letter-spacing:-.028em;line-height:1.2" data-i18n-html="proWhen">Он не ждёт вопроса.<br>Он ждёт момента.</p>
+        <ul class="beats" style="margin-top:clamp(18px,2.2vw,26px)">
+          <li><b data-i18n="proB1t">Цена дошла до вашего бюджета</b><span data-i18n="proB1">Билеты на то, что вы сохранили, наконец укладываются в сумму, которую вы называли.</span></li>
+          <li><b data-i18n="proB2t">Сошлись сезон и окно</b><span data-i18n="proB2">Погода, цены и ваши свободные даты совпали на одном направлении.</span></li>
+          <li><b data-i18n="proB3t">Вы едете не один</b><span data-i18n="proB3">Кто-то ещё смотрит ту же поездку на те же даты.</span></li>
+        </ul>
+        <p class="src" style="margin-top:18px;max-width:none" data-i18n="proLead">Escape! запоминает, куда вы ездите, как путешествуете, сколько тратите и что сохраняете, — поэтому знает, о чём стоит написать.</p>
       </div>
     </div>
   </div>
@@ -1112,15 +1109,7 @@
     <img src="/img/hero-santorini-sm.webp" srcset="/img/hero-santorini-sm.webp 1200w, /img/hero-santorini-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="">
   </div>
   <div class="wrap">
-    <div class="statusbar rv" style="margin-top:0;margin-bottom:clamp(30px,3.6vw,48px)">
-      <p data-i18n="statusNote">Ниже — то, куда мы ведём продукт. Каждый блок помечен: что работает сегодня, что делаем сейчас, а что пока замысел. Без этой честности разговор не имеет смысла.</p>
-      <span class="status status--now" data-i18n="stNow">Работает сейчас</span>
-      <span class="status status--dev" data-i18n="stDev">В разработке</span>
-      <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
-      <span class="status status--vision" data-i18n="stVision">Направление</span>
-    </div>
     <div class="head rv">
-      <span class="status status--next" data-i18n="stNext">Дальше в плане</span>
       <span class="eyebrow" data-i18n="togEyebrow">Поехали вместе</span>
       <h2 data-i18n-html="togTitle">Знаете, куда хотите,<br>но ехать не с кем?</h2>
       <p class="lead" data-i18n="togLead">Совместные планировщики помогают договориться с теми, кого вы уже знаете. Они не помогают найти хоть кого-то. Escape! подбирает по совместимости в поездке — даты, маршрут, бюджет, темп, интересы.</p>
@@ -1175,7 +1164,6 @@
   </div>
   <div class="wrap">
     <div class="head rv">
-      <span class="status status--vision" data-i18n="stVision">Направление</span>
       <h2 data-i18n-html="roomTitle">Одна поездка —<br>одно общее место.</h2>
       <p class="lead" data-i18n="roomLead">Чат, маршрут, голосования и расходы там, где едут все, — а не в пяти разных переписках.</p>
     </div>
@@ -1206,7 +1194,6 @@
   </div>
   <div class="wrap">
     <div class="head rv">
-      <span class="status status--vision" data-i18n="stVision">Направление</span>
       <span class="eyebrow" data-i18n="idEyebrow">Travel-профиль</span>
       <h2 data-i18n-html="idTitle">Ваша жизнь<br>в путешествиях.</h2>
       <p class="lead" data-i18n="idLead">Каждая поездка становится частью travel-профиля: страны, города, континенты, километры, достижения и список желаний. Не ради галочек — ради того, чтобы видеть свою историю целиком.</p>
@@ -1267,7 +1254,6 @@
   </div>
   <div class="wrap">
     <div class="head rv">
-      <span class="status status--vision" data-i18n="stVision">Направление</span>
       <span class="eyebrow" data-i18n="chEyebrow">Челленджи</span>
       <h2 data-i18n-html="chTitle">Сделайте мир<br>своим челленджем.</h2>
       <p class="lead" data-i18n="chLead">Челлендж — это не значок. Escape! сам предлагает поездку, которая его закрывает.</p>
@@ -1352,8 +1338,7 @@
   <div class="wrap">
     <div class="split">
       <div class="split__copy rv">
-        <span class="status status--vision" data-i18n="stVision">Направление</span>
-        <h2 style="margin-top:14px" data-i18n="awTitle">Вокруг света</h2>
+        <h2 data-i18n="awTitle">Вокруг света</h2>
         <p class="lead" data-i18n="awLead">Не для тех, кто год не работает. Мир можно обойти постепенно — годами, по выходным, по одному региону за раз.</p>
         <div class="around">
           <span class="around__r on"><span class="around__m"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="awEurope">Европа</span></span>
@@ -1387,8 +1372,7 @@
   <div class="wrap">
     <div class="split">
       <div class="split__copy rv">
-        <span class="status status--dev" data-i18n="stDev">В разработке</span>
-        <h2 style="margin-top:14px" data-i18n-html="locTitle">Чтобы сбежать,<br>самолёт не обязателен.</h2>
+        <h2 data-i18n-html="locTitle">Чтобы сбежать,<br>самолёт не обязателен.</h2>
         <p class="lead" data-i18n="locLead">Escape! нужен не два раза в год. Суббота, час от дома, море и обед — это тоже поездка, и её тоже кто-то должен собрать.</p>
       </div>
       <div class="split__copy rv rv-d1">
@@ -1422,7 +1406,6 @@
   <div class="wrap">
     <div class="yr rv">
       <div class="yr__hd">
-        <span class="status status--vision" data-i18n="stVision">Направление</span>
         <h3 data-i18n="wrTitle">Ваш год в поездках</h3>
         <p data-i18n="wrLead">В конце года — не отчёт, а история: где вы были, что оказалось лучшим и каким путешественником вы стали.</p>
       </div>
@@ -1464,7 +1447,7 @@
   </div>
 </section>
 
-<!-- ===== 19 FINAL CTA ===== -->
+<!-- ===== 19 FINAL CTA + CONTACT ===== -->
 <section class="cta" id="join">
   <div class="cta__media">
     <img src="/img/cta-oia-sm.webp" srcset="/img/cta-oia-sm.webp 1200w, /img/cta-oia-lg.webp 2200w" sizes="100vw" width="1200" height="675" loading="lazy" decoding="async" alt="Белые дома Ои на склоне над морем" data-i18n-alt="altCta">
@@ -1476,49 +1459,31 @@
       <p data-i18n="ctaLead">сам позаботится об остальном. Оставьте почту — напишем, как только откроем ранний доступ.</p>
       <div class="cta__act">
         <button class="btn btn--red" type="button" data-waitlist><span data-i18n="ctaJoin">Присоединиться к запуску</span><svg class="arw" width="17" height="17" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-        <a class="btn btn--ghost" href="#contact"><span data-i18n="ctaContact">Связаться с нами</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 20 CONTACT ===== -->
-<section class="section" id="contact">
-  <div class="wrap contact">
-    <div class="rv">
-      <span class="eyebrow" data-i18n="conEyebrow">Контакты</span>
-      <h2 style="font-size:var(--t-h2);margin-block:14px 18px"><span class="brandmark brandmark--inline"><span class="word">Escape</span><svg class="pin" aria-hidden="true"><use href="#brand-pin"/></svg></span> <span data-i18n-html="conTitleB">готовится<br>к запуску.</span></h2>
-      <p class="lead" data-i18n="conLead">Пишите напрямую: о продукте, партнёрстве, прессе или данных. Отвечаю на все письма.</p>
-      <div class="cta__act" style="justify-content:flex-start;margin-top:26px">
-        <button class="btn btn--red" type="button" data-waitlist><span data-i18n="ctaJoin">Присоединиться к запуску</span></button>
         <a class="btn btn--ghost" href="mailto:escape.travel.ai@gmail.com"><span data-i18n="conWrite">Написать письмо</span></a>
       </div>
     </div>
 
-    <div class="card-info rv rv-d1">
-      <div class="card-info__row">
-        <img class="ic ic--app" src="/img/app-icon-512.png" width="72" height="72" loading="lazy" decoding="async" alt="" aria-hidden="true">
+    <div class="cta__card rv rv-d1" id="contact">
+      <div class="cta__row">
+        <img class="cta__app" src="/img/app-icon-512.png" width="72" height="72" loading="lazy" decoding="async" alt="" aria-hidden="true">
         <span><small data-i18n="conProject">Проект</small><b>ESCAPE! · AI Travel Agent</b></span>
       </div>
-      <div class="card-info__row">
-        <span class="ic"><svg aria-hidden="true"><use href="#i-user"/></svg></span>
+      <div class="cta__row">
+        <span class="cta__ic"><svg aria-hidden="true"><use href="#i-user"/></svg></span>
         <span><small data-i18n="conFounder">Основатель</small><b>DMYTRO SUKHYNA</b></span>
       </div>
-      <div class="card-info__row">
-        <span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+      <div class="cta__row">
+        <span class="cta__ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
         <span><small data-i18n="conWriteMe">Пишите мне</small><a href="mailto:escape.travel.ai@gmail.com">escape.travel.ai@gmail.com</a></span>
       </div>
-      <div class="card-info__row">
-        <span class="ic"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
+      <div class="cta__row">
+        <span class="cta__ic"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
         <span><small data-i18n="conSupport">Отвечаю</small><b data-i18n="conHours">10:00–19:00 UTC+3</b></span>
-      </div>
-      <div class="card-info__row">
-        <span class="ic"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
-        <span><small data-i18n="conSite">Сайт</small><a href="https://www.escapetravel.site">www.escapetravel.site</a></span>
       </div>
     </div>
   </div>
 </section>
+
 </main>
 
 <!-- ===== footer ===== -->
@@ -1692,7 +1657,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/assets/i18n.js?v=6b3ca18e69"></script>
+<script src="/assets/i18n.js?v=653ac0ac8d"></script>
 <script src="/assets/app.js?v=0a7f744ce6" defer></script>
 </body>
 </html>
