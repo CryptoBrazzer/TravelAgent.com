@@ -531,18 +531,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .frag__node small{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#93A0C4}
 
-/* --- 12. Stats ----------------------------------------------------------- */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,26px);margin-top:clamp(34px,4.5vw,58px)}
-.stat{
-  padding:clamp(20px,2.4vw,30px);border-radius:var(--r-lg);
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  display:flex;flex-direction:column;gap:8px;
-}
-.stat__n{font-family:var(--font-display);font-size:clamp(2rem,1.1rem + 2.5vw,3.1rem);font-weight:700;letter-spacing:-.04em;line-height:1;color:#fff}
-.stat__n .u{color:var(--red);font-size:.62em;margin-left:.06em}
-.stat__l{font-size:var(--t-small);font-weight:600;color:#B7C2DE;line-height:1.45}
-.stat__s{font-size:11px;color:#7682A7;margin-top:auto;padding-top:8px}
-
 /* --- 13. Feature cards (one request) ------------------------------------- */
 .features{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(12px,1.4vw,18px);margin-top:clamp(30px,4vw,54px)}
 .fcard{
@@ -908,26 +896,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .post__meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:4px}
 .post__meta span{font-size:11px;font-weight:700;color:var(--ink-2);background:var(--surface);padding:6px 11px;border-radius:var(--r-pill)}
 
-/* --- 25. Flywheel -------------------------------------------------------- */
-.fly{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:clamp(28px,4vw,70px);align-items:center;margin-top:clamp(24px,3vw,44px)}
-.fly__svg{width:100%;max-width:520px;margin-inline:auto}
-.fly__svg svg{width:100%;height:auto;overflow:visible}
-.fly__ring{fill:none;stroke:rgba(255,255,255,.13);stroke-width:1.2}
-.fly__arc{
-  fill:none;stroke:var(--red);stroke-width:2.6;stroke-linecap:round;
-  stroke-dasharray:943;stroke-dashoffset:943;transition:stroke-dashoffset .42s linear;
-}
-.fly__n.is-on circle{r:33}
-.fly__n circle{fill:var(--navy-800);stroke:rgba(255,255,255,.2);stroke-width:1.2;transition:.26s var(--ease)}
-.fly__n text{fill:#93A0C4;font:800 8px var(--font-ui);text-anchor:middle;letter-spacing:.05em;transition:.4s}
-.fly__n.is-on circle{fill:var(--red);stroke:var(--red)}
-.fly__n.is-on text{fill:#fff}
-.fly__steps li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.09);opacity:.4;transition:opacity .26s var(--ease)}
-.fly__steps li:last-child{border-bottom:0}
-.fly__steps li.is-on{opacity:1}
-.fly__steps b{font-size:var(--t-small);font-weight:800;color:#fff;width:96px;flex:none;letter-spacing:.04em;text-transform:uppercase;font-size:var(--t-micro);padding-top:2px}
-.fly__steps p{font-size:var(--t-small);color:#A9B5D4;line-height:1.5}
-
 /* --- 26. Why grid -------------------------------------------------------- */
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px);margin-top:clamp(30px,4vw,52px)}
 .why article{
@@ -940,27 +908,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 .why .ic svg{width:21px;height:21px}
 .why h3{font-size:var(--t-h4);letter-spacing:-.025em}
 .why p{font-size:var(--t-small);color:var(--ink-2);line-height:1.55}
-
-/* --- 27. Vision / OS ----------------------------------------------------- */
-.osgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:clamp(28px,3.4vw,46px)}
-.oslayer{
-  border-radius:var(--r-md);padding:clamp(15px,1.7vw,20px);
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  display:flex;flex-direction:column;gap:7px;transition:.5s var(--ease);
-}
-.oslayer:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
-.oslayer .ic{width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.09);display:grid;place-items:center;color:#C5CFE6}
-.oslayer .ic svg{width:16px;height:16px}
-.oslayer b{font-size:var(--t-micro);font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#fff}
-.oslayer span{font-size:11px;color:#93A0C4;line-height:1.45;font-weight:500}
-.osbar{
-  margin-top:12px;border-radius:var(--r-md);padding:16px clamp(18px,2vw,26px);
-  background:linear-gradient(100deg,rgba(229,35,29,.2),rgba(31,90,224,.2));
-  border:1px solid rgba(255,255,255,.14);
-  display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
-}
-.osbar b{font-size:var(--t-small);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff}
-.osbar span{font-size:var(--t-small);color:#B7C2DE}
 
 /* --- 28. Final CTA ------------------------------------------------------- */
 .cta{position:relative;isolation:isolate;overflow:clip;color:#fff;text-align:center}
@@ -1110,7 +1057,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
    ========================================================================== */
 @media (max-width:1180px){
   .features{grid-template-columns:repeat(3,1fr)}
-  .osgrid{grid-template-columns:repeat(3,1fr)}
   .why{grid-template-columns:repeat(2,1fr)}
   /* eight links no longer fit beside the wordmark — hand over to the drawer */
   .nav{display:none}
@@ -1134,7 +1080,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .hero__stage{min-height:0}
   .hero .float--live{left:0;bottom:2%}
   .hero .float--upd{display:none}
-  .split,.think,.layover,.fly,.contact{grid-template-columns:1fr}
+  .split,.think,.layover,.contact{grid-template-columns:1fr}
   .split--rev .split__media{order:0}
   .scene__device{right:5%;bottom:-4%}
   .legs{grid-template-columns:repeat(2,1fr)}
@@ -1142,11 +1088,9 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .route__track,.route__fill{display:none}
   .route__node::before{top:-22px}
   .route__line{padding-top:30px}
-  .stats{grid-template-columns:repeat(2,1fr)}
   .footer__top{grid-template-columns:1fr}
   .footer__cols{grid-template-columns:repeat(2,1fr)}
   .days{grid-template-columns:1fr}
-  .fly__svg{max-width:420px}
 }
 
 @media (max-width:760px){
@@ -1164,7 +1108,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .feed{grid-template-columns:1fr}
   .why{grid-template-columns:1fr}
   .benefits{grid-template-columns:1fr}
-  .osgrid{grid-template-columns:repeat(2,1fr)}
   .trip{grid-template-columns:1fr}
   .cookie__box{grid-template-columns:1fr}
   .cookie__act .btn{flex:1 1 auto}
@@ -1183,8 +1126,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
   .route__nodes{grid-template-columns:repeat(2,1fr);gap:46px 14px}
   .route__head{gap:14px 26px}
   .footer__cols{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr}
-  .osgrid{grid-template-columns:1fr}
   .hero__actions .btn{width:100%}
   .cta__act .btn{width:100%}
   .frag__cloud span b{font-size:var(--t-micro)}
@@ -1201,7 +1142,7 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 
 @media (hover:none){
-  .btn:hover,.fcard:hover,.post:hover,.why article:hover,.oslayer:hover{transform:none}
+  .btn:hover,.fcard:hover,.post:hover,.why article:hover{transform:none}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -1377,12 +1318,6 @@ h3,h4{letter-spacing:-.02em;line-height:1.22}
 }
 .tokens .frag__ic{width:22px;height:22px}
 .tokens .frag__ic svg{width:12px;height:12px}
-
-/* a real space between number and unit: "1,4 млрд", "$1,6 трлн" */
-.stat__n .u::before{content:"\00a0"}
-.stat__n .u{margin-left:.06em}
-.stat__n .u--pre::before{content:none}
-.stat__n .u--pre{margin-left:0;margin-right:.03em}
 
 /* --- brand + autonomy emphasis in body copy ------------------------------ */
 .hl{color:var(--red-ink);font-weight:800;letter-spacing:-.004em;white-space:nowrap}

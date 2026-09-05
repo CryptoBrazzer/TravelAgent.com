@@ -506,31 +506,6 @@
     if (answer) answer.style.transition = 'opacity .22s ease';
   }
 
-  /* ----------------------------------------------------------- flywheel */
-  function initFlywheel() {
-    var fly = $('#fly');
-    if (!fly) return;
-    var nodes = $$('.fly__n', fly);
-    var steps = $$('#flySteps li');
-    var arc = $('.fly__arc', fly);
-    var C = 943; // circumference of the r=150 ring
-
-    // This one is a loop, not a journey. Scrubbing it against scroll meant the
-    // last step only lit once the block was already leaving the screen, so it
-    // runs on its own clock the moment the wheel comes into view.
-    function light(i) {
-      if (nodes[i]) nodes[i].classList.add('is-on');
-      if (steps[i]) steps[i].classList.add('is-on');
-      if (arc) arc.style.strokeDashoffset = String(Math.round(C * (1 - (i + 1) / nodes.length)));
-    }
-
-    whenVisible(fly, function () {
-      fly.classList.add('is-on');
-      nodes.forEach(function (n, i) {
-        setTimeout(function () { light(i); }, reduced ? 0 : 240 + i * 330);
-      });
-    }, 0.3);
-  }
 
   /* --------------------------------------------------------- hero parallax */
   function initHeroParallax() {
@@ -910,7 +885,6 @@
     initAmsterdam();
     initModes();
     initWorld();
-    initFlywheel();
     initHeroParallax();
     initModals();
     initWaitlist();
