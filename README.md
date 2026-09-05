@@ -22,7 +22,7 @@ assets/
   legal-docs.js          5 legal documents × 3 languages
   fonts.css              @font-face declarations
   fonts/                 self-hosted woff2 (Manrope, Onest, Great Vibes)
-img/                     WebP imagery, responsive pairs (-sm 1200w / -lg 2200w)
+img/                     WebP imagery, responsive pairs (-sm 1200w / -lg 2200w, q80)
 api/
   waitlist.js            early-access intake (validation, throttling, delivery)
 tools/
@@ -125,6 +125,19 @@ CDN. The site stores the language choice, the cookie decision, and a waitlist
 application only as a local draft until it is delivered. The visitor's IP is
 used briefly to throttle automated submissions and is not stored with the
 entry. Consent is granular and refusing is as easy as accepting.
+
+## Imagery
+
+Eighteen photographs, all Unsplash-licensed, fetched at q80 — the set was
+re-encoded from q58 after the artefacts showed on the sea and the sky. Each
+one is used at most twice on the page, and never twice as a section
+background; only five sections carry a full-bleed photograph at all. The rest
+are given a ground of their own — two very low light sources in the brand's
+blue and red — because a page where every section reaches for stock imagery
+reads as filler.
+
+Pictures have to be true to the copy beside them: the layover story runs
+JFK to Manhattan, so the photograph is New York.
 
 ## Content rules observed
 
